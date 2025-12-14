@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    
+    <!-- Rainbow Colors -->
+    <path
+        android:fillColor="#FF6B6B"
+        android:pathData="M15,40a25,8 0 1,0 50,0a25,8 0 1,0 -50,0" />
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M20,45a20,8 0 1,0 40,0a20,8 0 1,0 -40,0" />
+    <path
+        android:fillColor="#6BCF7F"
+        android:pathData="M25,50a15,8 0 1,0 30,0a15,8 0 1,0 -30,0" />
+    <path
+        android:fillColor="#4ECDC4"
+        android:pathData="M30,55a10,8 0 1,0 20,0a10,8 0 1,0 -20,0" />
+</vector>

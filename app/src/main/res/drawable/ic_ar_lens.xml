@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    
+    <!-- AR Lens outer ring -->
+    <path
+        android:pathData="M32,8 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0"
+        android:strokeColor="#64B5F6"
+        android:strokeWidth="3"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- AR Lens inner ring -->
+    <path
+        android:pathData="M32,8 m-14,0 a14,14 0 1,1 28,0 a14,14 0 1,1 -28,0"
+        android:strokeColor="#42A5F5"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- AR Center dot -->
+    <path
+        android:pathData="M32,8 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0"
+        android:fillColor="#1976D2"/>
+    
+    <!-- AR Scanner rays -->
+    <path
+        android:pathData="M32,28 L32,40 M20,32 L12,32 M44,32 L52,32"
+        android:strokeColor="#64B5F6"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+    
+    <!-- Magic sparkles -->
+    <path
+        android:pathData="M16,16 L18,20 L22,18 L18,16 Z"
+        android:fillColor="#FFD93D"/>
+    
+    <path
+        android:pathData="M46,14 L48,18 L52,16 L48,14 Z"
+        android:fillColor="#F8BBD0"/>
+    
+    <path
+        android:pathData="M28,48 L30,52 L34,50 L30,48 Z"
+        android:fillColor="#A5D6A7"/>
+</vector>

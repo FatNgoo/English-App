@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    
+    <!-- Sad face circle -->
+    <path
+        android:pathData="M20,20 m-16,0 a16,16 0 1,1 32,0 a16,16 0 1,1 -32,0"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Eyes -->
+    <path
+        android:pathData="M14,16 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#424242"/>
+    
+    <path
+        android:pathData="M26,16 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#424242"/>
+    
+    <!-- Sad mouth -->
+    <path
+        android:pathData="M12,26 Q20,20 28,26"
+        android:strokeColor="#424242"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:strokeLineCap="round"/>
+</vector>

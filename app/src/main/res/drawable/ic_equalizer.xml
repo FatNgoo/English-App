@@ -1,0 +1,32 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- Equalizer bars animation -->
+    
+    <!-- Bar 1 -->
+    <path
+        android:fillColor="#FF69B4"
+        android:pathData="M4,20 L8,20 L8,28 L4,28 Z" />
+    
+    <!-- Bar 2 -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M10,12 L14,12 L14,28 L10,28 Z" />
+    
+    <!-- Bar 3 -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M16,8 L20,8 L20,28 L16,28 Z" />
+    
+    <!-- Bar 4 -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M22,16 L26,16 L26,28 L22,28 Z" />
+    
+    <!-- Bar 5 -->
+    <path
+        android:fillColor="#FFB347"
+        android:pathData="M28,4 L32,4 L32,28 L28,28 Z" />
+</vector>

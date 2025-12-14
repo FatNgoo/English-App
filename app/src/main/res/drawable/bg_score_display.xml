@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Score display background -->
+    <gradient
+        android:startColor="#FFF9E6"
+        android:endColor="#FFD93D"
+        android:type="radial"
+        android:gradientRadius="60dp" />
+    <corners android:radius="20dp" />
+    <stroke
+        android:width="3dp"
+        android:color="#FFA000" />
+</shape>

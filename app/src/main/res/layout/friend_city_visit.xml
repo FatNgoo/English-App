@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD">
+
+    <!-- Friend City Map (Isometric View) -->
+    <FrameLayout
+        android:id="@+id/cityMapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/actionButtonsContainer"
+        android:padding="16dp">
+
+        <!-- Isometric City Grid - Buildings placed here dynamically -->
+        <RelativeLayout
+            android:id="@+id/isometricGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <!-- Building 1 (House) -->
+            <ImageView
+                android:id="@+id/building1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/ic_house"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- Building 2 (Shop) -->
+            <ImageView
+                android:id="@+id/building2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/ic_shop"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- Building 3 (Park) -->
+            <ImageView
+                android:id="@+id/building3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="220dp"
+                android:src="@drawable/ic_tree"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- Building 4 (School) -->
+            <ImageView
+                android:id="@+id/building4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="220dp"
+                android:src="@drawable/ic_school"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- Decorative Bird -->
+            <ImageView
+                android:id="@+id/bird"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_bird"
+                android:alpha="0.8"/>
+
+            <!-- Decorative Car -->
+            <ImageView
+                android:id="@+id/car"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_car"
+                android:alpha="0.8"/>
+
+            <!-- Waving NPC Character -->
+            <ImageView
+                android:id="@+id/npcCharacter"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_avatar_boy"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <!-- Top Header with Friend Info -->
+    <LinearLayout
+        android:id="@+id/friendInfoHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:background="@drawable/bg_gradient_top"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Back Button -->
+            <FrameLayout
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_button_round"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_back"
+                    android:tint="@android:color/white"/>
+
+            </FrameLayout>
+
+            <!-- Friend Info -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgFriendAvatar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_avatar_boy"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:scaleType="centerCrop"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtFriendCityName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tom's City — Level 18"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:shadowColor="#80000000"
+                        android:shadowDx="0"
+                        android:shadowDy="2"
+                        android:shadowRadius="4"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="🏆 Gold Tier • 15 Buildings"
+                        android:textSize="12sp"
+                        android:textColor="#E0E0E0"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Visit Counter -->
+            <TextView
+                android:id="@+id/txtVisitCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Visit #3"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_coin_badge"
+                android:padding="8dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Action Buttons Container -->
+    <LinearLayout
+        android:id="@+id/actionButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_gradient_bottom"
+        android:padding="20dp"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <!-- Send Gift Button -->
+        <FrameLayout
+            android:id="@+id/btnSendGift"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_send_gift_button"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_gift"
+                    android:tint="@android:color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/send_gift"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Leave Button -->
+        <FrameLayout
+            android:id="@+id/btnLeave"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_leave_button"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/leave"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Gift Selection Popup Overlay -->
+    <FrameLayout
+        android:id="@+id/giftPopupOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3000000"
+        android:visibility="gone"
+        android:clickable="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_gift"
+                    android:textSize="22sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"/>
+
+                <!-- Gift Options -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <!-- Gift Option 1: 50 Coins -->
+                    <FrameLayout
+                        android:id="@+id/giftOption1"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/bg_answer_choice"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginStart="16dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_coin"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="50 Coins"
+                                android:textSize="18sp"
+                                android:textColor="#212121"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <!-- Gift Option 2: XP Boost -->
+                    <FrameLayout
+                        android:id="@+id/giftOption2"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/bg_answer_choice"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginStart="16dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_star"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="XP Boost (+100)"
+                                android:textSize="18sp"
+                                android:textColor="#212121"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <!-- Gift Option 3: Rare Item -->
+                    <FrameLayout
+                        android:id="@+id/giftOption3"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_answer_choice"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginStart="16dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_gift"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Rare Building"
+                                android:textSize="18sp"
+                                android:textColor="#212121"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <!-- Cancel Button -->
+                <FrameLayout
+                    android:id="@+id/btnCancelGift"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/cancel"
+                        android:textSize="16sp"
+                        android:textColor="#757575"
+                        android:textStyle="bold"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</RelativeLayout>

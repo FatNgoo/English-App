@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8BBD0"
+            android:padding="16dp"
+            android:elevation="4dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle_button"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/back"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/avatar_studio"
+                    android:textSize="28sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/customize_character"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:alpha="0.9"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_hanger"
+                android:contentDescription="@string/avatar_studio"/>
+
+        </RelativeLayout>
+
+        <!-- Coins & Level Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_gold_counter"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_coin"
+                    android:contentDescription="@string/coins"/>
+
+                <TextView
+                    android:id="@+id/tvCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="320"
+                    android:textSize="20sp"
+                    android:textColor="#FF6F00"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-medium"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_level_card"
+                android:padding="10dp"
+                android:elevation="2dp">
+
+                <TextView
+                    android:id="@+id/tvLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level 4"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="4dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_xp_bar_bg"/>
+
+                    <View
+                        android:id="@+id/xpProgress"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_xp_bar_fill"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnGetCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_buy_button"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:gravity="center"
+                android:elevation="2dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/get"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Character Display Area -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="16dp">
+
+            <!-- Spotlight Stage -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_avatar_stage"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/stage"/>
+
+                <!-- Modular Avatar Layers -->
+                <FrameLayout
+                    android:id="@+id/avatarContainer"
+                    android:layout_width="300dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imgAvatarBase"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/avatar_base"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/imgHairstyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/hairstyle"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/imgClothes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/clothes"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/imgShoes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/shoes"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/imgAccessory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/accessory"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/imgHat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/hat"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/imgBag"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/bag"
+                        android:scaleType="centerInside"/>
+
+                    <!-- Sparkle Overlay -->
+                    <ImageView
+                        android:id="@+id/imgSparkle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_sparkle"
+                        android:contentDescription="@string/sparkle"
+                        android:visibility="gone"
+                        android:alpha="0"/>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <!-- Rotate Arrows -->
+            <ImageButton
+                android:id="@+id/btnRotateLeft"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle_button"
+                android:src="@drawable/ic_rotate_left"
+                android:contentDescription="@string/rotate_left"
+                android:layout_marginStart="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnRotateRight"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle_button"
+                android:src="@drawable/ic_rotate_right"
+                android:contentDescription="@string/rotate_right"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Fashion Rating Stars -->
+            <LinearLayout
+                android:id="@+id/fashionRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:background="@drawable/bg_wardrobe_card"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/imgStar1"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_star_empty"
+                    android:contentDescription="@string/star"
+                    android:layout_marginEnd="4dp"/>
+
+                <ImageView
+                    android:id="@+id/imgStar2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_star_empty"
+                    android:contentDescription="@string/star"
+                    android:layout_marginEnd="4dp"/>
+
+                <ImageView
+                    android:id="@+id/imgStar3"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_star_empty"
+                    android:contentDescription="@string/star"/>
+
+            </LinearLayout>
+
+            <!-- Expression Selector Panel -->
+            <LinearLayout
+                android:id="@+id/expressionPanel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@drawable/bg_expression_panel"
+                android:elevation="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnExpressionSmile"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_expression_smile"
+                    android:contentDescription="@string/smile"
+                    android:padding="4dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnExpressionLaugh"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_expression_laugh"
+                    android:contentDescription="@string/laugh"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnExpressionSurprised"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_expression_surprised"
+                    android:contentDescription="@string/surprised"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnExpressionWink"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_expression_wink"
+                    android:contentDescription="@string/wink"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- Save & Share Buttons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:id="@+id/btnSaveLook"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_save_button"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:elevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_save"
+                        android:contentDescription="@string/save"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save_look"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnShare"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_share_button"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:elevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginStart="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_share"
+                        android:contentDescription="@string/share"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/share"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Fashion Drawer (Bottom Sheet) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fashionDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="16dp"
+        android:background="@drawable/bg_fashion_drawer">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_fashion_drawer"
+            android:paddingBottom="80dp">
+
+            <!-- Drawer Handle -->
+            <View
+                android:layout_width="80dp"
+                android:layout_height="6dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:background="#CCCCCC"
+                android:alpha="0.5"/>
+
+            <!-- My Items Button -->
+            <LinearLayout
+                android:id="@+id/btnMyItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_my_items_button"
+                android:padding="12dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:elevation="2dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_wardrobe"
+                    android:contentDescription="@string/wardrobe"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_items"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"/>
+
+            </LinearLayout>
+
+            <!-- Category Tabs -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp">
+
+                    <LinearLayout
+                        android:id="@+id/tabClothes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_category_tab"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_dress"
+                            android:contentDescription="@string/clothes"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/clothes"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabShoes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_category_tab"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_shoe"
+                            android:contentDescription="@string/shoes"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/shoes"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabHats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_category_tab"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_hat"
+                            android:contentDescription="@string/hats"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hats"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabAccessories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_category_tab"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_glasses"
+                            android:contentDescription="@string/accessories"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/accessories"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabHairstyles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_category_tab"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_hair"
+                            android:contentDescription="@string/hairstyles"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hairstyles"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabBags"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_category_tab"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_bag"
+                            android:contentDescription="@string/bags"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bags"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- Items Carousel -->
+            <HorizontalScrollView
+                android:id="@+id/itemsCarousel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none"
+                android:paddingBottom="12dp">
+
+                <LinearLayout
+                    android:id="@+id/itemsContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp">
+
+                    <!-- Fashion Item Card 1 - T-Shirt -->
+                    <LinearLayout
+                        android:id="@+id/itemTshirt"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_fashion_item_card"
+                        android:padding="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_tshirt"
+                                android:contentDescription="@string/tshirt"/>
+
+                            <ImageView
+                                android:id="@+id/lockTshirt"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_lock"
+                                android:contentDescription="@string/locked"
+                                android:visibility="gone"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tshirt"
+                            android:textSize="14sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"/>
+
+                        <!-- Color Swatches -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_blue"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_yellow"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_green"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_coin"
+                                android:contentDescription="@string/coins"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="30"
+                                android:textSize="14sp"
+                                android:textColor="#FF6F00"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnBuyTshirt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_buy_button"
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <!-- Fashion Item Card 2 - Dress -->
+                    <LinearLayout
+                        android:id="@+id/itemDress"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_fashion_item_card"
+                        android:padding="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_dress"
+                                android:contentDescription="@string/dress"/>
+
+                            <ImageView
+                                android:id="@+id/lockDress"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_lock"
+                                android:contentDescription="@string/locked"
+                                android:visibility="visible"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dress"
+                            android:textSize="14sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_blue"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_yellow"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_coin"
+                                android:contentDescription="@string/coins"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="50"
+                                android:textSize="14sp"
+                                android:textColor="#FF6F00"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnBuyDress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_buy_button"
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <!-- Fashion Item Card 3 - Sneakers -->
+                    <LinearLayout
+                        android:id="@+id/itemSneakers"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_fashion_item_card"
+                        android:padding="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_sneakers"
+                                android:contentDescription="@string/sneakers"/>
+
+                            <ImageView
+                                android:id="@+id/lockSneakers"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_lock"
+                                android:contentDescription="@string/locked"
+                                android:visibility="gone"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sneakers"
+                            android:textSize="14sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_blue"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_green"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_coin"
+                                android:contentDescription="@string/coins"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="40"
+                                android:textSize="14sp"
+                                android:textColor="#FF6F00"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnBuySneakers"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/equip"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_equip_button"
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <!-- Fashion Item Card 4 - Cap -->
+                    <LinearLayout
+                        android:id="@+id/itemCap"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_fashion_item_card"
+                        android:padding="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_cap"
+                                android:contentDescription="@string/cap"/>
+
+                            <ImageView
+                                android:id="@+id/lockCap"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_lock"
+                                android:contentDescription="@string/locked"
+                                android:visibility="visible"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cap"
+                            android:textSize="14sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_blue"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_yellow"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_coin"
+                                android:contentDescription="@string/coins"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25"
+                                android:textSize="14sp"
+                                android:textColor="#FF6F00"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnBuyCap"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_buy_button"
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <!-- Fashion Item Card 5 - Glasses -->
+                    <LinearLayout
+                        android:id="@+id/itemGlasses"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_fashion_item_card"
+                        android:padding="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_glasses"
+                                android:contentDescription="@string/glasses"/>
+
+                            <ImageView
+                                android:id="@+id/lockGlasses"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_lock"
+                                android:contentDescription="@string/locked"
+                                android:visibility="visible"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/glasses"
+                            android:textSize="14sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_blue"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_coin"
+                                android:contentDescription="@string/coins"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="35"
+                                android:textSize="14sp"
+                                android:textColor="#FF6F00"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnBuyGlasses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_buy_button"
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <!-- Fashion Item Card 6 - Backpack -->
+                    <LinearLayout
+                        android:id="@+id/itemBackpack"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_fashion_item_card"
+                        android:padding="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_backpack"
+                                android:contentDescription="@string/backpack"/>
+
+                            <ImageView
+                                android:id="@+id/lockBackpack"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_lock"
+                                android:contentDescription="@string/locked"
+                                android:visibility="visible"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/backpack"
+                            android:textSize="14sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_blue"
+                                android:layout_marginEnd="4dp"/>
+
+                            <View
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/bg_color_swatch_green"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_coin"
+                                android:contentDescription="@string/coins"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="45"
+                                android:textSize="14sp"
+                                android:textColor="#FF6F00"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnBuyBackpack"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_buy_button"
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:elevation="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:id="@+id/btnNavHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="@string/home"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnNavMap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_map"
+                android:contentDescription="@string/map"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/map"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnNavGames"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_hanger"
+                android:contentDescription="@string/games"
+                android:alpha="1.0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/games"
+                android:textSize="12sp"
+                android:textColor="#E91E63"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnNavProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_profile"
+                android:contentDescription="@string/profile"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Feedback Overlay (Hidden by default) -->
+    <FrameLayout
+        android:id="@+id/feedbackOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center"
+                android:background="@android:color/white">
+
+                <ImageView
+                    android:id="@+id/imgFeedback"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_fashion_stars"
+                    android:contentDescription="@string/feedback"/>
+
+                <TextView
+                    android:id="@+id/tvFeedbackMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_purchased"
+                    android:textSize="18sp"
+                    android:textColor="#424242"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_marginTop="16dp"/>
+
+                <TextView
+                    android:id="@+id/btnCloseFeedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ok"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_buy_button"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="32dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

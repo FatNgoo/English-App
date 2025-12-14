@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Ranking badge circle -->
+    <path
+        android:pathData="M16,4 m-12,0 a12,12 0 1,1 24,0 a12,12 0 1,1 -24,0"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Inner circle -->
+    <path
+        android:pathData="M16,4 m-9,0 a9,9 0 1,1 18,0 a9,9 0 1,1 -18,0"
+        android:fillColor="#FFF9C4"/>
+    
+    <!-- Rank number -->
+    <path
+        android:pathData="M14,8 L18,8 L18,20 L14,20 Z"
+        android:fillColor="#FF6F00"/>
+    
+    <!-- Star decoration -->
+    <path
+        android:pathData="M16,22 L17,24 L19,24 L17,25 L18,27 L16,26 L14,27 L15,25 L13,24 L15,24 Z"
+        android:fillColor="#FFD93D"/>
+</vector>

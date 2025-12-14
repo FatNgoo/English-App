@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    
+    <!-- Speech Bubbles -->
+    <path
+        android:fillColor="#9C88FF"
+        android:pathData="M20,30L50,30L50,45L35,45L30,50L30,45L20,45Z" />
+    <path
+        android:fillColor="#FFB6C1"
+        android:pathData="M30,35L60,35L60,50L45,50L50,55L50,50L30,50Z" />
+</vector>

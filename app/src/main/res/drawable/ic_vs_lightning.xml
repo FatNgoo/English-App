@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Lightning bolt -->
+    <path
+        android:pathData="M28,2 L16,24 L24,24 L20,46 L36,20 L26,20 Z"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Lightning outline -->
+    <path
+        android:pathData="M28,2 L16,24 L24,24 L20,46 L36,20 L26,20 Z"
+        android:strokeColor="#FFA000"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Sparkle effects -->
+    <path
+        android:pathData="M10,12 L12,16 L16,14 L12,12 Z"
+        android:fillColor="#FFFFFF"/>
+    
+    <path
+        android:pathData="M38,10 L40,14 L44,12 L40,10 Z"
+        android:fillColor="#FFFFFF"/>
+</vector>

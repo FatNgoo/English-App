@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text Sizes -->
+    <dimen name="text_size_title">36sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_tiny">12sp</dimen>
+    
+    <!-- Spacing -->
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+    
+    <!-- Corner Radius -->
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="corner_radius_normal">16dp</dimen>
+    <dimen name="corner_radius_large">24dp</dimen>
+    <dimen name="corner_radius_button">30dp</dimen>
+    
+    <!-- Button Sizes -->
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="button_height_small">56dp</dimen>
+    
+    <!-- Icon Sizes -->
+    <dimen name="icon_size_small">24dp</dimen>
+    <dimen name="icon_size_medium">32dp</dimen>
+    <dimen name="icon_size_large">48dp</dimen>
+    <dimen name="mascot_size">180dp</dimen>
+    
+    <!-- Saga Map Dimensions -->
+    <dimen name="saga_node_size">60dp</dimen>
+    <dimen name="saga_node_current_size">70dp</dimen>
+    <dimen name="saga_card_elevation">8dp</dimen>
+    <dimen name="saga_progress_height">8dp</dimen>
+    <dimen name="saga_spacing_between_nodes">80dp</dimen>
+</resources>

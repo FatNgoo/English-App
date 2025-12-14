@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Rotating lens ring -->
+    <path
+        android:pathData="M24,4 m-16,0 a16,16 0 1,1 32,0 a16,16 0 1,1 -32,0"
+        android:strokeColor="#64B5F6"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Scanning arc -->
+    <path
+        android:pathData="M24,4 a16,16 0 0,1 16,16"
+        android:strokeColor="#42A5F5"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Center magic star -->
+    <path
+        android:pathData="M24,16 L26,22 L32,24 L26,26 L24,32 L22,26 L16,24 L22,22 Z"
+        android:fillColor="#FFD93D"/>
+</vector>

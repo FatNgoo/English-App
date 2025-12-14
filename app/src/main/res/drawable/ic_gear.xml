@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Gear outer circle -->
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M24,8 L26,8 L28,4 L20,4 L22,8 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M32,10 L34,12 L38,8 L30,4 L32,10 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M38,16 L40,18 L44,14 L40,6 L38,12 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M40,24 L40,26 L44,28 L44,20 L40,22 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M38,32 L40,34 L44,30 L40,22 L38,28 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M32,38 L34,40 L38,36 L30,32 L32,38 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M24,40 L26,40 L28,44 L20,44 L22,40 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M16,38 L18,40 L22,36 L14,32 L16,38 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M10,32 L12,34 L16,30 L8,22 L10,28 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M8,24 L8,26 L4,28 L4,20 L8,22 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M10,16 L12,18 L16,14 L8,6 L10,12 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M16,10 L18,12 L22,8 L14,4 L16,10 Z"/>
+    
+    <!-- Inner circle -->
+    <circle
+        android:fillColor="#7FB3D9"
+        cx="24"
+        cy="24"
+        r="10"/>
+    
+    <!-- Center hole -->
+    <circle
+        android:fillColor="#FFFFFF"
+        cx="24"
+        cy="24"
+        r="5"/>
+</vector>

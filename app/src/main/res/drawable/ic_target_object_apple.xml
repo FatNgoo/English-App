@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    <!-- Sample target object: Apple -->
+    
+    <!-- Apple body -->
+    <path
+        android:fillColor="#FF6B6B"
+        android:pathData="M40,20 Q50,20 55,28 Q60,36 58,46 Q56,56 48,60 Q40,64 32,60 Q24,56 22,46 Q20,36 25,28 Q30,20 40,20 Z" />
+    
+    <!-- Apple shine -->
+    <path
+        android:fillColor="#FFB3B3"
+        android:pathData="M35,26 Q40,24 44,28 Q42,30 38,30 Q34,30 35,26 Z" />
+    
+    <!-- Stem -->
+    <path
+        android:strokeColor="#8B6F47"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M40,20 L40,14" />
+    
+    <!-- Leaf -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M40,14 Q44,12 46,14 Q48,16 46,18 Q44,20 40,18 Z" />
+</vector>

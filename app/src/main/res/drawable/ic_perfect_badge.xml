@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Badge circle -->
+    <circle
+        android:fillColor="#4CAF50"
+        cx="24"
+        cy="24"
+        r="18"/>
+    
+    <!-- Ribbon tails -->
+    <path
+        android:fillColor="#388E3C"
+        android:pathData="M18,36 L24,42 L20,48 Z"/>
+    
+    <path
+        android:fillColor="#388E3C"
+        android:pathData="M30,36 L24,42 L28,48 Z"/>
+    
+    <!-- Checkmark or star -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,12 L26,20 L34,22 L26,24 L24,32 L22,24 L14,22 L22,20 Z"/>
+</vector>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Question Counter -->
+    <TextView
+        android:id="@+id/txtQuestionCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:text="Question 1/10"
+        android:textSize="16sp"
+        android:textColor="#757575"
+        android:textStyle="bold"/>
+
+    <!-- Circular Timer -->
+    <FrameLayout
+        android:id="@+id/timerContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp">
+
+        <ProgressBar
+            android:id="@+id/circularTimer"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:max="10"
+            android:progress="10"
+            android:progressDrawable="@drawable/bg_circular_timer"/>
+
+        <TextView
+            android:id="@+id/txtTimerSeconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="10"
+            android:textSize="32sp"
+            android:textColor="#FFD93D"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+
+    <!-- Player Score Bar (Left) -->
+    <LinearLayout
+        android:id="@+id/playerScoreContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/txtQuestionCounter"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgPlayerScoreAvatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_avatar_girl"
+            android:background="@drawable/bg_avatar_circle"/>
+
+        <ProgressBar
+            android:id="@+id/playerScoreBar"
+            android:layout_width="12dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:rotation="270"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            android:indeterminate="false"
+            android:max="10"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_score_bar"/>
+
+        <TextView
+            android:id="@+id/txtPlayerScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0/10"
+            android:textSize="14sp"
+            android:textColor="#4CAF50"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <!-- Opponent Score Bar (Right) -->
+    <LinearLayout
+        android:id="@+id/opponentScoreContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/timerContainer"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgOpponentScoreAvatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_avatar_boy"
+            android:background="@drawable/bg_avatar_circle"/>
+
+        <ProgressBar
+            android:id="@+id/opponentScoreBar"
+            android:layout_width="12dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:rotation="270"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            android:indeterminate="false"
+            android:max="10"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_score_bar"/>
+
+        <TextView
+            android:id="@+id/txtOpponentScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0/10"
+            android:textSize="14sp"
+            android:textColor="#2196F3"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <!-- Question Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/questionCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timerContainer"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What is the English word for:"
+                android:textSize="16sp"
+                android:textColor="#757575"/>
+
+            <TextView
+                android:id="@+id/txtQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Chó"
+                android:textSize="32sp"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Answer Choices Container -->
+    <LinearLayout
+        android:id="@+id/answerChoicesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionCard"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical">
+
+        <!-- Answer Choice A -->
+        <FrameLayout
+            android:id="@+id/answerChoiceA"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_answer_choice"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="A"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_answer_label"/>
+
+                <TextView
+                    android:id="@+id/txtAnswerA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:text="Dog"
+                    android:textSize="20sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Answer Choice B -->
+        <FrameLayout
+            android:id="@+id/answerChoiceB"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_answer_choice"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="B"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_answer_label"/>
+
+                <TextView
+                    android:id="@+id/txtAnswerB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:text="Cat"
+                    android:textSize="20sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Answer Choice C -->
+        <FrameLayout
+            android:id="@+id/answerChoiceC"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_answer_choice"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="C"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_answer_label"/>
+
+                <TextView
+                    android:id="@+id/txtAnswerC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:text="Bird"
+                    android:textSize="20sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Answer Choice D -->
+        <FrameLayout
+            android:id="@+id/answerChoiceD"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/bg_answer_choice"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="D"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_answer_label"/>
+
+                <TextView
+                    android:id="@+id/txtAnswerD"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:text="Fish"
+                    android:textSize="20sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Feedback Overlay -->
+    <FrameLayout
+        android:id="@+id/feedbackOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Perfect!"
+            android:textSize="48sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:shadowColor="#80000000"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="10"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

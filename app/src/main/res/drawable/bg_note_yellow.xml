@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- Yellow note bubble -->
+    <gradient
+        android:startColor="#FFF9E6"
+        android:endColor="#FFD93D"
+        android:type="radial"
+        android:gradientRadius="40dp" />
+    <stroke
+        android:width="3dp"
+        android:color="#FFA000" />
+</shape>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Sneaker sole -->
+    <path
+        android:pathData="M10,30 L38,30 Q40,32 40,36 L8,36 Q8,32 10,30 Z"
+        android:fillColor="#424242"/>
+    
+    <!-- Sneaker upper -->
+    <path
+        android:pathData="M12,18 L36,18 Q38,20 38,24 L38,30 L10,30 L10,24 Q10,20 12,18 Z"
+        android:fillColor="#E57373"/>
+    
+    <!-- Shoe laces area -->
+    <path
+        android:pathData="M16,18 L18,22 L20,18 L22,22 L24,18 L26,22 L28,18 L30,22 L32,18"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+    
+    <!-- Side swoosh -->
+    <path
+        android:pathData="M12,26 Q24,22 36,26"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+</vector>

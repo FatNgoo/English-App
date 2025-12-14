@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- Auto hint button -->
+    <gradient
+        android:startColor="#F3E5F5"
+        android:endColor="#CE93D8"
+        android:type="radial"
+        android:gradientRadius="32dp" />
+    <stroke
+        android:width="2dp"
+        android:color="#BA68C8" />
+</shape>

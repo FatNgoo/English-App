@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Hand palm -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M13,24c-3.26,0 -6.19,-1.99 -7.4,-5.02l-3.03,-7.61c-0.42,-1.07 0.08,-2.27 1.11,-2.68 1.03,-0.42 2.19,0.08 2.61,1.11l1.26,3.16V4c0,-1.1 0.9,-2 2,-2s2,0.9 2,2v7h0.91L13,7.5c0.47,-1.16 1.68,-1.8 2.87,-1.33 1.19,0.47 1.8,1.68 1.33,2.87L16,13c0.65,0 1.23,0.21 1.72,0.55L20,11.97c0.75,-0.75 1.97,-0.75 2.72,0 0.75,0.75 0.75,1.97 0,2.72l-3.72,3.72C17.78,19.62 15.5,24 13,24z"/>
+    <!-- Finger pointing -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M14,4 L16,2 L15,4 L16,5 Z"/>
+</vector>

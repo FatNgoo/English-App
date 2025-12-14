@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9E6"
+    tools:context=".MelodyStudioActivity">
+
+    <!-- Main Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <!-- Back Button -->
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/bg_action_button"
+                    android:src="@drawable/ic_back_arrow"
+                    android:contentDescription="@string/back_button"
+                    android:elevation="2dp" />
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Melody Studio"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Music Icon -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_action_button"
+                    android:src="@drawable/ic_headphone"
+                    android:contentDescription="@string/decoration"
+                    android:elevation="2dp" />
+
+            </RelativeLayout>
+
+            <!-- Album Art Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/saga_card_bg">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Album Art Placeholder -->
+                    <View
+                        android:id="@+id/albumArtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_album_art" />
+
+                    <!-- Animated Music Notes -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="top|start"
+                        android:layout_margin="24dp"
+                        android:src="@drawable/ic_music_note"
+                        android:alpha="0.7"
+                        android:contentDescription="@string/decoration" />
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginEnd="30dp"
+                        android:src="@drawable/ic_music_note"
+                        android:alpha="0.6"
+                        android:contentDescription="@string/decoration" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="bottom|start"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:src="@drawable/ic_star_small"
+                        android:alpha="0.7"
+                        android:contentDescription="@string/decoration" />
+
+                    <!-- Music Equalizer (Center) -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+                        android:gravity="bottom">
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_timeline_progress" />
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_timeline_progress" />
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_timeline_progress" />
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="70dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_timeline_progress" />
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_timeline_progress" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Song Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvSongTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Happy Morning Song"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Level 1 – Easy"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:background="@drawable/tag_beginner"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <!-- Karaoke Lyrics Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/saga_card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎵 Lyrics"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary"
+                        tools:ignore="HardcodedText" />
+
+                    <!-- Synchronized Lyrics -->
+                    <TextView
+                        android:id="@+id/tvLyricLine1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Good morning, good morning,"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:alpha="0.5"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvLyricLine2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Good morning, ___ sunshine!"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvLyricLine3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="How are you today?"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:alpha="0.5"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Answer Options (Hidden by default) -->
+            <LinearLayout
+                android:id="@+id/answerOptionsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="12dp"
+                    android:text="Choose the missing word:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Option Buttons -->
+                <Button
+                    android:id="@+id/btnAnswer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_answer_option"
+                    android:text="little"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:elevation="0dp"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/btnAnswer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_answer_option"
+                    android:text="bright"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:elevation="0dp"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/btnAnswer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_answer_option"
+                    android:text="yellow"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:elevation="0dp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <!-- Music Controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="3">
+
+                <!-- Replay Button -->
+                <FrameLayout
+                    android:id="@+id/btnReplay"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_action_button"
+                    android:elevation="4dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_repeat"
+                        android:contentDescription="Replay"
+                        tools:ignore="HardcodedText" />
+
+                </FrameLayout>
+
+                <!-- Play/Pause Button (Larger) -->
+                <FrameLayout
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_music_control"
+                    android:elevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/ivPlayPause"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_play_music"
+                        android:contentDescription="Play"
+                        tools:ignore="HardcodedText" />
+
+                </FrameLayout>
+
+                <!-- Mic Button (Sing Along) -->
+                <FrameLayout
+                    android:id="@+id/btnMic"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_action_button"
+                    android:elevation="4dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_microphone"
+                        android:contentDescription="Microphone"
+                        tools:ignore="HardcodedText" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Progress Timeline -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvCurrentTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:30"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        tools:ignore="HardcodedText" />
+
+                    <!-- Timeline Bar -->
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="8dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_timeline_bar">
+
+                        <!-- Progress -->
+                        <View
+                            android:id="@+id/timelineProgress"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_timeline_progress" />
+
+                        <!-- Star Checkpoints -->
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="80dp"
+                            android:src="@drawable/ic_star_small"
+                            android:contentDescription="Checkpoint"
+                            tools:ignore="HardcodedText" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginEnd="60dp"
+                            android:src="@drawable/ic_star_small"
+                            android:contentDescription="Checkpoint"
+                            tools:ignore="HardcodedText" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvTotalTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:15"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Reward Animation Card (Hidden by default) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rewardCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="32dp"
+        android:visibility="gone"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@color/saga_card_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:gravity="center">
+
+            <!-- Celebration Icon -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_star"
+                android:contentDescription="Celebration"
+                tools:ignore="HardcodedText" />
+
+            <!-- Reward Text -->
+            <TextView
+                android:id="@+id/tvReward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Great job! The word is 'bright'!"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                tools:ignore="HardcodedText" />
+
+            <!-- Continue Button -->
+            <Button
+                android:id="@+id/btnContinueSong"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Continue Singing"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:elevation="0dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

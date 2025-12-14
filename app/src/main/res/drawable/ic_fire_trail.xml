@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Fire trail icon -->
+    
+    <!-- Flame -->
+    <path
+        android:fillColor="#FF5252"
+        android:pathData="M12,2 Q14,6 14,10 Q14,14 12,16 Q10,14 10,10 Q10,6 12,2 Z" />
+    
+    <!-- Inner flame -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M12,6 Q13,8 13,10 Q13,12 12,13 Q11,12 11,10 Q11,8 12,6 Z" />
+    
+    <!-- Side flames -->
+    <path
+        android:fillColor="#FF8A80"
+        android:pathData="M8,10 Q9,12 10,14 Q9,12 8,10 Z M16,10 Q15,12 14,14 Q15,12 16,10 Z" />
+</vector>

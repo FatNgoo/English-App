@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Flash bolt -->
+    <path
+        android:pathData="M18,2 L10,18 L16,18 L14,30 L26,12 L18,12 Z"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Bolt outline -->
+    <path
+        android:pathData="M18,2 L10,18 L16,18 L14,30 L26,12 L18,12 Z"
+        android:strokeColor="#FFA000"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+</vector>

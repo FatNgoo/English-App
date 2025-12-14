@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp">
+
+            <!-- Back Button -->
+            <FrameLayout
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_button_round"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_back"
+                    android:tint="#424242"/>
+
+            </FrameLayout>
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/social_arena"
+                android:textSize="28sp"
+                android:textColor="#212121"
+                android:textStyle="bold"/>
+
+            <!-- Notification Bell -->
+            <FrameLayout
+                android:id="@+id/btnNotifications"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_toStartOf="@id/btnRanking"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_button_round"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_notification"
+                    android:tint="#FF6B6B"/>
+
+                <!-- Notification badge -->
+                <TextView
+                    android:id="@+id/txtNotificationBadge"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="end|top"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_coin_badge"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+            <!-- Ranking Badge -->
+            <FrameLayout
+                android:id="@+id/btnRanking"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_button_round"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_ranking"/>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <!-- Player Summary Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/playerCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="28dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_player_card"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <!-- Avatar -->
+                <ImageView
+                    android:id="@+id/imgPlayerAvatar"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_avatar_girl"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:scaleType="centerCrop"
+                    android:elevation="4dp"/>
+
+                <!-- Name + Level -->
+                <TextView
+                    android:id="@+id/txtPlayerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Jenny • Level 12"
+                    android:textSize="22sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"/>
+
+                <!-- Mini Stats Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="3">
+
+                    <!-- XP Progress -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⭐ XP"
+                            android:textSize="14sp"
+                            android:textColor="#757575"/>
+
+                        <ProgressBar
+                            android:id="@+id/progressXP"
+                            android:layout_width="80dp"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="4dp"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/bg_xp_progress"
+                            android:progress="65"/>
+
+                        <TextView
+                            android:id="@+id/txtXP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="650/1000"
+                            android:textSize="12sp"
+                            android:textColor="#424242"/>
+
+                    </LinearLayout>
+
+                    <!-- Win Rate -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚔ Win Rate"
+                            android:textSize="14sp"
+                            android:textColor="#757575"/>
+
+                        <TextView
+                            android:id="@+id/txtWinRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="68%"
+                            android:textSize="24sp"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                    <!-- Tier Rank -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏆 Tier"
+                            android:textSize="14sp"
+                            android:textColor="#757575"/>
+
+                        <ImageView
+                            android:id="@+id/imgTierBadge"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@drawable/ic_trophy"/>
+
+                        <TextView
+                            android:id="@+id/txtTier"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Silver"
+                            android:textSize="12sp"
+                            android:textColor="#424242"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Mode Cards Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Visit Friends Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardVisitFriends"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_visit_friends_card"
+                    android:padding="20dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Friend Avatars Illustration -->
+                    <FrameLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="16dp">
+
+                        <!-- Avatar 1 (back) -->
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="start|top"
+                            android:src="@drawable/ic_avatar_boy"
+                            android:background="@drawable/bg_avatar_circle"
+                            android:scaleType="centerCrop"
+                            android:elevation="1dp"/>
+
+                        <!-- Avatar 2 (middle) -->
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_avatar_girl"
+                            android:background="@drawable/bg_avatar_circle"
+                            android:scaleType="centerCrop"
+                            android:elevation="2dp"/>
+
+                        <!-- Avatar 3 (front) -->
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="end|bottom"
+                            android:src="@drawable/ic_avatar_boy"
+                            android:background="@drawable/bg_avatar_circle"
+                            android:scaleType="centerCrop"
+                            android:elevation="3dp"/>
+
+                    </FrameLayout>
+
+                    <!-- Text Content -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/visit_friends_cities"
+                            android:textSize="22sp"
+                            android:textColor="#212121"
+                            android:textStyle="bold"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_city"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Explore • Send Gifts"
+                                android:textSize="14sp"
+                                android:textColor="#757575"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="12 friends online"
+                            android:textSize="12sp"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- PK Battle 1vs1 Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPKBattle"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_pk_battle_card"
+                    android:padding="20dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Battle Characters -->
+                    <FrameLayout
+                        android:layout_width="140dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="16dp">
+
+                        <!-- Player avatar (left) -->
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_gravity="start|center_vertical"
+                            android:src="@drawable/ic_avatar_girl"
+                            android:background="@drawable/bg_avatar_circle"
+                            android:scaleType="centerCrop"
+                            android:elevation="2dp"/>
+
+                        <!-- VS Lightning Icon -->
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_vs_lightning"
+                            android:elevation="3dp"/>
+
+                        <!-- Opponent avatar (right) -->
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_gravity="end|center_vertical"
+                            android:src="@drawable/ic_avatar_boy"
+                            android:background="@drawable/bg_avatar_circle"
+                            android:scaleType="centerCrop"
+                            android:elevation="2dp"/>
+
+                    </FrameLayout>
+
+                    <!-- Text Content -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pk_battle_1vs1"
+                            android:textSize="22sp"
+                            android:textColor="#212121"
+                            android:textStyle="bold"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_vs_lightning"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Real-time Quiz Battle"
+                                android:textSize="14sp"
+                                android:textColor="#757575"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="⚡ Ready to battle!"
+                            android:textSize="12sp"
+                            android:textColor="#FF6B6B"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- Spacer for bottom nav -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

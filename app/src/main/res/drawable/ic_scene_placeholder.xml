@@ -1,0 +1,63 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="400dp"
+    android:viewportWidth="320"
+    android:viewportHeight="400">
+    <!-- Placeholder scene illustration - Park scene -->
+    
+    <!-- Sky -->
+    <path
+        android:fillColor="#B3E5FC"
+        android:pathData="M0,0 L320,0 L320,200 L0,200 Z" />
+    
+    <!-- Grass -->
+    <path
+        android:fillColor="#C8E6C9"
+        android:pathData="M0,200 L320,200 L320,400 L0,400 Z" />
+    
+    <!-- Sun -->
+    <circle
+        android:fillColor="#FFD93D"
+        android:cx="60"
+        android:cy="60"
+        android:r="30" />
+    
+    <!-- Tree trunk -->
+    <path
+        android:fillColor="#8B6F47"
+        android:pathData="M240,140 L240,240 L260,240 L260,140 Z" />
+    
+    <!-- Tree foliage -->
+    <circle
+        android:fillColor="#4CAF50"
+        android:cx="250"
+        android:cy="120"
+        android:r="50" />
+    
+    <!-- Bench -->
+    <path
+        android:fillColor="#A0826D"
+        android:pathData="M60,220 L140,220 L140,230 L60,230 Z M70,230 L70,250 L65,250 L65,230 Z M130,230 L130,250 L135,250 L135,230 Z" />
+    
+    <!-- Path -->
+    <path
+        android:fillColor="#E0C097"
+        android:pathData="M0,280 Q80,270 160,280 Q240,290 320,280 L320,320 Q240,330 160,320 Q80,310 0,320 Z" />
+    
+    <!-- Flowers -->
+    <circle
+        android:fillColor="#FF69B4"
+        android:cx="100"
+        android:cy="260"
+        android:r="6" />
+    <circle
+        android:fillColor="#FF69B4"
+        android:cx="115"
+        android:cy="265"
+        android:r="5" />
+    <circle
+        android:fillColor="#FFD93D"
+        android:cx="180"
+        android:cy="255"
+        android:r="6" />
+</vector>

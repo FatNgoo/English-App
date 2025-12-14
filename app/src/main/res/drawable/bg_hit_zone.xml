@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Hit zone bar -->
+    <gradient
+        android:startColor="#80FFD93D"
+        android:centerColor="#FFFFD93D"
+        android:endColor="#80FFD93D"
+        android:angle="0" />
+    <corners android:radius="16dp" />
+    <stroke
+        android:width="4dp"
+        android:color="#FFA000" />
+</shape>

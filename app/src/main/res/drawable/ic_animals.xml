@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    
+    <!-- Dog -->
+    <path
+        android:fillColor="#FFA07A"
+        android:pathData="M30,25a8,8 0 1,0 0,16a8,8 0 1,0 0,-16" />
+    <path
+        android:fillColor="#FFA07A"
+        android:pathData="M50,25a8,8 0 1,0 0,16a8,8 0 1,0 0,-16" />
+    <path
+        android:fillColor="#FF8C69"
+        android:pathData="M25,35L55,35L50,55L30,55Z" />
+    
+    <!-- Cat -->
+    <path
+        android:fillColor="#FFB6C1"
+        android:pathData="M15,40L20,30L25,40Z" />
+    <path
+        android:fillColor="#FFB6C1"
+        android:pathData="M55,40L60,30L65,40Z" />
+    <path
+        android:fillColor="#FFC0CB"
+        android:pathData="M20,40a20,15 0 1,0 40,0a20,15 0 1,0 -40,0" />
+</vector>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Compass circle -->
+    <circle
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#95C8F0"
+        android:strokeWidth="2"
+        cx="24"
+        cy="24"
+        r="20"/>
+    
+    <!-- N marker (top) -->
+    <path
+        android:fillColor="#FF6B6B"
+        android:pathData="M22,8 L26,8 L26,12 L22,12 Z"/>
+    
+    <path
+        android:fillColor="#333333"
+        android:pathData="M23,6 L23,10 L25,10 L25,6 Z"/>
+    
+    <!-- Compass needle -->
+    <path
+        android:fillColor="#FF6B6B"
+        android:pathData="M24,14 L28,24 L24,22 L20,24 Z"/>
+    
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M24,34 L20,24 L24,26 L28,24 Z"/>
+    
+    <!-- Direction letters -->
+    <path
+        android:fillColor="#666666"
+        android:pathData="M23,4 L25,4 L25,6 L23,6 Z"/>
+    
+    <path
+        android:fillColor="#666666"
+        android:pathData="M42,23 L44,23 L44,25 L42,25 Z"/>
+    
+    <path
+        android:fillColor="#666666"
+        android:pathData="M23,42 L25,42 L25,44 L23,44 Z"/>
+    
+    <path
+        android:fillColor="#666666"
+        android:pathData="M4,23 L6,23 L6,25 L4,25 Z"/>
+</vector>

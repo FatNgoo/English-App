@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Playground base -->
+    <path
+        android:pathData="M8,32 L40,32 L40,36 L8,36 Z"
+        android:fillColor="#A5D6A7"/>
+    
+    <!-- Slide base -->
+    <path
+        android:pathData="M10,24 L16,24 L16,32 L10,32 Z"
+        android:fillColor="#42A5F5"/>
+    
+    <!-- Slide -->
+    <path
+        android:pathData="M16,20 Q22,18 28,20 L28,24 L16,24 Z"
+        android:fillColor="#64B5F6"/>
+    
+    <!-- Swing frame -->
+    <path
+        android:pathData="M26,12 L26,32 M34,12 L34,32 M26,12 L34,12"
+        android:strokeColor="#8D6E63"
+        android:strokeWidth="2"/>
+    
+    <!-- Swing seat -->
+    <path
+        android:pathData="M28,22 L32,22 L32,24 L28,24 Z"
+        android:fillColor="#F44336"/>
+    
+    <!-- Swing ropes -->
+    <path
+        android:pathData="M28,12 L28,22 M32,12 L32,22"
+        android:strokeColor="#757575"
+        android:strokeWidth="1"/>
+</vector>

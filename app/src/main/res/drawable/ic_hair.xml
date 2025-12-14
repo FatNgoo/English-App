@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Hair base -->
+    <path
+        android:pathData="M24,10 Q10,12 12,24 L36,24 Q38,12 24,10 Z"
+        android:fillColor="#8D6E63"/>
+    
+    <!-- Hair bangs -->
+    <path
+        android:pathData="M16,16 Q20,14 24,16 Q28,14 32,16"
+        android:strokeColor="#6D4C41"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <!-- Hair sides -->
+    <path
+        android:pathData="M12,20 Q10,24 12,28"
+        android:strokeColor="#6D4C41"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M36,20 Q38,24 36,28"
+        android:strokeColor="#6D4C41"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+</vector>

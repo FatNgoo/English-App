@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/saga_bg"
+    tools:context=".SagaMapActivity">
+
+    <!-- Main Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Top Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/white"
+                android:elevation="4dp">
+
+                <!-- Back Button -->
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_back_arrow"
+                    android:contentDescription="Back button"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Title -->
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Saga Map – Main Class"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Student Avatar -->
+                <ImageView
+                    android:id="@+id/ivStudentAvatar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_avatar_kid"
+                    android:contentDescription="Student avatar"
+                    tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+            <!-- Progress Summary Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/saga_card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Card Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Learning Journey"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        tools:ignore="HardcodedText" />
+
+                    <!-- Overall Progress Bar -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical">
+
+                        <ProgressBar
+                            android:id="@+id/progressOverall"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="8dp"
+                            android:layout_weight="1"
+                            android:progress="65"
+                            android:progressDrawable="@drawable/progress_bar_rounded"
+                            android:max="100" />
+
+                        <TextView
+                            android:id="@+id/tvProgressPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="65%"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/saga_yellow"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                    <!-- Stage Icons Grid -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4"
+                        android:gravity="center">
+
+                        <!-- Vocabulary Stage -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_vocabulary"
+                                android:contentDescription="Vocabulary"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Vocab"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <!-- Flashcards Stage -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_flashcard"
+                                android:contentDescription="Flashcards"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Cards"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <!-- Sentence Structure Stage -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_sentence"
+                                android:contentDescription="Sentences"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Sentence"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <!-- Mini Quiz Stage -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_quiz"
+                                android:contentDescription="Quiz"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Quiz"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Main Saga Map Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Learning Path"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Saga Map Nodes Container -->
+                <LinearLayout
+                    android:id="@+id/sagaMapContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Node 1: Vocabulary (Current/Unlocked) -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+
+                        <!-- Decorative star left -->
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/ic_star_small"
+                            android:alpha="0.6"
+                            android:contentDescription="@string/app_name" />
+
+                        <!-- Node Container -->
+                        <LinearLayout
+                            android:id="@+id/node1Container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <!-- Current Node with Glow -->
+                            <FrameLayout
+                                android:layout_width="70dp"
+                                android:layout_height="70dp">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_node_current" />
+
+                                <ImageView
+                                    android:layout_width="36dp"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_vocabulary"
+                                    android:contentDescription="Vocabulary"
+                                    tools:ignore="HardcodedText" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Vocabulary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <!-- Path Line -->
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="80dp"
+                            android:layout_below="@id/node1Container"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/saga_path_line" />
+
+                    </RelativeLayout>
+
+                    <!-- Node 2: Flashcards (Unlocked) -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+
+                        <!-- Decorative cloud right -->
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/ic_cloud"
+                            android:alpha="0.4"
+                            android:contentDescription="@string/app_name" />
+
+                        <LinearLayout
+                            android:id="@+id/node2Container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <FrameLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_node_unlocked" />
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_flashcard"
+                                    android:contentDescription="Flashcards"
+                                    tools:ignore="HardcodedText" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Flashcards"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="80dp"
+                            android:layout_below="@id/node2Container"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/saga_path_line" />
+
+                    </RelativeLayout>
+
+                    <!-- Node 3: Sentence Structure (Locked) -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+
+                        <!-- Decorative balloon left -->
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="25dp"
+                            android:src="@drawable/ic_balloon"
+                            android:alpha="0.5"
+                            android:contentDescription="@string/app_name" />
+
+                        <LinearLayout
+                            android:id="@+id/node3Container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <FrameLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_node_locked" />
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_sentence"
+                                    android:alpha="0.4"
+                                    android:contentDescription="Sentence Structure"
+                                    tools:ignore="HardcodedText" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="bottom|end"
+                                    android:layout_marginEnd="4dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:src="@drawable/ic_lock_small"
+                                    android:contentDescription="Locked"
+                                    tools:ignore="HardcodedText" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Sentence"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary"
+                                android:alpha="0.6"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="80dp"
+                            android:layout_below="@id/node3Container"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/saga_path_line" />
+
+                    </RelativeLayout>
+
+                    <!-- Node 4: Mini Quiz (Locked) -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+
+                        <!-- Decorative star right -->
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/ic_star_small"
+                            android:alpha="0.6"
+                            android:contentDescription="@string/app_name" />
+
+                        <LinearLayout
+                            android:id="@+id/node4Container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <FrameLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_node_locked" />
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_quiz"
+                                    android:alpha="0.4"
+                                    android:contentDescription="Mini Quiz"
+                                    tools:ignore="HardcodedText" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="bottom|end"
+                                    android:layout_marginEnd="4dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:src="@drawable/ic_lock_small"
+                                    android:contentDescription="Locked"
+                                    tools:ignore="HardcodedText" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Mini Quiz"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary"
+                                android:alpha="0.6"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Next Lesson Card (Fixed at bottom) -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/saga_card_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <!-- Lesson Illustration -->
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_animals"
+                android:contentDescription="Animals"
+                tools:ignore="HardcodedText" />
+
+            <!-- Lesson Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next Lesson"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Vocabulary – Animals"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Learn 10 new words"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Buttons Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <!-- Start Learning Button -->
+                    <Button
+                        android:id="@+id/btnStartLearning"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_primary"
+                        android:text="Start Learning"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:elevation="0dp"
+                        tools:ignore="HardcodedText" />
+
+                    <!-- Preview Flashcards Button -->
+                    <Button
+                        android:id="@+id/btnPreviewFlashcards"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="Preview"
+                        android:textColor="@color/saga_green"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:elevation="0dp"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation (Optional) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

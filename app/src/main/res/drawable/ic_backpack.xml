@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Backpack body -->
+    <path
+        android:pathData="M14,16 L34,16 Q36,18 36,22 L36,40 Q34,42 24,42 Q14,42 12,40 L12,22 Q12,18 14,16 Z"
+        android:fillColor="#42A5F5"/>
+    
+    <!-- Backpack pocket -->
+    <path
+        android:pathData="M16,24 L32,24 L32,32 Q24,34 16,32 Z"
+        android:fillColor="#1976D2"/>
+    
+    <!-- Backpack straps -->
+    <path
+        android:pathData="M16,16 Q14,12 16,8"
+        android:strokeColor="#1565C0"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M32,16 Q34,12 32,8"
+        android:strokeColor="#1565C0"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <!-- Backpack zipper -->
+    <path
+        android:pathData="M24,24 L24,32"
+        android:strokeColor="#FFD93D"
+        android:strokeWidth="2"/>
+</vector>

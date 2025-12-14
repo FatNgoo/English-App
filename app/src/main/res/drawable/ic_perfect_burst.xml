@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    <!-- Perfect feedback burst -->
+    
+    <!-- Rainbow star burst -->
+    <path
+        android:fillColor="#FF69B4"
+        android:pathData="M40,10 L45,30 L65,30 L50,42 L55,62 L40,50 L25,62 L30,42 L15,30 L35,30 Z" />
+    
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M40,5 L42,25 L60,25 L48,35 L52,55 L40,45 L28,55 L32,35 L20,25 L38,25 Z" />
+    
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M40,0 L43,20 L63,20 L49,32 L53,52 L40,42 L27,52 L31,32 L17,20 L37,20 Z" />
+    
+    <!-- Center star -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,25 A5,5 0 1,1 40,35 A5,5 0 1,1 40,25 Z" />
+</vector>

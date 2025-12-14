@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".TokTokEnglishActivity">
+
+    <!-- Main Video Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Video Player Area -->
+        <FrameLayout
+            android:id="@+id/videoContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_video_frame">
+
+            <!-- Placeholder for video player -->
+            <View
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#2C3E50" />
+
+            <!-- Decorative Elements -->
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="40dp"
+                android:src="@drawable/ic_star_small"
+                android:alpha="0.7"
+                android:contentDescription="@string/decoration" />
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_film_strip"
+                android:alpha="0.6"
+                android:contentDescription="@string/decoration" />
+
+            <!-- Subtitle Overlay -->
+            <LinearLayout
+                android:id="@+id/subtitleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="200dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/bg_gradient_overlay">
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hi! Can I get a ticket for the movie tonight?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:shadowColor="#000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="4"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Top Header (Overlay) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_action_button"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="@string/back_button"
+                android:elevation="4dp" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="TokTok English"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                tools:ignore="HardcodedText" />
+
+            <!-- Popcorn Icon -->
+            <ImageView
+                android:id="@+id/ivPopcorn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:padding="12dp"
+                android:background="@drawable/bg_action_button"
+                android:src="@drawable/ic_popcorn"
+                android:contentDescription="@string/decoration"
+                android:elevation="4dp" />
+
+        </RelativeLayout>
+
+        <!-- Right Side Action Buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Like Button -->
+            <FrameLayout
+                android:id="@+id/btnLike"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_action_button"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_heart"
+                    android:contentDescription="Like"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+            <!-- Repeat Button -->
+            <FrameLayout
+                android:id="@+id/btnRepeat"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_action_button"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_repeat"
+                    android:contentDescription="Repeat"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+            <!-- Volume Button -->
+            <FrameLayout
+                android:id="@+id/btnVolume"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_action_button"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/ivVolume"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_volume_on"
+                    android:contentDescription="Volume"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!-- Lesson Info Bar (Top) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_question_card"
+            android:padding="12dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_book_star"
+                    android:contentDescription="Level"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Level 1 – Daily Conversation"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <!-- Progress Dots -->
+            <LinearLayout
+                android:id="@+id/progressDotsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_progress_dot" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_progress_dot_inactive" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_progress_dot_inactive" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_progress_dot_inactive" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Swipe Indicator (Bottom) -->
+        <LinearLayout
+            android:id="@+id/swipeIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="120dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:alpha="0.8">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_swipe_up"
+                android:rotation="180"
+                android:contentDescription="Swipe up"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Swipe up for next video"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="3"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Question Overlay Card (Hidden by default, slides up) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/questionCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/saga_card_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Question Title -->
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What did the boy ask?"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                tools:ignore="HardcodedText" />
+
+            <!-- Answer Options -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <!-- Option 1 -->
+                <Button
+                    android:id="@+id/btnOption1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_answer_option"
+                    android:text="Buy a movie ticket"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:elevation="0dp"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Option 2 -->
+                <Button
+                    android:id="@+id/btnOption2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_answer_option"
+                    android:text="Order a pizza"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:elevation="0dp"
+                    tools:ignore="HardcodedText" />
+
+                <!-- Option 3 -->
+                <Button
+                    android:id="@+id/btnOption3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_answer_option"
+                    android:text="Look for his bag"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:elevation="0dp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Explanation Card (Hidden by default) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/explanationCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="32dp"
+        android:visibility="gone"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@color/saga_card_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <!-- Celebration Icon -->
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_star"
+                android:contentDescription="Celebration"
+                tools:ignore="HardcodedText" />
+
+            <!-- Explanation Text -->
+            <TextView
+                android:id="@+id/tvExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Great job! The boy is asking for a movie ticket."
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                tools:ignore="HardcodedText" />
+
+            <!-- Continue Button -->
+            <Button
+                android:id="@+id/btnContinue"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:elevation="0dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

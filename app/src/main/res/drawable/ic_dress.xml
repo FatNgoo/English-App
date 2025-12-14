@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Dress body -->
+    <path
+        android:pathData="M16,12 L32,12 L32,20 Q24,24 16,20 Z"
+        android:fillColor="#F8BBD0"/>
+    
+    <!-- Dress skirt -->
+    <path
+        android:pathData="M16,20 Q24,28 32,20 L36,40 Q24,44 12,40 Z"
+        android:fillColor="#F48FB1"/>
+    
+    <!-- Dress straps -->
+    <path
+        android:pathData="M18,12 L18,8 M30,12 L30,8"
+        android:strokeColor="#C2185B"
+        android:strokeWidth="2"/>
+    
+    <!-- Dress details -->
+    <path
+        android:pathData="M20,24 L28,24 M18,28 L30,28 M16,32 L32,32"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1"/>
+</vector>

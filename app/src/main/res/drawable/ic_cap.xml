@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Cap crown -->
+    <path
+        android:pathData="M14,16 L34,16 Q36,18 36,22 L36,26 L12,26 L12,22 Q12,18 14,16 Z"
+        android:fillColor="#42A5F5"/>
+    
+    <!-- Cap visor -->
+    <path
+        android:pathData="M8,26 L40,26 Q42,28 40,30 L8,30 Q6,28 8,26 Z"
+        android:fillColor="#1976D2"/>
+    
+    <!-- Cap button -->
+    <path
+        android:pathData="M24,16 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#1565C0"/>
+</vector>

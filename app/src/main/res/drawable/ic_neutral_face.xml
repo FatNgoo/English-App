@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    
+    <!-- Neutral face circle -->
+    <path
+        android:pathData="M20,20 m-16,0 a16,16 0 1,1 32,0 a16,16 0 1,1 -32,0"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Eyes -->
+    <path
+        android:pathData="M14,16 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#424242"/>
+    
+    <path
+        android:pathData="M26,16 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#424242"/>
+    
+    <!-- Neutral mouth -->
+    <path
+        android:pathData="M14,24 L26,24"
+        android:strokeColor="#424242"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+</vector>

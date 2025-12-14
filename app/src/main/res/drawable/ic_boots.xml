@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Boot sole -->
+    <path
+        android:pathData="M10,32 L38,32 Q40,34 40,38 L8,38 Q8,34 10,32 Z"
+        android:fillColor="#5D4037"/>
+    
+    <!-- Boot shaft -->
+    <path
+        android:pathData="M12,12 L36,12 L36,32 L12,32 Z"
+        android:fillColor="#8D6E63"/>
+    
+    <!-- Boot top rim -->
+    <path
+        android:pathData="M10,12 L38,12 L38,16 L10,16 Z"
+        android:fillColor="#A1887F"/>
+    
+    <!-- Boot laces -->
+    <path
+        android:pathData="M18,16 L22,20 M22,16 L18,20 M26,16 L30,20 M30,16 L26,20"
+        android:strokeColor="#3E2723"
+        android:strokeWidth="2"/>
+</vector>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    
+    <!-- Laughing face circle -->
+    <path
+        android:pathData="M20,20 m-16,0 a16,16 0 1,1 32,0 a16,16 0 1,1 -32,0"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Closed eyes -->
+    <path
+        android:pathData="M10,16 Q14,14 18,16 M22,16 Q26,14 30,16"
+        android:strokeColor="#424242"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+    
+    <!-- Big smile -->
+    <path
+        android:pathData="M10,22 Q20,30 30,22"
+        android:strokeColor="#424242"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:strokeLineCap="round"/>
+</vector>

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Camera permission for AR Camera feature -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,15 +16,135 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnglishApp">
+        <!-- Login Activity as launcher -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Home Activity -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        
+        <!-- Saga Map Activity -->
+        <activity
+            android:name=".SagaMapActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- TokTok English Activity -->
+        <activity
+            android:name=".TokTokEnglishActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Melody Studio Activity -->
+        <activity
+            android:name=".MelodyStudioActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- AI Buddy Chat Activity -->
+        <activity
+            android:name=".AIBuddyChatActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Word Workshop Activity -->
+        <activity
+            android:name=".WordWorkshopActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Writing Dojo Activity -->
+        <activity
+            android:name=".WritingDojoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Interactive Comics Activity -->
+        <activity
+            android:name=".InteractiveComicsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Master Chef Activity -->
+        <activity
+            android:name=".MasterChefActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Pet Hospital Activity -->
+        <activity
+            android:name=".PetHospitalActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Robot Factory Activity -->
+        <activity
+            android:name=".RobotFactoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Detective Bureau Activity -->
+        <activity
+            android:name=".DetectiveBureauActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Rhythm Star Activity -->
+        <activity
+            android:name=".RhythmStarActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- City Builder Activity -->
+        <activity
+            android:name=".CityBuilderActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Avatar Studio Activity -->
+        <activity
+            android:name=".AvatarStudioActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- AR Camera Activity -->
+        <activity
+            android:name=".ARCameraActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Social Arena Activity -->
+        <activity
+            android:name=".SocialArenaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Friend City Visit Activity -->
+        <activity
+            android:name=".FriendCityVisitActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- PK Battle Activity -->
+        <activity
+            android:name=".PKBattleActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

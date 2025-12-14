@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Success popup background - green gradient -->
+    <gradient
+        android:startColor="#C8E6C9"
+        android:endColor="#A8E6CF"
+        android:angle="135" />
+    <corners android:radius="32dp" />
+    <stroke
+        android:width="3dp"
+        android:color="#4CAF50" />
+</shape>

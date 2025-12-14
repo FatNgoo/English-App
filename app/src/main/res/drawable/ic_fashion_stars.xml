@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    
+    <!-- Star 1 (pink) -->
+    <path
+        android:pathData="M20,10 L24,20 L34,20 L26,26 L30,36 L20,30 L10,36 L14,26 L6,20 L16,20 Z"
+        android:fillColor="#F8BBD0"/>
+    
+    <!-- Star 2 (yellow) -->
+    <path
+        android:pathData="M40,20 L43,27 L50,27 L44,31 L47,38 L40,33 L33,38 L36,31 L30,27 L37,27 Z"
+        android:fillColor="#FFD93D"/>
+    
+    <!-- Star 3 (purple) -->
+    <path
+        android:pathData="M60,15 L63,22 L70,22 L64,26 L67,33 L60,28 L53,33 L56,26 L50,22 L57,22 Z"
+        android:fillColor="#BA68C8"/>
+</vector>

@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Detective fedora hat - brown with band -->
+    
+    <!-- Hat brim -->
+    <path
+        android:fillColor="#8B6F47"
+        android:pathData="M8,36 Q8,32 12,32 L52,32 Q56,32 56,36 L56,40 Q56,44 52,44 L12,44 Q8,44 8,40 Z" />
+    
+    <!-- Hat crown -->
+    <path
+        android:fillColor="#A0826D"
+        android:pathData="M16,16 Q16,12 20,12 L44,12 Q48,12 48,16 L48,32 L16,32 Z" />
+    
+    <!-- Hat band -->
+    <path
+        android:fillColor="#5D4E37"
+        android:pathData="M16,28 L48,28 L48,32 L16,32 Z" />
+    
+    <!-- Band buckle -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M28,28 L36,28 L36,32 L28,32 Z" />
+</vector>

@@ -2,4 +2,60 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary Colors -->
+    <color name="primary_purple">#9C88FF</color>
+    <color name="accent_pink">#FF6B9D</color>
+    
+    <!-- Pastel Colors -->
+    <color name="pastel_purple">#C4B5FD</color>
+    <color name="pastel_pink">#FFC0D9</color>
+    <color name="pastel_blue">#B4E4FF</color>
+    <color name="pastel_yellow">#FFF4B7</color>
+    
+    <!-- Background Colors -->
+    <color name="background_white">#FFFFFF</color>
+    <color name="card_background">#FAFAFA</color>
+    <color name="input_background">#F8F8F8</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#2C3E50</color>
+    <color name="text_secondary">#7F8C8D</color>
+    <color name="text_hint">#BDC3C7</color>
+    
+    <!-- UI Elements -->
+    <color name="link_blue">#74B9FF</color>
+    <color name="divider_color">#E0E0E0</color>
+    <color name="stroke_color">#E8E8E8</color>
+    
+    <!-- Home Screen Colors -->
+    <color name="banner_gradient_start">#9C88FF</color>
+    <color name="banner_gradient_end">#C4B5FD</color>
+    
+    <!-- Lesson Background Colors -->
+    <color name="lesson_bg_1">#FFE5EC</color>
+    <color name="lesson_bg_2">#FFF9E6</color>
+    <color name="lesson_bg_3">#E6F3FF</color>
+    
+    <!-- Tag Colors -->
+    <color name="tag_beginner_bg">#D4EDDA</color>
+    <color name="tag_beginner_text">#155724</color>
+    <color name="tag_intermediate_bg">#FFF3CD</color>
+    <color name="tag_intermediate_text">#856404</color>
+    
+    <!-- Saga Map Colors -->
+    <color name="saga_bg">#F0F9FF</color>
+    <color name="saga_card_bg">#FFFFFF</color>
+    <color name="saga_yellow">#FFD93D</color>
+    <color name="saga_pink">#FF9ECD</color>
+    <color name="saga_green">#A8E6CF</color>
+    <color name="saga_blue">#95C8F0</color>
+    <color name="saga_purple">#C4B5FD</color>
+    <color name="saga_node_locked">#E0E0E0</color>
+    <color name="saga_node_current_glow">#80FFD93D</color>
+    <color name="saga_path_line">#E8E8E8</color>
+    
+    <!-- Pet Hospital Colors -->
+    <color name="green">#4CAF50</color>
+    <color name="gray">#999999</color>
 </resources>

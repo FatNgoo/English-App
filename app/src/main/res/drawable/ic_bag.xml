@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Bag body -->
+    <path
+        android:pathData="M12,18 L36,18 L36,40 Q24,44 12,40 Z"
+        android:fillColor="#F8BBD0"/>
+    
+    <!-- Bag flap -->
+    <path
+        android:pathData="M12,18 L36,18 L36,22 L12,22 Z"
+        android:fillColor="#F48FB1"/>
+    
+    <!-- Handle -->
+    <path
+        android:pathData="M16,18 Q24,10 32,18"
+        android:strokeColor="#C2185B"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Clasp -->
+    <path
+        android:pathData="M22,18 L26,18 L26,22 L22,22 Z"
+        android:fillColor="#AD1457"/>
+</vector>

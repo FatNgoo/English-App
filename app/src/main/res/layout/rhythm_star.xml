@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_beige">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- Top Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_button_circle_white"
+                android:contentDescription="Back"
+                android:elevation="4dp"
+                android:src="@drawable/ic_back_arrow" />
+
+            <!-- Title -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rhythm Star"
+                    android:textColor="#BA68C8"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap the words in rhythm!"
+                    android:textColor="#CE93D8"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Rhythm Star Icon -->
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="Rhythm Star"
+                android:src="@drawable/ic_rhythm_star" />
+        </RelativeLayout>
+
+        <!-- Song Information Bar -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/songInfoCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_song_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Song Info Text -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtSongTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sunny Day Beat"
+                        android:textColor="#6A1B9A"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtDifficulty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Easy"
+                        android:textColor="#8E24AA"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Play/Pause Button -->
+                <ImageButton
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:background="@drawable/bg_button_circle_white"
+                    android:contentDescription="Play/Pause"
+                    android:elevation="4dp"
+                    android:src="@drawable/ic_play" />
+
+                <!-- Equalizer Animation -->
+                <ImageView
+                    android:id="@+id/imgEqualizer"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:contentDescription="Equalizer"
+                    android:src="@drawable/ic_equalizer" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Score & Combo Display (Top Center) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Score Display -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_score_display"
+                android:elevation="6dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Score"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/txtScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#FFA000"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Combo Counter -->
+            <LinearLayout
+                android:id="@+id/comboContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_combo_counter"
+                android:elevation="6dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="Fire"
+                    android:src="@drawable/ic_fire_trail" />
+
+                <TextView
+                    android:id="@+id/txtCombo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Combo x0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Star Meter (Progress Bar) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp">
+
+            <!-- Background Bar -->
+            <View
+                android:id="@+id/starMeterBg"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_star_meter_bg" />
+
+            <!-- Progress Fill -->
+            <View
+                android:id="@+id/starMeterFill"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_star_meter_fill" />
+
+            <!-- Star Icons Overlay -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/star1"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="60dp"
+                    android:contentDescription="Star 1"
+                    android:src="@drawable/ic_star_empty" />
+
+                <ImageView
+                    android:id="@+id/star2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="60dp"
+                    android:contentDescription="Star 2"
+                    android:src="@drawable/ic_star_empty" />
+
+                <ImageView
+                    android:id="@+id/star3"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="Star 3"
+                    android:src="@drawable/ic_star_empty" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Main Gameplay Area -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <!-- Rhythm Assist Tools (Left Side) -->
+            <LinearLayout
+                android:id="@+id/toolsPanel"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Slow Mode Button -->
+                <ImageButton
+                    android:id="@+id/btnSlowMode"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_slow_mode_button"
+                    android:contentDescription="Slow mode"
+                    android:elevation="8dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_snail" />
+
+                <!-- Repeat Sound Button -->
+                <ImageButton
+                    android:id="@+id/btnRepeatSound"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_speaker_button"
+                    android:contentDescription="Repeat sound"
+                    android:elevation="8dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_speaker" />
+
+                <!-- Auto Hint Button -->
+                <ImageButton
+                    android:id="@+id/btnAutoHint"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_hint_button_rhythm"
+                    android:contentDescription="Auto hint"
+                    android:elevation="8dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_magic_wand" />
+            </LinearLayout>
+
+            <!-- Gameplay Lane (Center) -->
+            <FrameLayout
+                android:id="@+id/gameplayLane"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="120dp"
+                android:layout_toEndOf="@id/toolsPanel"
+                android:layout_toStartOf="@id/vocabPanel">
+
+                <!-- Track Lanes (4 vertical tracks) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/track1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_game_track" />
+
+                    <View
+                        android:id="@+id/track2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_game_track" />
+
+                    <View
+                        android:id="@+id/track3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_game_track" />
+
+                    <View
+                        android:id="@+id/track4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_game_track" />
+                </LinearLayout>
+
+                <!-- Notes Container (dynamically added notes fall here) -->
+                <FrameLayout
+                    android:id="@+id/notesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- Hit Zone at Bottom -->
+                <View
+                    android:id="@+id/hitZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_hit_zone"
+                    android:elevation="4dp" />
+
+                <!-- Feedback Overlays -->
+                <TextView
+                    android:id="@+id/txtPerfect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="15dp"
+                    android:text="PERFECT!"
+                    android:textColor="#FF69B4"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imgPerfectBurst"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Perfect burst"
+                    android:elevation="14dp"
+                    android:src="@drawable/ic_perfect_burst"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/txtGood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="15dp"
+                    android:text="GOOD!"
+                    android:textColor="#4CAF50"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/txtMiss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="15dp"
+                    android:text="MISS"
+                    android:textColor="#BDBDBD"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imgMissCloud"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Miss cloud"
+                    android:elevation="14dp"
+                    android:src="@drawable/ic_miss_cloud"
+                    android:visibility="invisible" />
+
+                <!-- Vocabulary Bubble Popup -->
+                <LinearLayout
+                    android:id="@+id/vocabBubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/bg_vocab_bubble"
+                    android:elevation="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="16dp"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/txtVocabWord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="apple"
+                        android:textColor="#FF6B6B"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="Speaker"
+                        android:src="@drawable/ic_speaker" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Vocabulary Collector Panel (Right Side) -->
+            <LinearLayout
+                android:id="@+id/vocabPanel"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_vocab_panel"
+                android:elevation="6dp"
+                android:gravity="top|center_horizontal"
+                android:orientation="vertical"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Words"
+                    android:textColor="#8B6F47"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Vocabulary Word Items (dynamically added) -->
+                <LinearLayout
+                    android:id="@+id/vocabItemsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Example Vocab Item 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="apple"
+                            android:textColor="#5D4E37"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/check1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="☐"
+                            android:textColor="#999999"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- Example Vocab Item 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="sunny"
+                            android:textColor="#5D4E37"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/check2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="☐"
+                            android:textColor="#999999"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- Example Vocab Item 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="dance"
+                            android:textColor="#5D4E37"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/check3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="☐"
+                            android:textColor="#999999"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- Example Vocab Item 4 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="jump"
+                            android:textColor="#5D4E37"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/check4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="☐"
+                            android:textColor="#999999"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- Example Vocab Item 5 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="blue"
+                            android:textColor="#5D4E37"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/check5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="☐"
+                            android:textColor="#999999"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- End-of-Song Result Popup -->
+    <FrameLayout
+        android:id="@+id/resultOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B0FFFFFF"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="24dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="32dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_result_popup"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp">
+
+                <!-- Dancing Stars Animation -->
+                <ImageView
+                    android:id="@+id/imgDancingStars"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="Dancing stars"
+                    android:src="@drawable/ic_dancing_stars" />
+
+                <!-- Result Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Song Complete! 🎵"
+                    android:textColor="#1976D2"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- Score -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Score: "
+                        android:textColor="#5D4E37"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/txtFinalScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1250"
+                        android:textColor="#FFA000"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Accuracy -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accuracy: "
+                        android:textColor="#5D4E37"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtAccuracy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="92%"
+                        android:textColor="#4CAF50"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Words Collected -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Words: "
+                        android:textColor="#5D4E37"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtWordsCollected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5/5"
+                        android:textColor="#42A5F5"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Stars Earned -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/resultStar1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:contentDescription="Star 1"
+                        android:src="@drawable/ic_star_filled" />
+
+                    <ImageView
+                        android:id="@+id/resultStar2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:contentDescription="Star 2"
+                        android:src="@drawable/ic_star_filled" />
+
+                    <ImageView
+                        android:id="@+id/resultStar3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:contentDescription="Star 3"
+                        android:src="@drawable/ic_star_empty" />
+                </LinearLayout>
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- Play Again Button -->
+                    <LinearLayout
+                        android:id="@+id/btnPlayAgain"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_play_again_button"
+                        android:clickable="true"
+                        android:elevation="4dp"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="Play again"
+                            android:src="@drawable/ic_replay" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Play Again"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Next Song Button -->
+                    <LinearLayout
+                        android:id="@+id/btnNextSong"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_next_song_button"
+                        android:clickable="true"
+                        android:elevation="4dp"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="Next Song"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="Next"
+                            android:src="@drawable/ic_next_arrow" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:elevation="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="Home"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Home"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Saga Map -->
+        <LinearLayout
+            android:id="@+id/navSagaMap"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="Map"
+                android:src="@drawable/ic_map" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Map"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Games (Rhythm Star - Highlighted) -->
+        <LinearLayout
+            android:id="@+id/navGames"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="Games"
+                android:src="@drawable/ic_rhythm_star" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Games"
+                android:textColor="#BA68C8"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Favorites -->
+        <LinearLayout
+            android:id="@+id/navFavorites"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="Favorites"
+                android:src="@drawable/ic_heart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Favorites"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="Profile"
+                android:src="@drawable/ic_profile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Profile"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- Miss puff cloud -->
+    
+    <!-- Cloud puffs -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M8,16 A4,4 0 1,1 16,16 A4,4 0 1,1 8,16 Z" />
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M14,16 A4,4 0 1,1 22,16 A4,4 0 1,1 14,16 Z" />
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M18,18 A3,3 0 1,1 24,18 A3,3 0 1,1 18,18 Z" />
+    
+    <!-- Inner lighter puffs -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M10,16 A2,2 0 1,1 14,16 A2,2 0 1,1 10,16 Z" />
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M16,16 A2,2 0 1,1 20,16 A2,2 0 1,1 16,16 Z" />
+</vector>

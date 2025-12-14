@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Wardrobe body -->
+    <path
+        android:pathData="M6,4 L26,4 L26,28 L6,28 Z"
+        android:fillColor="#8D6E63"/>
+    
+    <!-- Wardrobe doors -->
+    <path
+        android:pathData="M6,4 L16,4 L16,28 L6,28 Z"
+        android:strokeColor="#6D4C41"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Door handles -->
+    <path
+        android:pathData="M14,16 m-1,0 a1,1 0 1,1 2,0 a1,1 0 1,1 -2,0"
+        android:fillColor="#FFD93D"/>
+    
+    <path
+        android:pathData="M18,16 m-1,0 a1,1 0 1,1 2,0 a1,1 0 1,1 -2,0"
+        android:fillColor="#FFD93D"/>
+</vector>

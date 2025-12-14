@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Star sparkle 1 -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M16,4 L18,12 L26,14 L18,16 L16,24 L14,16 L6,14 L14,12 Z"/>
+    
+    <!-- Small sparkle 2 -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M8,8 L9,10 L11,11 L9,12 L8,14 L7,12 L5,11 L7,10 Z"/>
+    
+    <!-- Small sparkle 3 -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M24,8 L25,10 L27,11 L25,12 L24,14 L23,12 L21,11 L23,10 Z"/>
+</vector>

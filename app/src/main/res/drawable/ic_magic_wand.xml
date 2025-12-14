@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- Magic wand icon -->
+    
+    <!-- Wand stick -->
+    <path
+        android:strokeColor="#BA68C8"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M8,24 L24,8" />
+    
+    <!-- Star at tip -->
+    <path
+        android:fillColor="#FFD93D"
+        android:pathData="M24,4 L26,10 L32,10 L27,14 L29,20 L24,16 L19,20 L21,14 L16,10 L22,10 Z" />
+    
+    <!-- Sparkles -->
+    <path
+        android:fillColor="#FFB6C1"
+        android:pathData="M12,16 L13,18 L15,18 L13,19 L14,21 L12,20 L10,21 L11,19 L9,18 L11,18 Z" />
+    <path
+        android:fillColor="#95C8F0"
+        android:pathData="M18,22 L19,24 L21,24 L19,25 L20,27 L18,26 L16,27 L17,25 L15,24 L17,24 Z" />
+</vector>

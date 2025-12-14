@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/rs/android"
+    android:shape="rectangle">
+    <!-- Star meter progress bar -->
+    <solid android:color="#FFD93D" />
+    <corners android:radius="12dp" />
+</shape>

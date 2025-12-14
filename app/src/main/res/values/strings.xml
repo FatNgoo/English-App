@@ -1,3 +1,850 @@
 <resources>
     <string name="app_name">EnglishApp</string>
+    
+    <!-- Login Screen -->
+    <string name="app_title">English Adventure</string>
+    <string name="email_or_username">Email or Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="log_in">Log In</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or_continue_with">or continue with</string>
+    <string name="google">Google</string>
+    <string name="apple">Apple</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    
+    <!-- Content Descriptions -->
+    <string name="mascot_description">Friendly owl mascot</string>
+    <string name="decoration">Decorative element</string>
+    
+    <!-- Home Screen -->
+    <string name="hello_explorer">Hello, little explorer!</string>
+    <string name="lets_learn_today">Let\'s learn English today!</string>
+    <string name="profile_avatar">Profile Avatar</string>
+    <string name="todays_lesson">Today\'s Lesson</string>
+    <string name="animals_and_food">Animals &amp; Food</string>
+    <string name="continue_learning">Continue Learning</string>
+    <string name="your_progress">Your Progress</string>
+    <string name="learning_progress">Learning Progress</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="listening">Listening</string>
+    <string name="speaking">Speaking</string>
+    <string name="grammar">Grammar</string>
+    <string name="quick_access">Quick Access</string>
+    <string name="recommended_lessons">Recommended Lessons</string>
+    <string name="banner_illustration">Banner Illustration</string>
+    <string name="feature_icon">Feature Icon</string>
+    
+    <!-- Lessons -->
+    <string name="animals_beginner">Animals - Beginner</string>
+    <string name="colors_shapes">Colors &amp; Shapes</string>
+    <string name="daily_conversations">Daily Conversations</string>
+    <string name="animals_lesson">Animals Lesson</string>
+    <string name="colors_lesson">Colors Lesson</string>
+    <string name="conversations_lesson">Conversations Lesson</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_lessons">Lessons</string>
+    <string name="nav_games">Games</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Saga Map Screen -->
+    <string name="saga_map_title">Saga Map – Main Class</string>
+    <string name="your_learning_journey">Your Learning Journey</string>
+    <string name="learning_path">Learning Path</string>
+    <string name="next_lesson">Next Lesson</string>
+    <string name="vocabulary_animals">Vocabulary – Animals</string>
+    <string name="learn_new_words">Learn 10 new words with flashcards</string>
+    <string name="start_learning">Start Learning</string>
+    <string name="preview_flashcards">Preview Flashcards</string>
+    <string name="preview">Preview</string>
+    <string name="flashcards">Flashcards</string>
+    <string name="sentence_structure">Sentence Structure</string>
+    <string name="mini_quiz">Mini Quiz</string>
+    <string name="vocab">Vocab</string>
+    <string name="cards">Cards</string>
+    <string name="sentence">Sentence</string>
+    <string name="quiz">Quiz</string>
+    <string name="back_button">Back button</string>
+    <string name="student_avatar">Student avatar</string>
+    <string name="locked">Locked</string>
+    
+    <!-- TokTok English Screen -->
+    <string name="toktok_english">TokTok English</string>
+    <string name="swipe_up_next">Swipe up for next video</string>
+    <string name="what_did_boy_ask">What did the boy ask?</string>
+    <string name="buy_movie_ticket">Buy a movie ticket</string>
+    <string name="order_pizza">Order a pizza</string>
+    <string name="look_for_bag">Look for his bag</string>
+    <string name="great_job_movie">Great job! The boy is asking for a movie ticket.</string>
+    <string name="level_daily_conversation">Level 1 – Daily Conversation</string>
+    <string name="continue_text">Continue</string>
+    
+    <!-- Melody Studio Screen -->
+    <string name="melody_studio">Melody Studio</string>
+    <string name="happy_morning_song">Happy Morning Song</string>
+    <string name="level_easy">Level 1 – Easy</string>
+    <string name="choose_missing_word">Choose the missing word:</string>
+    <string name="word_little">little</string>
+    <string name="word_bright">bright</string>
+    <string name="word_yellow">yellow</string>
+    <string name="great_job_bright">Great job! The word is \'bright\'!</string>
+    <string name="continue_singing">Continue Singing</string>
+    <string name="lyrics_header">🎵 Lyrics</string>
+    <string name="sing_along">Sing Along Mode</string>
+    
+    <!-- AI Buddy Chat Screen -->
+    <string name="ai_buddy_chat">AI Buddy Chat</string>
+    <string name="buddy_online">Online • Ready to chat</string>
+    <string name="buddy_typing">AI Buddy is typing…</string>
+    <string name="buddy_listening">Listening…</string>
+    <string name="choose_scenario">Choose a Scenario</string>
+    <string name="scenario_zoo">Zoo</string>
+    <string name="scenario_market">Market</string>
+    <string name="scenario_school">School</string>
+    <string name="scenario_daily">Daily</string>
+    <string name="conversation">Conversation</string>
+    <string name="choose_response">Choose your response:</string>
+    <string name="tap_to_speak">Tap to speak</string>
+    <string name="tool_vocab">Vocab</string>
+    <string name="tool_hint">Hint</string>
+    <string name="tool_slow">Slow</string>
+    <string name="voice_input">Voice Input</string>
+    
+    <!-- Word Workshop Screen -->
+    <string name="word_workshop">Word Workshop</string>
+    <string name="spell_word_below">Spell the word below!</string>
+    <string name="difficulty_easy">Difficulty: Easy</string>
+    <string name="difficulty_medium">Difficulty: Medium</string>
+    <string name="difficulty_hard">Difficulty: Hard</string>
+    <string name="drop_letters_here">✨ Drop letters here ✨</string>
+    <string name="drag_letters_from">Drag letters from here:</string>
+    <string name="tool_shuffle">Shuffle</string>
+    <string name="tool_sound">Sound</string>
+    <string name="great_job_spelling">🎉 Great Job! 🎉</string>
+    <string name="spelled_correctly">You spelled it correctly!</string>
+    <string name="next_word">Next Word</string>
+    <string name="try_again">Try Again</string>
+    
+    <!-- Writing Dojo Screen -->
+    <string name="writing_dojo">Writing Dojo</string>
+    <string name="trace_letter_below">Trace the letter below!</string>
+    <string name="follow_stroke_order">Follow the stroke order with your finger.</string>
+    <string name="play_pronunciation">Play pronunciation</string>
+    <string name="tap_to_hear">Tap to hear</string>
+    <string name="replay_stroke">Replay stroke</string>
+    <string name="show_stroke_order">Show stroke order</string>
+    <string name="erase_reset">Erase / Reset</string>
+    <string name="next_letter">Next Letter</string>
+    <string name="previous_letter">Previous letter</string>
+    <string name="perfect_handwriting">🎉 Perfect! 🎉</string>
+    <string name="great_handwriting">Great handwriting!</string>
+    <string name="example_apple">A - Apple</string>
+    <string name="example_banana">B - Banana</string>
+    <string name="example_cat">C - Cat</string>
+    <string name="example_dog">D - Dog</string>
+    
+    <!-- Interactive Comics Screen -->
+    <string name="interactive_comics">Interactive Comics</string>
+    <string name="sparkle_icon">Sparkle icon</string>
+    <string name="comic_scene">Comic scene illustration</string>
+    <string name="tree">Tree</string>
+    <string name="cat">Cat</string>
+    <string name="ball">Ball</string>
+    <string name="sample_dialogue">Hello! Let\'s explore!</string>
+    <string name="swipe_next">Swipe for next</string>
+    <string name="swipe_icon">Swipe indicator</string>
+    <string name="vocab_icon">Vocabulary icon</string>
+    <string name="play_sound">Play sound</string>
+    <string name="auto_read">Auto-read</string>
+    <string name="sound_toggle">Sound toggle</string>
+    <string name="word_highlight">Word highlight</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="choose_ending">Choose the Ending!</string>
+    <string name="choice_treasure">The cat finds a treasure</string>
+    <string name="choice_forest">The cat gets lost in the forest</string>
+    <string name="choice_friend">The cat meets a new friend</string>
+    <string name="confetti">Confetti celebration</string>
+    <string name="story_complete">Story Complete!</string>
+    
+    <!-- Master Chef Screen -->
+    <string name="master_chef">Master Chef</string>
+    <string name="level_food_numbers">Level 2 – Food &amp; Numbers</string>
+    <string name="chef_icon">Chef hat icon</string>
+    <string name="star_1">Star 1</string>
+    <string name="star_2">Star 2</string>
+    <string name="star_3">Star 3</string>
+    <string name="customer_avatar">Customer avatar</string>
+    <string name="play_order">Play Order</string>
+    <string name="waveform">Audio waveform</string>
+    <string name="order_placeholder">"I\'d like two fried eggs and one sandwich, please."</string>
+    <string name="stove">Stove</string>
+    <string name="frying_pan">Frying pan</string>
+    <string name="cutting_board">Cutting board</string>
+    <string name="toaster">Toaster</string>
+    <string name="plate">Serving plate</string>
+    <string name="steam">Steam effect</string>
+    <string name="smoke">Smoke effect</string>
+    <string name="egg">Egg</string>
+    <string name="bread">Bread</string>
+    <string name="cheese">Cheese</string>
+    <string name="bacon">Bacon</string>
+    <string name="fruit">Fruit</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="juice">Juice</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="order_checklist">Order</string>
+    <string name="check_eggs">2× Fried Eggs</string>
+    <string name="check_sandwich">1× Sandwich</string>
+    <string name="check_juice">1× Orange Juice</string>
+    <string name="hint">Hint</string>
+    <string name="replay_audio">Replay audio</string>
+    <string name="slow_mode">Slow mode</string>
+    <string name="great_job_chef">Great job, Chef!</string>
+    <string name="order_completed">You completed the order!</string>
+    <string name="coins_earned">+50 Coins</string>
+    <string name="xp_earned">+100 XP</string>
+    <string name="next_order">Next Order</string>
+    
+    <!-- Pet Hospital -->
+    <string name="pet_hospital">Pet Hospital</string>
+    <string name="level_body_parts">Level: Body Parts &amp; Health</string>
+    <string name="stethoscope_icon">Stethoscope Icon</string>
+    <string name="sick_pet">Sick Pet</string>
+    <string name="sparkles">Sparkles</string>
+    <string name="dog_fever">The dog has a fever 🌡️</string>
+    <string name="cat_eye_problem">The cat has eye problems 👁️</string>
+    <string name="rabbit_ear_infection">The rabbit has an ear infection 👂</string>
+    <string name="play_instruction">Play Instruction</string>
+    <string name="instruction_placeholder">Tap the button to hear instructions…</string>
+    <string name="tap_play_to_start">Tap the play button to start treatment!</string>
+    <string name="tap_play_for_next">Great! Tap play for the next step.</string>
+    <string name="mood_meter">Mood Meter</string>
+    <string name="pet_mood">Pet Mood</string>
+    <string name="treatment_steps">Treatment Steps</string>
+    <string name="check_temperature">Take temperature</string>
+    <string name="check_clean_wound">Clean wound</string>
+    <string name="check_vitamins">Give 2 vitamins</string>
+    <string name="check_bandage">Put on bandage</string>
+    <string name="medical_tools">Medical Tools</string>
+    <string name="thermometer">Thermometer</string>
+    <string name="bandage">Bandage</string>
+    <string name="medicine">Medicine</string>
+    <string name="eye_drops">Eye Drops</string>
+    <string name="cotton_swab">Cotton Swab</string>
+    <string name="ice_pack">Ice Pack</string>
+    <string name="stethoscope">Stethoscope</string>
+    <string name="syringe">Syringe</string>
+    <string name="happy_pet">Happy Pet</string>
+    <string name="great_job_doctor">Great job, Doctor! 🎉</string>
+    <string name="pet_healthy_again">The pet is healthy again!</string>
+    <string name="xp_reward">XP Reward</string>
+    <string name="xp_reward_value">+100 XP</string>
+    <string name="sticker_reward">Sticker Reward</string>
+    <string name="sticker_unlocked">Doctor Hat Unlocked</string>
+    <string name="next_patient">Next Patient</string>
+    
+    <!-- Pet Hospital Instructions -->
+    <string name="instruction_take_temperature">Please check the temperature on the head 🌡️</string>
+    <string name="instruction_clean_paw">Clean the wound on the paw with cotton 🐾</string>
+    <string name="instruction_give_medicine">Give the pet two pills of medicine 💊</string>
+    <string name="instruction_bandage_paw">Put a bandage on the paw 🩹</string>
+    <string name="instruction_check_eyes">Apply eye drops to the eyes 👁️</string>
+    <string name="instruction_listen_heart">Listen to the heartbeat with the stethoscope 🩺</string>
+    <string name="instruction_give_vitamins">Give the pet a vitamin injection 💉</string>
+    <string name="instruction_apply_ice">Apply ice pack to the head 🧊</string>
+    <string name="instruction_clean_ear">Clean the ear infection with cotton swab 👂</string>
+    <string name="instruction_bandage_ear">Put a bandage on the ear 🩹</string>
+    
+    <!-- Robot Factory -->
+    <string name="robot_factory">Robot Factory</string>
+    <string name="level_logic">Logic &amp; Directions</string>
+    <string name="gear_icon">Gear Icon</string>
+    <string name="level_3_turn_left">Level 3 – Turn Left Practice</string>
+    <string name="robot">Robot</string>
+    <string name="goal_flag">Goal Flag</string>
+    <string name="wrong">Wrong</string>
+    <string name="command_sequence">Command Sequence</string>
+    <string name="commands">Commands</string>
+    <string name="forward">Forward</string>
+    <string name="turn_left">Turn Left</string>
+    <string name="turn_right">Turn Right</string>
+    <string name="loop_x2">Loop x2</string>
+    <string name="loop">Loop</string>
+    <string name="run">RUN</string>
+    <string name="reset">Reset</string>
+    <string name="step">Step</string>
+    <string name="hint">Hint</string>
+    <string name="directions">Directions</string>
+    <string name="compass">Compass</string>
+    <string name="timer">Timer</string>
+    <string name="coins">Coins</string>
+    <string name="maze_escaped">You escaped the maze! 🎉</string>
+    <string name="well_programmed">Great programming skills!</string>
+    <string name="xp_reward_robot">+150 XP</string>
+    <string name="perfect_route">Perfect Route!</string>
+    <string name="perfect_badge">Perfect Badge</string>
+    <string name="next_level">Next Level</string>
+    
+    <!-- Robot Factory Levels -->
+    <string name="level_1_forward">Level 1 – Forward Practice</string>
+    <string name="level_2_turns">Level 2 – Making Turns</string>
+    <string name="level_4_complex">Level 4 – Complex Path</string>
+    <string name="level_5_loops">Level 5 – Using Loops</string>
+    
+    <!-- Robot Factory Instructions -->
+    <string name="drag_commands">Drag commands to the sequence panel</string>
+    <string name="press_run">Press RUN to execute your program</string>
+    <string name="avoid_walls">Avoid the walls! 🧱</string>
+    <string name="reach_goal">Guide the robot to the goal flag 🚩</string>
+    <string name="use_hint">Tap the lightbulb for hints 💡</string>
+    <string name="optimal_solution">Try to find the shortest path!</string>
+    
+    <!-- Robot Factory Feedback -->
+    <string name="hit_wall">Oops! Robot hit a wall 💥</string>
+    <string name="out_of_bounds">Robot went out of bounds!</string>
+    <string name="try_again">Try again with different commands</string>
+    <string name="good_attempt">Good attempt! Keep trying 🤖</string>
+    <string name="excellent_programming">Excellent programming! ⭐</string>
+    <string name="bonus_coins_earned">Bonus: +30 coins for efficiency!</string>
+    
+    <!-- Detective Bureau -->
+    <string name="detective_bureau">Detective Bureau</string>
+    <string name="find_hidden_objects">Find the hidden objects!</string>
+    <string name="detective">Detective</string>
+    <string name="find_this_item">Find this item:</string>
+    <string name="target_object">Target object</string>
+    <string name="play_pronunciation">Play pronunciation</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="hidden_object_scene">Hidden object scene</string>
+    <string name="correct">Correct</string>
+    <string name="wrong">Wrong</string>
+    <string name="sparkle">Sparkle</string>
+    <string name="great_job">Great job! 🎉</string>
+    <string name="hint">Hint</string>
+    <string name="zoom">Zoom</string>
+    <string name="replay_word">Replay word</string>
+    <string name="find_progress">Find Progress</string>
+    <string name="progress_single">0/1 Found</string>
+    <string name="item_1">Item 1</string>
+    <string name="item_2">Item 2</string>
+    <string name="item_3">Item 3</string>
+    <string name="apple">apple</string>
+    <string name="ball">ball</string>
+    <string name="pencil">pencil</string>
+    <string name="timer">Timer</string>
+    <string name="score">Score</string>
+    <string name="timer_default">1:30</string>
+    <string name="score_default">+50</string>
+    <string name="microphone">Microphone</string>
+    <string name="read_word_aloud">Read the word aloud</string>
+    <string name="confetti">Confetti</string>
+    <string name="you_found_it">You found it!</string>
+    <string name="great_detective_work">Great detective work! 🔍</string>
+    <string name="detective_badge">Detective badge</string>
+    <string name="xp_reward_detective">+100 XP</string>
+    <string name="coins_reward_detective">+30</string>
+    <string name="replay">Replay</string>
+    <string name="next_mystery">Next</string>
+    <string name="games">Games</string>
+    
+    <!-- Detective Bureau Instructions -->
+    <string name="tap_to_find">Tap the object in the scene!</string>
+    <string name="use_hints">Use hints if you need help 💡</string>
+    <string name="pinch_to_zoom">Pinch to zoom in and out</string>
+    <string name="find_all_objects">Find all objects to win!</string>
+    
+    <!-- Detective Bureau Feedback -->
+    <string name="object_found">Object found! 🎯</string>
+    <string name="keep_searching">Keep searching! 🔍</string>
+    <string name="excellent_detective">Excellent detective work!</string>
+    <string name="all_found">All objects found! 🌟</string>
+    <string name="time_bonus">Time bonus: +%d coins</string>
+    
+    <!-- Rhythm Star -->
+    <string name="rhythm_star">Rhythm Star</string>
+    <string name="tap_words_in_rhythm">Tap the words in rhythm!</string>
+    <string name="rhythm_star_icon">Rhythm Star</string>
+    
+    <!-- Rhythm Star Song Info -->
+    <string name="sunny_day_beat">Sunny Day Beat</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="song_title">Song Title</string>
+    
+    <!-- Rhythm Star Controls -->
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="slow_mode">Slow Mode</string>
+    <string name="repeat_sound">Repeat Sound</string>
+    <string name="auto_hint">Auto Hint</string>
+    <string name="play_pause_button">Play/Pause Button</string>
+    
+    <!-- Rhythm Star Feedback -->
+    <string name="perfect">PERFECT!</string>
+    <string name="good">GOOD!</string>
+    <string name="miss">MISS</string>
+    <string name="combo">Combo x%d</string>
+    <string name="great_timing">Great timing! 🎵</string>
+    <string name="keep_the_rhythm">Keep the rhythm going!</string>
+    <string name="amazing_combo">Amazing combo! 🔥</string>
+    
+    <!-- Rhythm Star Vocabulary -->
+    <string name="words">Words</string>
+    <string name="collected">Collected</string>
+    <string name="vocab_apple">apple</string>
+    <string name="vocab_sunny">sunny</string>
+    <string name="vocab_dance">dance</string>
+    <string name="vocab_jump">jump</string>
+    <string name="vocab_blue">blue</string>
+    
+    <!-- Rhythm Star Star Meter -->
+    <string name="star_1">Star 1</string>
+    <string name="star_2">Star 2</string>
+    <string name="star_3">Star 3</string>
+    <string name="beginner_level">★☆☆ Beginner</string>
+    <string name="good_level">★★☆ Good</string>
+    <string name="perfect_level">★★★ Perfect</string>
+    
+    <!-- Rhythm Star Result -->
+    <string name="song_complete">Song Complete! 🎵</string>
+    <string name="score">Score:</string>
+    <string name="accuracy">Accuracy:</string>
+    <string name="words_collected_result">Words:</string>
+    <string name="play_again">Play Again</string>
+    <string name="next_song">Next Song</string>
+    <string name="stars_earned">Stars Earned</string>
+    <string name="final_score">Final Score: %d</string>
+    <string name="accuracy_percent">Accuracy: %.0f%%</string>
+    <string name="vocabulary_found">Vocabulary: %d/%d</string>
+    <string name="max_combo">Max Combo: x%d</string>
+    
+    <!-- Rhythm Star Instructions -->
+    <string name="tap_falling_notes">Tap the falling notes in rhythm!</string>
+    <string name="match_the_rhythm">Match the rhythm of the song</string>
+    <string name="collect_vocabulary">Collect vocabulary words as you play</string>
+    <string name="perfect_timing_bonus">Perfect timing gives bonus points!</string>
+    <string name="build_combo">Build combos for higher scores!</string>
+    <string name="use_slow_mode">Use slow mode to practice</string>
+    <string name="listen_carefully">Listen carefully and tap on beat!</string>
+    
+    <!-- Rhythm Star Rewards -->
+    <string name="rhythm_master">Rhythm Master! 🌟</string>
+    <string name="xp_reward_rhythm">+150 XP</string>
+    <string name="coins_reward_rhythm">+50</string>
+    <string name="perfect_score_bonus">Perfect Score Bonus: +100</string>
+    
+    <!-- City Builder -->
+    <string name="city_builder">City Builder</string>
+    <string name="build_your_dream_city">Build your dream city!</string>
+    <string name="crane_icon">Crane icon</string>
+    
+    <!-- City Builder Resources -->
+    <string name="gold_coin">Gold coin</string>
+    <string name="level">Level %d</string>
+    <string name="get_coins">Get</string>
+    <string name="gold_count">%d</string>
+    
+    <!-- City Builder Buildings -->
+    <string name="small_house">Small House</string>
+    <string name="green_tree">Green Tree</string>
+    <string name="toy_shop">Toy Shop</string>
+    <string name="road">Road</string>
+    <string name="playground">Playground</string>
+    <string name="zoo">Zoo</string>
+    <string name="car">Car</string>
+    <string name="houses">Houses</string>
+    <string name="trees">Trees</string>
+    <string name="cars">Cars</string>
+    <string name="roads">Roads</string>
+    
+    <!-- City Builder Actions -->
+    <string name="place">Place</string>
+    <string name="unlock">Unlock</string>
+    <string name="unlock_land">Unlock Land</string>
+    <string name="unlock_for_coins">Unlock for %d 🪙</string>
+    <string name="continue_building">Continue Building</string>
+    
+    <!-- City Builder Quests -->
+    <string name="quests">🎯 Quests</string>
+    <string name="quest_build_houses">Build 2 houses</string>
+    <string name="quest_plant_trees">Plant 3 trees</string>
+    <string name="quest_add_road">Add a road</string>
+    <string name="quest_reward">+50</string>
+    <string name="quest_complete">Quest complete! 🎉</string>
+    <string name="all_quests_complete">All quests complete! +50 coins! 🎉</string>
+    
+    <!-- City Builder Happiness -->
+    <string name="mood">Mood</string>
+    <string name="happy">Happy</string>
+    <string name="neutral">Neutral</string>
+    <string name="unhappy">Unhappy</string>
+    <string name="city_happiness">City happiness</string>
+    
+    <!-- City Builder Level Up -->
+    <string name="level_up">Level Up! 🎉</string>
+    <string name="you_reached_level">You reached Level %d!</string>
+    <string name="new_items_unlocked">New items unlocked:</string>
+    <string name="level_stars">Level stars</string>
+    
+    <!-- City Builder Feedback -->
+    <string name="not_enough_coins">Not enough coins!</string>
+    <string name="tile_occupied">Tile already occupied!</string>
+    <string name="unlock_area_first">Unlock this area first!</string>
+    <string name="building_placed">Building placed! ✨</string>
+    <string name="land_unlocked">New land unlocked! 🌟</string>
+    
+    <!-- City Builder Instructions -->
+    <string name="tap_to_place">Tap an empty tile to place your building!</string>
+    <string name="drag_to_move">Drag to move objects (optional)</string>
+    <string name="pinch_to_zoom_city">Pinch to zoom in and out</string>
+    <string name="complete_quests">Complete quests to earn rewards</string>
+    <string name="unlock_new_land">Unlock new land to expand your city</string>
+    <string name="build_parks">Build parks and trees to increase happiness</string>
+    <string name="earn_coins_learning">Earn coins by completing learning activities!</string>
+    
+    <!-- City Builder Prices -->
+    <string name="price_house">50</string>
+    <string name="price_tree">20</string>
+    <string name="price_shop">80</string>
+    <string name="price_road">15</string>
+    <string name="price_playground">100</string>
+    <string name="price_unlock_land">200</string>
+    
+    <!-- City Builder Rewards -->
+    <string name="xp_gain">+%d XP</string>
+    <string name="coins_gain">+%d</string>
+    <string name="level_reward">+100 coins!</string>
+    
+    <!-- City Builder Tabs -->
+    <string name="tab_houses">Houses</string>
+    <string name="tab_trees">Trees</string>
+    <string name="tab_vehicles">Vehicles</string>
+    <string name="tab_zoo">Zoo</string>
+    <string name="tab_roads">Roads</string>
+    
+    <!-- Avatar Studio -->
+    <string name="avatar_studio">Avatar Studio</string>
+    <string name="customize_character">Customize your character!</string>
+    <string name="stage">Stage</string>
+    <string name="avatar_base">Avatar Base</string>
+    <string name="hairstyle">Hairstyle</string>
+    <string name="sparkle">Sparkle</string>
+    <string name="rotate_left">Rotate Left</string>
+    <string name="rotate_right">Rotate Right</string>
+    <string name="star">Star</string>
+    
+    <!-- Avatar Studio Categories -->
+    <string name="clothes">Clothes</string>
+    <string name="shoes">Shoes</string>
+    <string name="hats">Hats</string>
+    <string name="accessories">Accessories</string>
+    <string name="hairstyles">Hairstyles</string>
+    <string name="bags">Bags</string>
+    
+    <!-- Avatar Studio Items -->
+    <string name="tshirt">T-Shirt</string>
+    <string name="dress">Dress</string>
+    <string name="shirt">Shirt</string>
+    <string name="pants">Pants</string>
+    <string name="jacket">Jacket</string>
+    <string name="skirt">Skirt</string>
+    <string name="sneakers">Sneakers</string>
+    <string name="boots">Boots</string>
+    <string name="sandals">Sandals</string>
+    <string name="cap">Cap</string>
+    <string name="beanie">Beanie</string>
+    <string name="sun_hat">Sun Hat</string>
+    <string name="crown">Crown</string>
+    <string name="glasses">Glasses</string>
+    <string name="necklace">Necklace</string>
+    <string name="earrings">Earrings</string>
+    <string name="bracelet">Bracelet</string>
+    <string name="watch">Watch</string>
+    <string name="scarf">Scarf</string>
+    <string name="backpack">Backpack</string>
+    <string name="purse">Purse</string>
+    <string name="tote_bag">Tote Bag</string>
+    <string name="hat">Hat</string>
+    <string name="accessory">Accessory</string>
+    <string name="bag">Bag</string>
+    
+    <!-- Avatar Studio Actions -->
+    <string name="buy">Buy</string>
+    <string name="equip">Equip</string>
+    <string name="save_look">Save Look</string>
+    <string name="share">Share</string>
+    <string name="my_items">My Items</string>
+    <string name="wardrobe">Wardrobe</string>
+    <string name="locked">Locked</string>
+    
+    <!-- Avatar Studio Expressions -->
+    <string name="smile">Smile</string>
+    <string name="laugh">Laugh</string>
+    <string name="surprised">Surprised</string>
+    <string name="wink">Wink</string>
+    
+    <!-- Avatar Studio Feedback -->
+    <string name="item_purchased">Item purchased! 🎉</string>
+    <string name="item_equipped">Item equipped! ✨</string>
+    <string name="not_enough_coins">Not enough coins! 😢</string>
+    <string name="look_saved">Look saved! 💾</string>
+    <string name="look_shared">Look shared! 🌟</string>
+    <string name="you_got_coins">You got 50 coins! 🪙</string>
+    
+    <!-- Avatar Studio Rating -->
+    <string name="basic_style">Basic Style</string>
+    <string name="good_style">Good Style</string>
+    <string name="perfect_style">Perfect Style!</string>
+    
+    <!-- Avatar Studio Instructions -->
+    <string name="tap_to_preview">Tap an item to preview</string>
+    <string name="buy_with_coins">Buy items with coins</string>
+    <string name="mix_and_match">Mix and match your style</string>
+    <string name="create_unique_look">Create your unique look!</string>
+    <string name="change_expression">Change your expression</string>
+    <string name="save_and_share">Save and share your style</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="feedback">Feedback</string>
+    
+    <!-- AR Camera -->
+    <string name="ar_camera_title">AR Camera</string>
+    <string name="ar_camera">AR Camera</string>
+    <string name="magic_vision">Magic Vision</string>
+    <string name="scan_objects">Scan Objects</string>
+    
+    <!-- AR Camera Instructions -->
+    <string name="point_at_object">Point the camera at an object</string>
+    <string name="move_closer">Or move closer</string>
+    <string name="try_different_angle">Try a different angle</string>
+    <string name="tap_to_hear">Tap to hear pronunciation</string>
+    <string name="swipe_up_history">Swipe up to see scan history</string>
+    <string name="look_around">Look around for objects</string>
+    
+    <!-- AR Camera Actions -->
+    <string name="capture_photo">Capture Photo</string>
+    <string name="save_to_album">Save to Album</string>
+    <string name="save">Save</string>
+    <string name="retry">Retry</string>
+    <string name="share">Share</string>
+    <string name="practice_word">Practice</string>
+    <string name="play_pronunciation">Play Pronunciation</string>
+    <string name="start_quiz">Start Quiz</string>
+    <string name="play_quiz">AR Quiz</string>
+    
+    <!-- AR Camera Feedback -->
+    <string name="scanning">Scanning…</string>
+    <string name="processing">Processing…</string>
+    <string name="object_detected">Object detected!</string>
+    <string name="not_found">Object not found</string>
+    <string name="hmm_try_again">Hmm… try a different angle!</string>
+    <string name="detecting_objects">Detecting objects…</string>
+    
+    <!-- AR Quiz -->
+    <string name="which_one_is">Which one is the %s?</string>
+    <string name="tap_correct_object">Tap the correct object</string>
+    <string name="correct_answer">✨ Correct! +10 XP</string>
+    <string name="try_again">Try again!</string>
+    <string name="quiz_complete">Quiz Complete!</string>
+    <string name="score">Score</string>
+    
+    <!-- AR Camera Snapshot -->
+    <string name="photo_saved">Photo saved to album!</string>
+    <string name="photo_shared">Photo shared successfully</string>
+    <string name="save_failed">Failed to save photo</string>
+    
+    <!-- AR Camera History -->
+    <string name="recent_scans">Recent Scans</string>
+    <string name="detected_words">Detected Words</string>
+    <string name="no_history_yet">No scans yet. Start scanning objects!</string>
+    
+    <!-- AR Camera States -->
+    <string name="loading">Loading…</string>
+    <string name="ready">Ready</string>
+    <string name="camera_error">Camera error</string>
+    <string name="permission_denied">Camera permission denied</string>
+    
+    <!-- Object Vocabulary (30+ common objects) -->
+    <string name="chair">chair</string>
+    <string name="chair_pronunciation">/tʃeə(r)/</string>
+    <string name="table">table</string>
+    <string name="table_pronunciation">/ˈteɪbl/</string>
+    <string name="cup">cup</string>
+    <string name="cup_pronunciation">/kʌp/</string>
+    <string name="book">book</string>
+    <string name="book_pronunciation">/bʊk/</string>
+    <string name="bag">bag</string>
+    <string name="bag_pronunciation">/bæɡ/</string>
+    <string name="phone">phone</string>
+    <string name="phone_pronunciation">/fəʊn/</string>
+    <string name="pencil">pencil</string>
+    <string name="pencil_pronunciation">/ˈpensl/</string>
+    <string name="bottle">bottle</string>
+    <string name="bottle_pronunciation">/ˈbɒtl/</string>
+    <string name="clock">clock</string>
+    <string name="clock_pronunciation">/klɒk/</string>
+    <string name="lamp">lamp</string>
+    <string name="lamp_pronunciation">/læmp/</string>
+    <string name="computer">computer</string>
+    <string name="computer_pronunciation">/kəmˈpjuːtə(r)/</string>
+    <string name="keyboard">keyboard</string>
+    <string name="keyboard_pronunciation">/ˈkiːbɔːd/</string>
+    <string name="mouse">mouse</string>
+    <string name="mouse_pronunciation">/maʊs/</string>
+    <string name="plant">plant</string>
+    <string name="plant_pronunciation">/plɑːnt/</string>
+    <string name="vase">vase</string>
+    <string name="vase_pronunciation">/vɑːz/</string>
+    <string name="shoes">shoes</string>
+    <string name="shoes_pronunciation">/ʃuːz/</string>
+    <string name="hat">hat</string>
+    <string name="hat_pronunciation">/hæt/</string>
+    <string name="jacket">jacket</string>
+    <string name="jacket_pronunciation">/ˈdʒækɪt/</string>
+    <string name="door">door</string>
+    <string name="door_pronunciation">/dɔː(r)/</string>
+    <string name="window">window</string>
+    <string name="window_pronunciation">/ˈwɪndəʊ/</string>
+    <string name="picture">picture</string>
+    <string name="picture_pronunciation">/ˈpɪktʃə(r)/</string>
+    <string name="mirror">mirror</string>
+    <string name="mirror_pronunciation">/ˈmɪrə(r)/</string>
+    <string name="pillow">pillow</string>
+    <string name="pillow_pronunciation">/ˈpɪləʊ/</string>
+    <string name="blanket">blanket</string>
+    <string name="blanket_pronunciation">/ˈblæŋkɪt/</string>
+    <string name="toy">toy</string>
+    <string name="toy_pronunciation">/tɔɪ/</string>
+    <string name="ball">ball</string>
+    <string name="ball_pronunciation">/bɔːl/</string>
+    <string name="car">car</string>
+    <string name="car_pronunciation">/kɑː(r)/</string>
+    <string name="bike">bike</string>
+    <string name="bike_pronunciation">/baɪk/</string>
+    <string name="tree">tree</string>
+    <string name="tree_pronunciation">/triː/</string>
+    <string name="flower">flower</string>
+    <string name="flower_pronunciation">/ˈflaʊə(r)/</string>
+    
+    <!-- Social Arena -->
+    <string name="social_arena">Social Arena</string>
+    <string name="visit_friends_cities">Visit Friends\' Cities</string>
+    <string name="pk_battle_1vs1">Real-time 1vs1 Battle</string>
+    <string name="finding_opponent">Finding Opponent...</string>
+    <string name="quiz_battle">Real-time Quiz Battle</string>
+    <string name="xp_label">XP</string>
+    <string name="win_rate_label">Win Rate</string>
+    <string name="tier_label">Tier</string>
+    <string name="level_prefix">Level</string>
+    <string name="friends_online">friends online</string>
+    <string name="correct_answer">Perfect!</string>
+    <string name="wrong_answer">Try again!</string>
+    <string name="quiz_timeout">Time\'s up!</string>
+    <string name="victory_message">⭐ VICTORY! ⭐</string>
+    <string name="defeat_message">💔 DEFEAT</string>
+    <string name="better_luck">Better luck next time!</string>
+    <string name="final_score">Final Score</string>
+    <string name="accuracy_label">Accuracy</string>
+    <string name="xp_gained">XP Gained</string>
+    <string name="rank_change">Rank Change</string>
+    <string name="tier_bronze">Bronze</string>
+    <string name="tier_silver">Silver</string>
+    <string name="tier_gold">Gold</string>
+    <string name="tier_platinum">Platinum</string>
+    <string name="send_gift">Send Gift</string>
+    <string name="leave">Leave</string>
+    <string name="play_again">Play Again</string>
+    <string name="return_to_arena">Return to Arena</string>
+    <string name="share_result">Share Result</string>
+    <string name="cancel">Cancel</string>
+    <string name="choose_gift">Choose a Gift</string>
+    <string name="gift_coins_50">50 Coins</string>
+    <string name="gift_coins_100">100 Coins</string>
+    <string name="gift_coins_200">200 Coins</string>
+    <string name="gift_star">Star Item</string>
+    <string name="gift_heart">Heart Item</string>
+    <string name="gift_trophy">Trophy Item</string>
+    <string name="city_tier">City Tier</string>
+    <string name="building_house">House</string>
+    <string name="building_shop">Shop</string>
+    <string name="building_tree">Tree</string>
+    <string name="opponent_found">Opponent Found!</string>
+    <string name="get_ready">Get Ready!</string>
+    
+    <!-- Social Arena Quiz Questions -->
+    <string name="question_1">What is the English word for \'chó\'?</string>
+    <string name="question_1_answer_1">Dog</string>
+    <string name="question_1_answer_2">Cat</string>
+    <string name="question_1_answer_3">Bird</string>
+    <string name="question_1_answer_4">Fish</string>
+    
+    <string name="question_2">Which word means \'màu đỏ\'?</string>
+    <string name="question_2_answer_1">Red</string>
+    <string name="question_2_answer_2">Blue</string>
+    <string name="question_2_answer_3">Green</string>
+    <string name="question_2_answer_4">Yellow</string>
+    
+    <string name="question_3">What do you call \'quyển sách\'?</string>
+    <string name="question_3_answer_1">Book</string>
+    <string name="question_3_answer_2">Pen</string>
+    <string name="question_3_answer_3">Desk</string>
+    <string name="question_3_answer_4">Bag</string>
+    
+    <string name="question_4">Translate \'con gà\':</string>
+    <string name="question_4_answer_1">Chicken</string>
+    <string name="question_4_answer_2">Duck</string>
+    <string name="question_4_answer_3">Cow</string>
+    <string name="question_4_answer_4">Pig</string>
+    
+    <string name="question_5">What is \'nhà\'?</string>
+    <string name="question_5_answer_1">House</string>
+    <string name="question_5_answer_2">Car</string>
+    <string name="question_5_answer_3">Tree</string>
+    <string name="question_5_answer_4">Road</string>
+    
+    <string name="question_6">The word for \'nước\' is:</string>
+    <string name="question_6_answer_1">Water</string>
+    <string name="question_6_answer_2">Fire</string>
+    <string name="question_6_answer_3">Wind</string>
+    <string name="question_6_answer_4">Earth</string>
+    
+    <string name="question_7">What means \'ăn\'?</string>
+    <string name="question_7_answer_1">Eat</string>
+    <string name="question_7_answer_2">Drink</string>
+    <string name="question_7_answer_3">Sleep</string>
+    <string name="question_7_answer_4">Run</string>
+    
+    <string name="question_8">\'Bạn\' translates to:</string>
+    <string name="question_8_answer_1">Friend</string>
+    <string name="question_8_answer_2">Enemy</string>
+    <string name="question_8_answer_3">Teacher</string>
+    <string name="question_8_answer_4">Student</string>
+    
+    <string name="question_9">What is \'lớn\'?</string>
+    <string name="question_9_answer_1">Big</string>
+    <string name="question_9_answer_2">Small</string>
+    <string name="question_9_answer_3">Tall</string>
+    <string name="question_9_answer_4">Short</string>
+    
+    <string name="question_10">The word for \'đẹp\' is:</string>
+    <string name="question_10_answer_1">Beautiful</string>
+    <string name="question_10_answer_2">Ugly</string>
+    <string name="question_10_answer_3">Old</string>
+    <string name="question_10_answer_4">New</string>
+    
+    <!-- Social Arena Additional Phrases -->
+    <string name="explore_send_gifts">Explore • Send Gifts</string>
+    <string name="ready_to_battle">⚡ Ready to battle!</string>
+    <string name="you_won_battle">You won the battle!</string>
+    <string name="xp_boost">XP Boost (+100)</string>
+    <string name="rare_building">Rare Building</string>
 </resources>

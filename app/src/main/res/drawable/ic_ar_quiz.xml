@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Quiz badge circle -->
+    <path
+        android:pathData="M16,4 m-12,0 a12,12 0 1,1 24,0 a12,12 0 1,1 -24,0"
+        android:fillColor="#F8BBD0"/>
+    
+    <!-- Question mark -->
+    <path
+        android:pathData="M16,10 Q18,10 18,12 Q18,14 16,15 L16,17 M16,20 L16,22"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <!-- Star decorations -->
+    <path
+        android:pathData="M8,8 L9,10 L11,9 L9,8 Z"
+        android:fillColor="#FFD93D"/>
+    
+    <path
+        android:pathData="M24,8 L25,10 L27,9 L25,8 Z"
+        android:fillColor="#FFD93D"/>
+</vector>

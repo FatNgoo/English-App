@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Scanning grid lines horizontal -->
+    <path
+        android:pathData="M0,8 L32,8 M0,16 L32,16 M0,24 L32,24"
+        android:strokeColor="#64B5F6"
+        android:strokeWidth="1"
+        android:strokeDasharray="4,4"
+        android:alpha="0.5"/>
+    
+    <!-- Scanning grid lines vertical -->
+    <path
+        android:pathData="M8,0 L8,32 M16,0 L16,32 M24,0 L24,32"
+        android:strokeColor="#64B5F6"
+        android:strokeWidth="1"
+        android:strokeDasharray="4,4"
+        android:alpha="0.5"/>
+</vector>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    
+    <!-- Crane base -->
+    <path
+        android:pathData="M20,50 L44,50 L44,58 L20,58 Z"
+        android:fillColor="#FF9800"/>
+    
+    <!-- Crane tower -->
+    <path
+        android:pathData="M30,20 L34,20 L34,50 L30,50 Z"
+        android:fillColor="#FFA726"/>
+    
+    <!-- Crane arm horizontal -->
+    <path
+        android:pathData="M10,22 L54,22 L54,26 L10,26 Z"
+        android:fillColor="#FFB74D"/>
+    
+    <!-- Crane hook -->
+    <path
+        android:pathData="M48,26 L50,26 L50,40 L48,40 Z"
+        android:fillColor="#757575"/>
+    
+    <path
+        android:pathData="M46,40 L52,40 L49,46 Z"
+        android:fillColor="#9E9E9E"/>
+    
+    <!-- Crane cabin -->
+    <path
+        android:pathData="M28,28 L36,28 L36,36 L28,36 Z"
+        android:fillColor="#FFF9C4"/>
+    
+    <!-- Cabin window -->
+    <path
+        android:pathData="M30,30 L34,30 L34,34 L30,34 Z"
+        android:fillColor="#81D4FA"/>
+    
+    <!-- Glow effect -->
+    <path
+        android:pathData="M32,10 L36,16 L28,16 Z"
+        android:fillColor="#FFEB3B"
+        android:fillAlpha="0.6"/>
+</vector>

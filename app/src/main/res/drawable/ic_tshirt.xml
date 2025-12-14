@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- T-shirt body -->
+    <path
+        android:pathData="M12,14 L36,14 L36,40 L12,40 Z"
+        android:fillColor="#64B5F6"/>
+    
+    <!-- Sleeves -->
+    <path
+        android:pathData="M8,14 L12,14 L12,22 L8,22 Z"
+        android:fillColor="#42A5F5"/>
+    
+    <path
+        android:pathData="M36,14 L40,14 L40,22 L36,22 Z"
+        android:fillColor="#42A5F5"/>
+    
+    <!-- Collar -->
+    <path
+        android:pathData="M18,14 L18,10 L30,10 L30,14"
+        android:strokeColor="#1976D2"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Buttons -->
+    <path
+        android:pathData="M24,18 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#E3F2FD"/>
+    
+    <path
+        android:pathData="M24,24 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#E3F2FD"/>
+</vector>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Save disk -->
+    <path
+        android:pathData="M6,6 L26,6 L26,26 L6,26 Z"
+        android:fillColor="#42A5F5"/>
+    
+    <!-- Disk label -->
+    <path
+        android:pathData="M8,8 L24,8 L24,14 L8,14 Z"
+        android:fillColor="#1976D2"/>
+    
+    <!-- Disk hole -->
+    <path
+        android:pathData="M16,18 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0"
+        android:fillColor="#E3F2FD"/>
+</vector>
