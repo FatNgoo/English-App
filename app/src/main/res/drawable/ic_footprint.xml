@@ -11,28 +11,16 @@
         android:pathData="M12,16 Q10,16 10,18 L10,24 Q10,26 12,26 L16,26 Q18,26 18,24 L18,18 Q18,16 16,16 Z" />
     
     <!-- Toes -->
-    <ellipse
+    <path
         android:fillColor="#8B6F47"
-        android:cx="10"
-        android:cy="12"
-        android:rx="2"
-        android:ry="2.5" />
-    <ellipse
+        android:pathData="M12,12 a2,2.5 0 1,1 -4,0 a2,2.5 0 1,1 4,0" />
+    <path
         android:fillColor="#8B6F47"
-        android:cx="13"
-        android:cy="10"
-        android:rx="2"
-        android:ry="2.5" />
-    <ellipse
+        android:pathData="M15,10 a2,2.5 0 1,1 -4,0 a2,2.5 0 1,1 4,0" />
+    <path
         android:fillColor="#8B6F47"
-        android:cx="16"
-        android:cy="11"
-        android:rx="2"
-        android:ry="2.5" />
-    <ellipse
+        android:pathData="M18,11 a2,2.5 0 1,1 -4,0 a2,2.5 0 1,1 4,0" />
+    <path
         android:fillColor="#8B6F47"
-        android:cx="19"
-        android:cy="12"
-        android:rx="1.5"
-        android:ry="2" />
+        android:pathData="M21,12 a1.5,2 0 1,1 -3,0 a1.5,2 0 1,1 3,0" />
 </vector>

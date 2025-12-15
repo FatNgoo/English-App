@@ -10,7 +10,6 @@
         android:pathData="M0,8 L32,8 M0,16 L32,16 M0,24 L32,24"
         android:strokeColor="#64B5F6"
         android:strokeWidth="1"
-        android:strokeDasharray="4,4"
         android:alpha="0.5"/>
     
     <!-- Scanning grid lines vertical -->
@@ -18,6 +17,5 @@
         android:pathData="M8,0 L8,32 M16,0 L16,32 M24,0 L24,32"
         android:strokeColor="#64B5F6"
         android:strokeWidth="1"
-        android:strokeDasharray="4,4"
         android:alpha="0.5"/>
 </vector>

@@ -92,33 +92,51 @@ public class MelodyStudioActivity extends AppCompatActivity {
      */
     private void setupClickListeners() {
         // Back button
-        btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
         // Play/Pause button
-        btnPlayPause.setOnClickListener(v -> togglePlayPause());
+        if (btnPlayPause != null) {
+            btnPlayPause.setOnClickListener(v -> togglePlayPause());
+        }
 
         // Replay button
-        findViewById(R.id.btnReplay).setOnClickListener(v -> {
-            replaySnippet();
-            Toast.makeText(this, "🔄 Replaying snippet", Toast.LENGTH_SHORT).show();
-        });
+        View btnReplay = findViewById(R.id.btnReplay);
+        if (btnReplay != null) {
+            btnReplay.setOnClickListener(v -> {
+                replaySnippet();
+                Toast.makeText(this, "🔄 Replaying snippet", Toast.LENGTH_SHORT).show();
+            });
+        }
 
         // Mic button (Sing Along Mode)
-        findViewById(R.id.btnMic).setOnClickListener(v -> {
-            Toast.makeText(this, "🎤 Sing Along Mode activated!", Toast.LENGTH_SHORT).show();
-            // In a real app, this would enable microphone and record user's singing
-        });
+        View btnMic = findViewById(R.id.btnMic);
+        if (btnMic != null) {
+            btnMic.setOnClickListener(v -> {
+                Toast.makeText(this, "🎤 Sing Along Mode activated!", Toast.LENGTH_SHORT).show();
+                // In a real app, this would enable microphone and record user's singing
+            });
+        }
 
         // Answer buttons
-        btnAnswer1.setOnClickListener(v -> checkAnswer(0));
-        btnAnswer2.setOnClickListener(v -> checkAnswer(1));
-        btnAnswer3.setOnClickListener(v -> checkAnswer(2));
+        if (btnAnswer1 != null) {
+            btnAnswer1.setOnClickListener(v -> checkAnswer(0));
+        }
+        if (btnAnswer2 != null) {
+            btnAnswer2.setOnClickListener(v -> checkAnswer(1));
+        }
+        if (btnAnswer3 != null) {
+            btnAnswer3.setOnClickListener(v -> checkAnswer(2));
+        }
 
         // Continue button in reward card
-        btnContinueSong.setOnClickListener(v -> {
-            hideRewardCard();
-            continueSong();
-        });
+        if (btnContinueSong != null) {
+            btnContinueSong.setOnClickListener(v -> {
+                hideRewardCard();
+                continueSong();
+            });
+        }
     }
 
     /**

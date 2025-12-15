@@ -58,4 +58,11 @@
     <!-- Pet Hospital Colors -->
     <color name="green">#4CAF50</color>
     <color name="gray">#999999</color>
+    
+    <!-- AI Buddy Chat Colors -->
+    <color name="background_light">#F5F5F5</color>
+    <color name="primary_yellow">#FFD93D</color>
+    <color name="background_beige">#F5E6D3</color>
+    <color name="primary_green">#4CAF50</color>
+    <color name="primary_blue">#42A5F5</color>
 </resources>

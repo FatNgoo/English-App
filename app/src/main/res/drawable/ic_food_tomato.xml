@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for tomato icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Tomato circle -->
+    <path android:fillColor="#FF5252" android:pathData="M90,60 a30,30 0 1,1 -60,0 a30,30 0 1,1 60,0"/>
+    
+    <!-- Stem -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M55,30 L55,20 L65,20 L65,30"/>
+    
+</vector>

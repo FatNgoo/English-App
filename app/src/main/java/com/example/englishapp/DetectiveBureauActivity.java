@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.shop.englishapp.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;

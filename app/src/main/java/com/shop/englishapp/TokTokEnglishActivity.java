@@ -88,35 +88,56 @@ public class TokTokEnglishActivity extends AppCompatActivity {
      */
     private void setupClickListeners() {
         // Back button
-        btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
         // Action buttons
-        findViewById(R.id.btnLike).setOnClickListener(v -> {
-            Toast.makeText(this, "❤️ Liked!", Toast.LENGTH_SHORT).show();
-        });
+        View btnLike = findViewById(R.id.btnLike);
+        if (btnLike != null) {
+            btnLike.setOnClickListener(v -> {
+                Toast.makeText(this, "❤️ Liked!", Toast.LENGTH_SHORT).show();
+            });
+        }
 
-        findViewById(R.id.btnRepeat).setOnClickListener(v -> {
-            playCurrentVideo();
-            Toast.makeText(this, "🔄 Replaying video", Toast.LENGTH_SHORT).show();
-        });
+        View btnRepeat = findViewById(R.id.btnRepeat);
+        if (btnRepeat != null) {
+            btnRepeat.setOnClickListener(v -> {
+                playCurrentVideo();
+                Toast.makeText(this, "🔄 Replaying video", Toast.LENGTH_SHORT).show();
+            });
+        }
 
-        findViewById(R.id.btnVolume).setOnClickListener(v -> {
-            isMuted = !isMuted;
-            ivVolume.setImageResource(isMuted ? 
-                R.drawable.ic_volume_off : R.drawable.ic_volume_on);
-            Toast.makeText(this, isMuted ? "🔇 Muted" : "🔊 Unmuted", Toast.LENGTH_SHORT).show();
-        });
+        View btnVolume = findViewById(R.id.btnVolume);
+        if (btnVolume != null) {
+            btnVolume.setOnClickListener(v -> {
+                isMuted = !isMuted;
+                if (ivVolume != null) {
+                    ivVolume.setImageResource(isMuted ? 
+                        R.drawable.ic_volume_off : R.drawable.ic_volume_on);
+                }
+                Toast.makeText(this, isMuted ? "🔇 Muted" : "🔊 Unmuted", Toast.LENGTH_SHORT).show();
+            });
+        }
 
         // Answer option buttons
-        btnOption1.setOnClickListener(v -> checkAnswer(0));
-        btnOption2.setOnClickListener(v -> checkAnswer(1));
-        btnOption3.setOnClickListener(v -> checkAnswer(2));
+        if (btnOption1 != null) {
+            btnOption1.setOnClickListener(v -> checkAnswer(0));
+        }
+        if (btnOption2 != null) {
+            btnOption2.setOnClickListener(v -> checkAnswer(1));
+        }
+        if (btnOption3 != null) {
+            btnOption3.setOnClickListener(v -> checkAnswer(2));
+        }
 
         // Continue button
-        btnContinue.setOnClickListener(v -> {
-            hideExplanationCard();
-            loadNextVideo();
-        });
+        if (btnContinue != null) {
+            btnContinue.setOnClickListener(v -> {
+                hideExplanationCard();
+                loadNextVideo();
+            });
+        }
     }
 
     /**

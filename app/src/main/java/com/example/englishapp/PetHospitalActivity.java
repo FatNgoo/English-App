@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -493,9 +495,10 @@ public class PetHospitalActivity extends AppCompatActivity {
             targetView.setBackgroundResource(R.drawable.bg_body_part_wrong);
             targetView.setVisibility(View.VISIBLE);
             
+            final View finalTargetView = targetView;
             handler.postDelayed(() -> {
-                targetView.setVisibility(View.INVISIBLE);
-                targetView.setBackgroundResource(R.drawable.bg_body_part_highlight);
+                finalTargetView.setVisibility(View.INVISIBLE);
+                finalTargetView.setBackgroundResource(R.drawable.bg_body_part_highlight);
             }, 500);
         }
     }

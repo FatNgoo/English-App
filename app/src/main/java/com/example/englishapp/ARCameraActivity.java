@@ -32,6 +32,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.shop.englishapp.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.json.JSONArray;
@@ -184,54 +185,91 @@ public class ARCameraActivity extends AppCompatActivity {
 
     private void setupClickListeners() {
         // Back button
-        findViewById(R.id.btnBack).setOnClickListener(v -> {
-            animateButtonPress(v);
-            finish();
-        });
+        View btnBack = findViewById(R.id.btnBack);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> {
+                animateButtonPress(v);
+                finish();
+            });
+        }
         
         // Flash toggle
-        findViewById(R.id.btnFlash).setOnClickListener(v -> {
-            animateButtonPress(v);
-            toggleFlash();
-        });
+        View btnFlash = findViewById(R.id.btnFlash);
+        if (btnFlash != null) {
+            btnFlash.setOnClickListener(v -> {
+                animateButtonPress(v);
+                toggleFlash();
+            });
+        }
         
         // Shutter button
-        btnShutter.setOnClickListener(v -> {
-            animateShutterPress();
-            captureSnapshot();
-        });
+        if (btnShutter != null) {
+            btnShutter.setOnClickListener(v -> {
+                animateShutterPress();
+                captureSnapshot();
+            });
+        }
         
         // Snapshot actions
-        findViewById(R.id.btnSaveAlbum).setOnClickListener(v -> {
-            animateButtonPress(v);
-            saveSnapshot();
-        });
+        View btnSaveAlbum = findViewById(R.id.btnSaveAlbum);
+        if (btnSaveAlbum != null) {
+            btnSaveAlbum.setOnClickListener(v -> {
+                animateButtonPress(v);
+                saveSnapshot();
+            });
+        }
         
-        findViewById(R.id.btnRetry).setOnClickListener(v -> {
-            animateButtonPress(v);
-            snapshotOverlay.setVisibility(View.GONE);
-        });
+        View btnRetry = findViewById(R.id.btnRetry);
+        if (btnRetry != null) {
+            btnRetry.setOnClickListener(v -> {
+                animateButtonPress(v);
+                if (snapshotOverlay != null) {
+                    snapshotOverlay.setVisibility(View.GONE);
+                }
+            });
+        }
         
-        findViewById(R.id.btnShare).setOnClickListener(v -> {
-            animateButtonPress(v);
-            shareSnapshot();
-        });
+        View btnShare = findViewById(R.id.btnShare);
+        if (btnShare != null) {
+            btnShare.setOnClickListener(v -> {
+                animateButtonPress(v);
+                shareSnapshot();
+            });
+        }
         
         // AR Quiz button
-        findViewById(R.id.btnArQuiz).setOnClickListener(v -> {
-            animateButtonPress(v);
-            startARQuiz();
-        });
+        View btnArQuiz = findViewById(R.id.btnArQuiz);
+        if (btnArQuiz != null) {
+            btnArQuiz.setOnClickListener(v -> {
+                animateButtonPress(v);
+                startARQuiz();
+            });
+        }
         
         // Navigation
         setupNavigation();
     }
 
     private void setupNavigation() {
-        findViewById(R.id.navHome).setOnClickListener(v -> navigateTo("HomeActivity"));
-        findViewById(R.id.navMap).setOnClickListener(v -> navigateTo("MapActivity"));
-        findViewById(R.id.navGames).setOnClickListener(v -> navigateTo("GamesActivity"));
-        findViewById(R.id.navProfile).setOnClickListener(v -> navigateTo("ProfileActivity"));
+        View navHome = findViewById(R.id.navHome);
+        if (navHome != null) {
+            navHome.setOnClickListener(v -> navigateTo("HomeActivity"));
+        }
+        
+        View navMap = findViewById(R.id.navMap);
+        if (navMap != null) {
+            navMap.setOnClickListener(v -> navigateTo("MapActivity"));
+        }
+        
+        View navGames = findViewById(R.id.navGames);
+        if (navGames != null) {
+            navGames.setOnClickListener(v -> navigateTo("GamesActivity"));
+        }
+        
+        View navProfile = findViewById(R.id.navProfile);
+        if (navProfile != null) {
+            navProfile.setOnClickListener(v -> navigateTo("ProfileActivity"));
+        }
     }
 
     private void navigateTo(String activity) {

@@ -58,91 +58,103 @@
         
         <!-- AI Buddy Chat Activity -->
         <activity
-            android:name=".AIBuddyChatActivity"
+            android:name="com.example.englishapp.AIBuddyChatActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Word Workshop Activity -->
         <activity
-            android:name=".WordWorkshopActivity"
+            android:name="com.example.englishapp.WordWorkshopActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Writing Dojo Activity -->
         <activity
-            android:name=".WritingDojoActivity"
+            android:name="com.example.englishapp.WritingDojoActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Interactive Comics Activity -->
         <activity
-            android:name=".InteractiveComicsActivity"
+            android:name="com.example.englishapp.InteractiveComicsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Master Chef Activity -->
         <activity
-            android:name=".MasterChefActivity"
+            android:name="com.example.englishapp.MasterChefActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Test Master Chef Activity (for debugging) -->
+        <activity
+            android:name="com.example.englishapp.TestMasterChefActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- Academy Learning Activity -->
+        <activity
+            android:name="com.example.englishapp.AcademyLearningActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Pet Hospital Activity -->
         <activity
-            android:name=".PetHospitalActivity"
+            android:name="com.example.englishapp.PetHospitalActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Robot Factory Activity -->
         <activity
-            android:name=".RobotFactoryActivity"
+            android:name="com.example.englishapp.RobotFactoryActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Detective Bureau Activity -->
         <activity
-            android:name=".DetectiveBureauActivity"
+            android:name="com.example.englishapp.DetectiveBureauActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Rhythm Star Activity -->
         <activity
-            android:name=".RhythmStarActivity"
+            android:name="com.example.englishapp.RhythmStarActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- City Builder Activity -->
         <activity
-            android:name=".CityBuilderActivity"
+            android:name="com.example.englishapp.CityBuilderActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Avatar Studio Activity -->
         <activity
-            android:name=".AvatarStudioActivity"
+            android:name="com.example.englishapp.AvatarStudioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- AR Camera Activity -->
         <activity
-            android:name=".ARCameraActivity"
+            android:name="com.example.englishapp.ARCameraActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Social Arena Activity -->
         <activity
-            android:name=".SocialArenaActivity"
+            android:name="com.example.englishapp.SocialArenaActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- Friend City Visit Activity -->
         <activity
-            android:name=".FriendCityVisitActivity"
+            android:name="com.example.englishapp.FriendCityVisitActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
         <!-- PK Battle Activity -->
         <activity
-            android:name=".PKBattleActivity"
+            android:name="com.example.englishapp.PKBattleActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

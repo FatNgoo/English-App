@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for apple icon - replace with actual icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Red circle for apple -->
+    <path
+        android:fillColor="#FF5252"
+        android:pathData="M60,20 C37.9,20 20,37.9 20,60 C20,82.1 37.9,100 60,100 C82.1,100 100,82.1 100,60 C100,37.9 82.1,20 60,20Z"/>
+    
+    <!-- Leaf -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M60,15 C55,15 55,20 60,25 C65,20 65,15 60,15Z"/>
+    
+</vector>

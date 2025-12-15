@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -116,7 +118,7 @@ public class PKBattleActivity extends AppCompatActivity {
         currentPhase = PHASE_MATCHMAKING;
 
         // Initialize matchmaking views
-        matchmakingLayout = findViewById(R.id.matchmakingLayout);
+        // matchmakingLayout = findViewById(R.id.matchmakingLayout); // TODO: Add this ID to layout
         txtMatchmakingStatus = findViewById(R.id.txtMatchmakingStatus);
         txtLoadingDots = findViewById(R.id.txtLoadingDots);
         imgPlayerAvatar = findViewById(R.id.imgPlayerAvatar);

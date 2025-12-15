@@ -20,6 +20,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.shop.englishapp.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -343,8 +345,8 @@ public class CityBuilderActivity extends AppCompatActivity {
         params.setMargins(8, 8, 8, 8);
         buildingView.setLayoutParams(params);
         
-        tile.view.removeAllViews();
-        tile.view.addView(buildingView);
+        ((ViewGroup)tile.view).removeAllViews();
+        ((ViewGroup)tile.view).addView(buildingView);
         tile.building = selectedBuilding;
         
         // Animate placement
@@ -384,7 +386,7 @@ public class CityBuilderActivity extends AppCompatActivity {
                     
                     CityTile tile = tiles[row][col];
                     tile.isUnlocked = true;
-                    tile.view.removeAllViews();
+                    ((ViewGroup)tile.view).removeAllViews();
                     tile.view.setBackgroundResource(R.drawable.bg_land_tile_empty);
                     
                     // Animate unlock

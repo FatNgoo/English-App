@@ -19,6 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.shop.englishapp.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -223,19 +226,23 @@ public class AvatarStudioActivity extends AppCompatActivity {
 
     private void setupListeners() {
         // Back button
-        findViewById(R.id.btnBack).setOnClickListener(v -> {
-            animateButtonPress(v);
-            finish();
-        });
+        View btnBack = findViewById(R.id.btnBack);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> {
+                animateButtonPress(v);
+                finish();
+            });
+        }
         
         // Get Coins button
-        btnGetCoins.setOnClickListener(v -> {
-            animateButtonPress(v);
-            coins += 50;
-            updateUI();
-            showFeedback("You got 50 coins! 🪙", R.drawable.ic_coin);
-        });
-        
+        if (btnGetCoins != null) {
+            btnGetCoins.setOnClickListener(v -> {
+                animateButtonPress(v);
+                coins += 50;
+                updateUI();
+                showFeedback("You got 50 coins! 🪙", R.drawable.ic_coin);
+            });
+        }        
         // Expression buttons
         btnExpressionSmile.setOnClickListener(v -> changeExpression("smile", R.drawable.ic_expression_smile));
         btnExpressionLaugh.setOnClickListener(v -> changeExpression("laugh", R.drawable.ic_expression_laugh));
@@ -294,8 +301,13 @@ public class AvatarStudioActivity extends AppCompatActivity {
         btnBuyBackpack.setOnClickListener(v -> handlePurchase(findItemById("backpack"), lockBackpack, btnBuyBackpack));
         
         // Feedback overlay close
-        findViewById(R.id.btnCloseFeedback).setOnClickListener(v -> hideFeedback());
-        feedbackOverlay.setOnClickListener(v -> hideFeedback());
+        View btnCloseFeedback = findViewById(R.id.btnCloseFeedback);
+        if (btnCloseFeedback != null) {
+            btnCloseFeedback.setOnClickListener(v -> hideFeedback());
+        }
+        if (feedbackOverlay != null) {
+            feedbackOverlay.setOnClickListener(v -> hideFeedback());
+        }
         
         // Navigation
         btnNavHome.setOnClickListener(v -> Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show());

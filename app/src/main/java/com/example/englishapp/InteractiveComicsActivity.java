@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -344,7 +346,7 @@ public class InteractiveComicsActivity extends AppCompatActivity {
             ObjectAnimator.ofFloat(glow, "alpha", 0.6f, 1f, 0.6f)
         );
         pulseAnim.setDuration(1000);
-        pulseAnim.setRepeatCount(ObjectAnimator.INFINITE);
+        // AnimatorSet doesn't have setRepeatCount, would need to set on individual animators
         pulseAnim.start();
     }
 

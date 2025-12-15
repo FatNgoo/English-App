@@ -20,10 +20,8 @@
         android:pathData="M24,20 L30,22 L26,21 Z"/>
     
     <!-- Eye -->
-    <circle
+    <path
         android:fillColor="#212121"
-        android:cx="21"
-        android:cy="20"
-        android:radius="1"/>
+        android:pathData="M22,20 a1,1 0 1,1 -2,0 a1,1 0 1,1 2,0"/>
     
 </vector>

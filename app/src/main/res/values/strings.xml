@@ -210,6 +210,10 @@
     <string name="xp_earned">+100 XP</string>
     <string name="next_order">Next Order</string>
     
+    <!-- Academy Learning -->
+    <string name="academy">Academy</string>
+    <string name="back">Back</string>
+    
     <!-- Pet Hospital -->
     <string name="pet_hospital">Pet Hospital</string>
     <string name="level_body_parts">Level: Body Parts &amp; Health</string>
@@ -278,7 +282,6 @@
     <string name="run">RUN</string>
     <string name="reset">Reset</string>
     <string name="step">Step</string>
-    <string name="hint">Hint</string>
     <string name="directions">Directions</string>
     <string name="compass">Compass</string>
     <string name="timer">Timer</string>
@@ -307,7 +310,7 @@
     <!-- Robot Factory Feedback -->
     <string name="hit_wall">Oops! Robot hit a wall 💥</string>
     <string name="out_of_bounds">Robot went out of bounds!</string>
-    <string name="try_again">Try again with different commands</string>
+    <string name="try_again_robot">Try again with different commands</string>
     <string name="good_attempt">Good attempt! Keep trying 🤖</string>
     <string name="excellent_programming">Excellent programming! ⭐</string>
     <string name="bonus_coins_earned">Bonus: +30 coins for efficiency!</string>
@@ -318,16 +321,10 @@
     <string name="detective">Detective</string>
     <string name="find_this_item">Find this item:</string>
     <string name="target_object">Target object</string>
-    <string name="play_pronunciation">Play pronunciation</string>
-    <string name="difficulty_easy">Easy</string>
-    <string name="difficulty_medium">Medium</string>
-    <string name="difficulty_hard">Hard</string>
     <string name="hidden_object_scene">Hidden object scene</string>
     <string name="correct">Correct</string>
-    <string name="wrong">Wrong</string>
     <string name="sparkle">Sparkle</string>
     <string name="great_job">Great job! 🎉</string>
-    <string name="hint">Hint</string>
     <string name="zoom">Zoom</string>
     <string name="replay_word">Replay word</string>
     <string name="find_progress">Find Progress</string>
@@ -335,16 +332,12 @@
     <string name="item_1">Item 1</string>
     <string name="item_2">Item 2</string>
     <string name="item_3">Item 3</string>
-    <string name="apple">apple</string>
-    <string name="ball">ball</string>
     <string name="pencil">pencil</string>
-    <string name="timer">Timer</string>
     <string name="score">Score</string>
     <string name="timer_default">1:30</string>
     <string name="score_default">+50</string>
     <string name="microphone">Microphone</string>
     <string name="read_word_aloud">Read the word aloud</string>
-    <string name="confetti">Confetti</string>
     <string name="you_found_it">You found it!</string>
     <string name="great_detective_work">Great detective work! 🔍</string>
     <string name="detective_badge">Detective badge</string>
@@ -374,15 +367,11 @@
     
     <!-- Rhythm Star Song Info -->
     <string name="sunny_day_beat">Sunny Day Beat</string>
-    <string name="difficulty_easy">Easy</string>
-    <string name="difficulty_medium">Medium</string>
-    <string name="difficulty_hard">Hard</string>
     <string name="song_title">Song Title</string>
     
     <!-- Rhythm Star Controls -->
     <string name="play">Play</string>
     <string name="pause">Pause</string>
-    <string name="slow_mode">Slow Mode</string>
     <string name="repeat_sound">Repeat Sound</string>
     <string name="auto_hint">Auto Hint</string>
     <string name="play_pause_button">Play/Pause Button</string>
@@ -406,16 +395,12 @@
     <string name="vocab_blue">blue</string>
     
     <!-- Rhythm Star Star Meter -->
-    <string name="star_1">Star 1</string>
-    <string name="star_2">Star 2</string>
-    <string name="star_3">Star 3</string>
     <string name="beginner_level">★☆☆ Beginner</string>
     <string name="good_level">★★☆ Good</string>
     <string name="perfect_level">★★★ Perfect</string>
     
     <!-- Rhythm Star Result -->
     <string name="song_complete">Song Complete! 🎵</string>
-    <string name="score">Score:</string>
     <string name="accuracy">Accuracy:</string>
     <string name="words_collected_result">Words:</string>
     <string name="play_again">Play Again</string>
@@ -423,7 +408,7 @@
     <string name="stars_earned">Stars Earned</string>
     <string name="final_score">Final Score: %d</string>
     <string name="accuracy_percent">Accuracy: %.0f%%</string>
-    <string name="vocabulary_found">Vocabulary: %d/%d</string>
+    <string name="vocabulary_found" formatted="false">Vocabulary: %d/%d</string>
     <string name="max_combo">Max Combo: x%d</string>
     
     <!-- Rhythm Star Instructions -->
@@ -536,7 +521,6 @@
     <string name="stage">Stage</string>
     <string name="avatar_base">Avatar Base</string>
     <string name="hairstyle">Hairstyle</string>
-    <string name="sparkle">Sparkle</string>
     <string name="rotate_left">Rotate Left</string>
     <string name="rotate_right">Rotate Right</string>
     <string name="star">Star</string>
@@ -583,7 +567,6 @@
     <string name="share">Share</string>
     <string name="my_items">My Items</string>
     <string name="wardrobe">Wardrobe</string>
-    <string name="locked">Locked</string>
     
     <!-- Avatar Studio Expressions -->
     <string name="smile">Smile</string>
@@ -594,7 +577,6 @@
     <!-- Avatar Studio Feedback -->
     <string name="item_purchased">Item purchased! 🎉</string>
     <string name="item_equipped">Item equipped! ✨</string>
-    <string name="not_enough_coins">Not enough coins! 😢</string>
     <string name="look_saved">Look saved! 💾</string>
     <string name="look_shared">Look shared! 🌟</string>
     <string name="you_got_coins">You got 50 coins! 🪙</string>
@@ -626,7 +608,6 @@
     <string name="point_at_object">Point the camera at an object</string>
     <string name="move_closer">Or move closer</string>
     <string name="try_different_angle">Try a different angle</string>
-    <string name="tap_to_hear">Tap to hear pronunciation</string>
     <string name="swipe_up_history">Swipe up to see scan history</string>
     <string name="look_around">Look around for objects</string>
     
@@ -635,9 +616,7 @@
     <string name="save_to_album">Save to Album</string>
     <string name="save">Save</string>
     <string name="retry">Retry</string>
-    <string name="share">Share</string>
     <string name="practice_word">Practice</string>
-    <string name="play_pronunciation">Play Pronunciation</string>
     <string name="start_quiz">Start Quiz</string>
     <string name="play_quiz">AR Quiz</string>
     
@@ -653,9 +632,8 @@
     <string name="which_one_is">Which one is the %s?</string>
     <string name="tap_correct_object">Tap the correct object</string>
     <string name="correct_answer">✨ Correct! +10 XP</string>
-    <string name="try_again">Try again!</string>
+    <string name="try_again_quiz">Try again!</string>
     <string name="quiz_complete">Quiz Complete!</string>
-    <string name="score">Score</string>
     
     <!-- AR Camera Snapshot -->
     <string name="photo_saved">Photo saved to album!</string>
@@ -682,11 +660,9 @@
     <string name="cup_pronunciation">/kʌp/</string>
     <string name="book">book</string>
     <string name="book_pronunciation">/bʊk/</string>
-    <string name="bag">bag</string>
     <string name="bag_pronunciation">/bæɡ/</string>
     <string name="phone">phone</string>
     <string name="phone_pronunciation">/fəʊn/</string>
-    <string name="pencil">pencil</string>
     <string name="pencil_pronunciation">/ˈpensl/</string>
     <string name="bottle">bottle</string>
     <string name="bottle_pronunciation">/ˈbɒtl/</string>
@@ -704,11 +680,8 @@
     <string name="plant_pronunciation">/plɑːnt/</string>
     <string name="vase">vase</string>
     <string name="vase_pronunciation">/vɑːz/</string>
-    <string name="shoes">shoes</string>
     <string name="shoes_pronunciation">/ʃuːz/</string>
-    <string name="hat">hat</string>
     <string name="hat_pronunciation">/hæt/</string>
-    <string name="jacket">jacket</string>
     <string name="jacket_pronunciation">/ˈdʒækɪt/</string>
     <string name="door">door</string>
     <string name="door_pronunciation">/dɔː(r)/</string>
@@ -724,13 +697,10 @@
     <string name="blanket_pronunciation">/ˈblæŋkɪt/</string>
     <string name="toy">toy</string>
     <string name="toy_pronunciation">/tɔɪ/</string>
-    <string name="ball">ball</string>
     <string name="ball_pronunciation">/bɔːl/</string>
-    <string name="car">car</string>
     <string name="car_pronunciation">/kɑː(r)/</string>
     <string name="bike">bike</string>
     <string name="bike_pronunciation">/baɪk/</string>
-    <string name="tree">tree</string>
     <string name="tree_pronunciation">/triː/</string>
     <string name="flower">flower</string>
     <string name="flower_pronunciation">/ˈflaʊə(r)/</string>
@@ -746,13 +716,11 @@
     <string name="tier_label">Tier</string>
     <string name="level_prefix">Level</string>
     <string name="friends_online">friends online</string>
-    <string name="correct_answer">Perfect!</string>
     <string name="wrong_answer">Try again!</string>
     <string name="quiz_timeout">Time\'s up!</string>
     <string name="victory_message">⭐ VICTORY! ⭐</string>
     <string name="defeat_message">💔 DEFEAT</string>
     <string name="better_luck">Better luck next time!</string>
-    <string name="final_score">Final Score</string>
     <string name="accuracy_label">Accuracy</string>
     <string name="xp_gained">XP Gained</string>
     <string name="rank_change">Rank Change</string>
@@ -762,7 +730,6 @@
     <string name="tier_platinum">Platinum</string>
     <string name="send_gift">Send Gift</string>
     <string name="leave">Leave</string>
-    <string name="play_again">Play Again</string>
     <string name="return_to_arena">Return to Arena</string>
     <string name="share_result">Share Result</string>
     <string name="cancel">Cancel</string>
@@ -847,4 +814,10 @@
     <string name="you_won_battle">You won the battle!</string>
     <string name="xp_boost">XP Boost (+100)</string>
     <string name="rare_building">Rare Building</string>
+    
+    <!-- Missing Navigation Strings -->
+    <string name="home">Home</string>
+    <string name="map">Map</string>
+    <string name="profile">Profile</string>
+    <string name="get">Get</string>
 </resources>

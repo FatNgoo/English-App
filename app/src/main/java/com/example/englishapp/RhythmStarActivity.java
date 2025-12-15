@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -7,13 +9,13 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
-import android:view.View;
-import android:view.ViewGroup;
-import android:widget.FrameLayout;
-import android:widget.ImageButton;
-import android:widget.ImageView;
-import android:widget.LinearLayout;
-import android:widget.TextView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -626,20 +628,23 @@ public class RhythmStarActivity extends AppCompatActivity {
         float accuracy = (float) (perfectHits + goodHits) / totalNotes;
         
         // Update meter width
-        ViewGroup.LayoutParams params = starMeterFill.getLayoutParams();
-        params.width = (int) (findViewById(R.id.starMeterBg).getWidth() * accuracy);
-        starMeterFill.setLayoutParams(params);
+        View starMeterBg = findViewById(R.id.starMeterBg);
+        if (starMeterBg != null && starMeterFill != null) {
+            ViewGroup.LayoutParams params = starMeterFill.getLayoutParams();
+            params.width = (int) (starMeterBg.getWidth() * accuracy);
+            starMeterFill.setLayoutParams(params);
+        }
         
         // Update stars
         if (accuracy >= 0.9f) {
-            star1.setImageResource(R.drawable.ic_star_filled);
-            star2.setImageResource(R.drawable.ic_star_filled);
-            star3.setImageResource(R.drawable.ic_star_filled);
+            if (star1 != null) star1.setImageResource(R.drawable.ic_star_filled);
+            if (star2 != null) star2.setImageResource(R.drawable.ic_star_filled);
+            if (star3 != null) star3.setImageResource(R.drawable.ic_star_filled);
         } else if (accuracy >= 0.7f) {
-            star1.setImageResource(R.drawable.ic_star_filled);
-            star2.setImageResource(R.drawable.ic_star_filled);
+            if (star1 != null) star1.setImageResource(R.drawable.ic_star_filled);
+            if (star2 != null) star2.setImageResource(R.drawable.ic_star_filled);
         } else if (accuracy >= 0.5f) {
-            star1.setImageResource(R.drawable.ic_star_filled);
+            if (star1 != null) star1.setImageResource(R.drawable.ic_star_filled);
         }
     }
 

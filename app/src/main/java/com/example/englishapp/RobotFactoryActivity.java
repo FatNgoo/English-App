@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -696,7 +698,7 @@ public class RobotFactoryActivity extends AppCompatActivity {
         AnimatorSet set = new AnimatorSet();
         set.playTogether(scaleX, scaleY);
         set.setDuration(600);
-        set.setRepeatCount(2);
+        // AnimatorSet doesn't have setRepeatCount
         set.start();
     }
 
@@ -778,8 +780,7 @@ public class RobotFactoryActivity extends AppCompatActivity {
         AnimatorSet bounceSet = new AnimatorSet();
         bounceSet.playTogether(bounce1, bounce2);
         bounceSet.setDuration(600);
-        bounceSet.setRepeatCount(ObjectAnimator.INFINITE);
-        bounceSet.setRepeatMode(ObjectAnimator.REVERSE);
+        // AnimatorSet doesn't have setRepeatCount or setRepeatMode
         bounceSet.start();
     }
 

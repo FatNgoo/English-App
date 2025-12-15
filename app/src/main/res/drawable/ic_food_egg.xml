@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for egg icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Egg shape -->
+    <path
+        android:fillColor="#FFFDE7"
+        android:pathData="M60,25 C45,25 35,35 35,50 C35,70 45,95 60,95 C75,95 85,70 85,50 C85,35 75,25 60,25Z"/>
+    
+</vector>

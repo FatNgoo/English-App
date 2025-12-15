@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for fish icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Fish body -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M30,60 Q50,40 70,60 Q50,80 30,60 Z"/>
+    
+    <!-- Tail -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M70,60 L85,50 L85,70 Z"/>
+    
+    <!-- Eye -->
+    <path android:fillColor="#FFFFFF" android:pathData="M44,55 a4,4 0 1,1 -8,0 a4,4 0 1,1 8,0"/>
+    
+</vector>

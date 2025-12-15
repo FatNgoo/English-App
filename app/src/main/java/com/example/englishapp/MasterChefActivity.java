@@ -1,7 +1,10 @@
 package com.example.englishapp;
 
+import com.shop.englishapp.R;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.View;
@@ -13,17 +16,34 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import com.shop.englishapp.masterchef.utils.ProgressManager;
+import com.shop.englishapp.masterchef.models.UserProgress;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MasterChefActivity extends AppCompatActivity {
 
+    // Progress Manager
+    private ProgressManager progressManager;
+    private UserProgress userProgress;
+    
+    // Order System
+    private FoodOrder currentOrder;
+    private OrderGenerator orderGenerator;
+    private Map<String, Integer> userPlate; // What user has prepared
+    private MediaPlayer mediaPlayer;
+    private int audioReplayCount = 0;
+    private int hintsUsed = 0;
+
     // UI Components
     private ImageButton btnBack, btnHint, btnReplayAudio, btnSlowMode;
-    private CardView orderCard, cookingStationCard;
+    private CardView orderCard, cookingStationCard, lockedOverlay;
     private ImageView imgCustomerAvatar, imgSpeaker, imgSteam, imgSmoke, imgFryingPan;
     private LinearLayout waveformContainer, completionOverlay;
-    private TextView txtOrderSubtitle;
+    private TextView txtOrderSubtitle, txtEnergyCount, txtGoldCount, txtLevel, txtLockedMessage;
     private ImageView wave1, wave2, wave3;
     private ImageView star1, star2, star3;
     
@@ -40,106 +60,326 @@ public class MasterChefActivity extends AppCompatActivity {
     private LinearLayout checklistItem1, checklistItem2, checklistItem3;
     
     // Completion
-    private Button btnNextOrder;
+    private Button btnNextOrder, btnGoToAcademy;
     private ImageView imgConfettiCompletion;
     
-    // State Variables
-    private int starsEarned = 2;
+    // State Variables (Deprecated - now using FoodOrder system)
+    private int starsEarned = 0;
     private boolean isPlayingAudio = false;
     private boolean slowModeEnabled = false;
-    private int eggsCooked = 0;
-    private int sandwichMade = 0;
-    private int juicePoured = 0;
-    private int requiredEggs = 2;
-    private int requiredSandwich = 1;
-    private int requiredJuice = 1;
+    private int mistakeCount = 0; // Track number of mistakes for progressive hints
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.master_chef);
+        
+        android.util.Log.d("MasterChef", "onCreate started");
+        
+        try {
+            android.util.Log.d("MasterChef", "Setting content view...");
+            setContentView(R.layout.master_chef);
+            android.util.Log.d("MasterChef", "Content view set successfully");
+            
+            Toast.makeText(this, "✅ Master Chef opened successfully! 🍳", Toast.LENGTH_LONG).show();
+            
+            android.util.Log.d("MasterChef", "Initializing Progress Manager...");
+            // Initialize Progress Manager (with null check)
+            try {
+                progressManager = ProgressManager.getInstance(this);
+                android.util.Log.d("MasterChef", "Progress Manager initialized");
+            } catch (Exception pmEx) {
+                android.util.Log.e("MasterChef", "ProgressManager error: " + pmEx.getMessage());
+                pmEx.printStackTrace();
+                // Continue without ProgressManager
+                progressManager = null;
+            }
+            
+            android.util.Log.d("MasterChef", "Initializing order system...");
+            // Initialize order system
+            orderGenerator = new OrderGenerator();
+            userPlate = new HashMap<>();
+            android.util.Log.d("MasterChef", "Order system initialized");
+            
+            android.util.Log.d("MasterChef", "Loading user progress...");
+            // Load user progress
+            loadUserProgress();
+            
+            android.util.Log.d("MasterChef", "Initializing views...");
+            // Initialize views
+            initializeViews();
+            
+            android.util.Log.d("MasterChef", "Checking unlock...");
+            // Check context lock first
+            checkMasterChefUnlock();
+            
+            android.util.Log.d("MasterChef", "Setting up listeners...");
+            // Setup listeners
+            setupListeners();
+            setupDragAndDrop();
+            
+            android.util.Log.d("MasterChef", "Starting first order...");
+            // Start first order
+            startNextOrder();
+            
+            android.util.Log.d("MasterChef", "onCreate completed successfully");
+            
+        } catch (Exception e) {
+            android.util.Log.e("MasterChef", "FATAL ERROR in onCreate", e);
+            e.printStackTrace();
+            Toast.makeText(this, "❌ Error loading Master Chef: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            // Don't crash - stay on screen with error
+        }
+    }
+    
+    private void loadUserProgress() {
+        if (progressManager != null) {
+            progressManager.getUserProgress(new ProgressManager.OnProgressCallback() {
+                @Override
+                public void onSuccess(UserProgress progress) {
+                    userProgress = progress;
+                    android.util.Log.d("MasterChef", "Progress loaded - Energy: " + userProgress.getEnergy() + 
+                        ", Food lesson: " + userProgress.isFoodLessonCompleted());
+                    updateCurrencyDisplay();
+                }
 
-        initializeViews();
-        setupListeners();
-        setupDragAndDrop();
-        updateStarDisplay();
+                @Override
+                public void onFailure(String error) {
+                    android.util.Log.e("MasterChef", "Failed to load progress: " + error);
+                    // DEMO MODE: Tạo progress mặc định
+                    userProgress = new UserProgress();
+                    userProgress.setFoodLessonCompleted(true); // DEMO: cho phép chơi
+                    userProgress.setMasterChefUnlocked(true);
+                    userProgress.setEnergy(5); // Bắt đầu với 5 Energy
+                    userProgress.setGold(100);
+                    userProgress.setCurrentLevel(1);
+                    updateCurrencyDisplay();
+                }
+            });
+        } else {
+            // Fallback: DEMO progress
+            android.util.Log.d("MasterChef", "No ProgressManager - using DEMO data");
+            userProgress = new UserProgress();
+            userProgress.setFoodLessonCompleted(true); // DEMO
+            userProgress.setMasterChefUnlocked(true);
+            userProgress.setEnergy(5);
+            userProgress.setGold(100);
+            userProgress.setCurrentLevel(1);
+            updateCurrencyDisplay();
+        }
+    }
+    
+    private void checkMasterChefUnlock() {
+        // DEMO MODE: Always unlocked for testing
+        // In production, this will check userProgress.isMasterChefUnlocked()
+        
+        if (userProgress == null) {
+            // Create demo progress
+            userProgress = new UserProgress();
+            userProgress.setFoodLessonCompleted(true);
+            userProgress.setMasterChefUnlocked(true);
+            userProgress.setEnergy(5);
+            userProgress.setGold(100);
+        }
+        
+        // Show welcome message
+        Toast.makeText(this, "Welcome to Master Chef! 👨‍🍳", Toast.LENGTH_SHORT).show();
+        updateCurrencyDisplay();
+        
+        // TODO: Add proper unlock check when integrated with Academy
+        /*
+        if (!userProgress.isMasterChefUnlocked() && !userProgress.canUnlockMasterChef()) {
+            showLockedState("Let's learn Food & Drinks first! 📚");
+            return;
+        }
+        
+        if (userProgress.getEnergy() <= 0) {
+            showLockedState("No energy! ⚡ Complete lessons to recharge!");
+            return;
+        }
+        */
+        
+        hideLockedState();
+    }
+    
+    private void showLockedState(String message) {
+        if (lockedOverlay != null) {
+            lockedOverlay.setVisibility(View.VISIBLE);
+        }
+        if (txtLockedMessage != null) {
+            txtLockedMessage.setText(message);
+        }
+        // Disable all game controls
+        if (orderCard != null) orderCard.setVisibility(View.GONE);
+        if (cookingStationCard != null) cookingStationCard.setVisibility(View.GONE);
+    }
+    
+    private void hideLockedState() {
+        if (lockedOverlay != null) {
+            lockedOverlay.setVisibility(View.GONE);
+        }
+        // Enable game controls
+        if (orderCard != null) orderCard.setVisibility(View.VISIBLE);
+        if (cookingStationCard != null) cookingStationCard.setVisibility(View.VISIBLE);
+    }
+    
+    private void updateCurrencyDisplay() {
+        if (userProgress != null) {
+            if (txtEnergyCount != null) {
+                txtEnergyCount.setText(String.valueOf(userProgress.getEnergy()));
+            }
+            if (txtGoldCount != null) {
+                txtGoldCount.setText(String.valueOf(userProgress.getGold()));
+            }
+            if (txtLevel != null) {
+                txtLevel.setText("Lvl " + userProgress.getCurrentLevel());
+            }
+        }
     }
 
     private void initializeViews() {
-        // Header
-        btnBack = findViewById(R.id.btnBack);
-        star1 = findViewById(R.id.star1);
-        star2 = findViewById(R.id.star2);
-        star3 = findViewById(R.id.star3);
-        
-        // Order Panel
-        orderCard = findViewById(R.id.orderCard);
-        imgCustomerAvatar = findViewById(R.id.imgCustomerAvatar);
-        imgSpeaker = findViewById(R.id.imgSpeaker);
-        waveformContainer = findViewById(R.id.waveformContainer);
-        wave1 = findViewById(R.id.wave1);
-        wave2 = findViewById(R.id.wave2);
-        wave3 = findViewById(R.id.wave3);
-        txtOrderSubtitle = findViewById(R.id.txtOrderSubtitle);
-        
-        // Cooking Station
-        cookingStationCard = findViewById(R.id.cookingStationCard);
-        stoveArea = findViewById(R.id.stoveArea);
-        cuttingBoardArea = findViewById(R.id.cuttingBoardArea);
-        toasterArea = findViewById(R.id.toasterArea);
-        plateArea = findViewById(R.id.plateArea);
-        imgFryingPan = findViewById(R.id.imgFryingPan);
-        imgSteam = findViewById(R.id.imgSteam);
-        imgSmoke = findViewById(R.id.imgSmoke);
-        
-        // Ingredients
-        ingredientEgg = findViewById(R.id.ingredientEgg);
-        ingredientBread = findViewById(R.id.ingredientBread);
-        ingredientCheese = findViewById(R.id.ingredientCheese);
-        ingredientBacon = findViewById(R.id.ingredientBacon);
-        ingredientFruit = findViewById(R.id.ingredientFruit);
-        ingredientVegetables = findViewById(R.id.ingredientVegetables);
-        ingredientJuice = findViewById(R.id.ingredientJuice);
-        
-        // Checklist
-        checkbox1 = findViewById(R.id.checkbox1);
-        checkbox2 = findViewById(R.id.checkbox2);
-        checkbox3 = findViewById(R.id.checkbox3);
-        txtCheckItem1 = findViewById(R.id.txtCheckItem1);
-        txtCheckItem2 = findViewById(R.id.txtCheckItem2);
-        txtCheckItem3 = findViewById(R.id.txtCheckItem3);
-        checklistItem1 = findViewById(R.id.checklistItem1);
-        checklistItem2 = findViewById(R.id.checklistItem2);
-        checklistItem3 = findViewById(R.id.checklistItem3);
-        
-        // Hint Tools
-        btnHint = findViewById(R.id.btnHint);
-        btnReplayAudio = findViewById(R.id.btnReplayAudio);
-        btnSlowMode = findViewById(R.id.btnSlowMode);
-        
-        // Completion
-        completionOverlay = findViewById(R.id.completionOverlay);
-        btnNextOrder = findViewById(R.id.btnNextOrder);
-        imgConfettiCompletion = findViewById(R.id.imgConfettiCompletion);
+        try {
+            // Header
+            btnBack = findViewById(R.id.btnBack);
+            star1 = findViewById(R.id.star1);
+            star2 = findViewById(R.id.star2);
+            star3 = findViewById(R.id.star3);
+            
+            // Currency Display - use correct IDs from layout
+            txtEnergyCount = findViewById(R.id.txtEnergyCount);
+            txtGoldCount = findViewById(R.id.txtGoldCount);
+            txtLevel = findViewById(R.id.txtLevel);
+            
+            // Locked Overlay
+            lockedOverlay = findViewById(R.id.lockedOverlay);
+            txtLockedMessage = findViewById(R.id.txtLockedMessage);
+            btnGoToAcademy = findViewById(R.id.btnGoToAcademy);
+            
+            // Order Panel
+            orderCard = findViewById(R.id.orderCard);
+            imgCustomerAvatar = findViewById(R.id.imgCustomerAvatar);
+            imgSpeaker = findViewById(R.id.imgSpeaker);
+            waveformContainer = findViewById(R.id.waveformContainer);
+            wave1 = findViewById(R.id.wave1);
+            wave2 = findViewById(R.id.wave2);
+            wave3 = findViewById(R.id.wave3);
+            txtOrderSubtitle = findViewById(R.id.txtOrderSubtitle);
+            
+            // Cooking Station
+            cookingStationCard = findViewById(R.id.cookingStationCard);
+            stoveArea = findViewById(R.id.stoveArea);
+            cuttingBoardArea = findViewById(R.id.cuttingBoardArea);
+            toasterArea = findViewById(R.id.toasterArea);
+            plateArea = findViewById(R.id.plateArea);
+            imgFryingPan = findViewById(R.id.imgFryingPan);
+            imgSteam = findViewById(R.id.imgSteam);
+            imgSmoke = findViewById(R.id.imgSmoke);
+            
+            // Ingredients
+            ingredientEgg = findViewById(R.id.ingredientEgg);
+            ingredientBread = findViewById(R.id.ingredientBread);
+            ingredientCheese = findViewById(R.id.ingredientCheese);
+            ingredientBacon = findViewById(R.id.ingredientBacon);
+            ingredientFruit = findViewById(R.id.ingredientFruit);
+            ingredientVegetables = findViewById(R.id.ingredientVegetables);
+            ingredientJuice = findViewById(R.id.ingredientJuice);
+            
+            // Checklist
+            checkbox1 = findViewById(R.id.checkbox1);
+            checkbox2 = findViewById(R.id.checkbox2);
+            checkbox3 = findViewById(R.id.checkbox3);
+            txtCheckItem1 = findViewById(R.id.txtCheckItem1);
+            txtCheckItem2 = findViewById(R.id.txtCheckItem2);
+            txtCheckItem3 = findViewById(R.id.txtCheckItem3);
+            checklistItem1 = findViewById(R.id.checklistItem1);
+            checklistItem2 = findViewById(R.id.checklistItem2);
+            checklistItem3 = findViewById(R.id.checklistItem3);
+            
+            // Hint Tools
+            btnHint = findViewById(R.id.btnHint);
+            btnReplayAudio = findViewById(R.id.btnReplayAudio);
+            btnSlowMode = findViewById(R.id.btnSlowMode);
+            
+            // Completion
+            completionOverlay = findViewById(R.id.completionOverlay);
+            btnNextOrder = findViewById(R.id.btnNextOrder);
+            imgConfettiCompletion = findViewById(R.id.imgConfettiCompletion);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error initializing views", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setupListeners() {
+        android.util.Log.d("MasterChef", "setupListeners called");
+        
         // Back button
-        btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> {
+                android.util.Log.d("MasterChef", "Back button clicked");
+                finish();
+            });
+        } else {
+            android.util.Log.e("MasterChef", "btnBack is NULL!");
+        }
+        
+        // Go to Academy button (for locked state)
+        if (btnGoToAcademy != null) {
+            btnGoToAcademy.setOnClickListener(v -> {
+                Intent intent = new Intent(MasterChefActivity.this, AcademyLearningActivity.class);
+                startActivity(intent);
+                finish();
+            });
+        }
         
         // Play Order button
-        findViewById(R.id.btnPlayOrder).setOnClickListener(v -> playOrderAudio());
+        View btnPlayOrder = findViewById(R.id.btnPlayOrder);
+        android.util.Log.d("MasterChef", "btnPlayOrder: " + (btnPlayOrder != null ? "FOUND" : "NULL"));
+        
+        if (btnPlayOrder != null) {
+            btnPlayOrder.setOnClickListener(v -> {
+                android.util.Log.d("MasterChef", "Play Order button CLICKED!");
+                Toast.makeText(this, "🔊 Playing order...", Toast.LENGTH_SHORT).show();
+                playOrderAudio();
+            });
+        } else {
+            android.util.Log.e("MasterChef", "btnPlayOrder is NULL - cannot set listener!");
+            Toast.makeText(this, "❌ Play Order button not found!", Toast.LENGTH_LONG).show();
+        }
         
         // Hint Tools
-        btnHint.setOnClickListener(v -> showHint());
-        btnReplayAudio.setOnClickListener(v -> playOrderAudio());
-        btnSlowMode.setOnClickListener(v -> toggleSlowMode());
+        if (btnHint != null) {
+            btnHint.setOnClickListener(v -> {
+                android.util.Log.d("MasterChef", "Hint button clicked");
+                showHint();
+            });
+        }
+        if (btnReplayAudio != null) {
+            btnReplayAudio.setOnClickListener(v -> {
+                android.util.Log.d("MasterChef", "Replay Audio clicked");
+                playOrderAudio();
+            });
+        }
+        if (btnSlowMode != null) {
+            btnSlowMode.setOnClickListener(v -> {
+                android.util.Log.d("MasterChef", "Slow Mode clicked");
+                toggleSlowMode();
+            });
+        }
         
         // Completion
-        btnNextOrder.setOnClickListener(v -> startNextOrder());
+        if (btnNextOrder != null) {
+            btnNextOrder.setOnClickListener(v -> {
+                android.util.Log.d("MasterChef", "Next Order clicked");
+                startNextOrder();
+            });
+        }
+        
+        android.util.Log.d("MasterChef", "setupListeners completed");
     }
 
     private void setupDragAndDrop() {
+        android.util.Log.d("MasterChef", "setupDragAndDrop called");
+        
         // Make ingredients draggable
         setupDraggableIngredient(ingredientEgg, "egg");
         setupDraggableIngredient(ingredientBread, "bread");
@@ -149,15 +389,29 @@ public class MasterChefActivity extends AppCompatActivity {
         setupDraggableIngredient(ingredientVegetables, "vegetables");
         setupDraggableIngredient(ingredientJuice, "juice");
         
-        // Setup drop zones
+        android.util.Log.d("MasterChef", "Ingredients made draggable");
+        
+        // Make cooking areas drop zones
         setupDropZone(stoveArea, "stove");
         setupDropZone(cuttingBoardArea, "cutting_board");
         setupDropZone(toasterArea, "toaster");
         setupDropZone(plateArea, "plate");
+        
+        android.util.Log.d("MasterChef", "Drop zones set up - setupDragAndDrop completed");
     }
 
     private void setupDraggableIngredient(FrameLayout ingredient, String ingredientType) {
+        if (ingredient == null) {
+            android.util.Log.e("MasterChef", "Ingredient is NULL for type: " + ingredientType);
+            return;
+        }
+        
+        android.util.Log.d("MasterChef", "Setting up draggable ingredient: " + ingredientType);
+        
         ingredient.setOnLongClickListener(v -> {
+            android.util.Log.d("MasterChef", "Ingredient LONG CLICKED: " + ingredientType);
+            Toast.makeText(this, "Dragging " + ingredientType + "...", Toast.LENGTH_SHORT).show();
+            
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
             v.startDrag(null, shadowBuilder, ingredientType, 0);
             
@@ -166,6 +420,12 @@ public class MasterChefActivity extends AppCompatActivity {
             animateIngredientLift(ingredient);
             
             return true;
+        });
+        
+        // Also add regular click for testing
+        ingredient.setOnClickListener(v -> {
+            android.util.Log.d("MasterChef", "Ingredient CLICKED (short): " + ingredientType);
+            Toast.makeText(this, "Tap & Hold to drag " + ingredientType, Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -202,91 +462,206 @@ public class MasterChefActivity extends AppCompatActivity {
     }
 
     private void handleIngredientDrop(String ingredient, String zone, View dropZone) {
-        boolean validCombination = false;
+        if (currentOrder == null) return;
         
-        // Check if ingredient + zone combination is correct
-        if (ingredient.equals("egg") && zone.equals("stove")) {
-            if (eggsCooked < requiredEggs) {
-                eggsCooked++;
-                validCombination = true;
+        // For now, accept ingredients dropped on the plate area
+        // In full implementation, different zones would have different cooking actions
+        if (!zone.equals("plate")) {
+            // Show cooking animation but don't count yet
+            if (zone.equals("stove")) {
                 showSteamEffect();
                 animateCooking(dropZone);
-                
-                if (eggsCooked >= requiredEggs) {
-                    updateChecklist(1);
-                }
-            }
-        } else if (ingredient.equals("bread") && zone.equals("toaster")) {
-            if (sandwichMade < requiredSandwich) {
-                sandwichMade++;
-                validCombination = true;
+            } else if (zone.equals("toaster")) {
                 animateCooking(dropZone);
-                
-                if (sandwichMade >= requiredSandwich) {
-                    updateChecklist(2);
-                }
             }
-        } else if (ingredient.equals("juice") && zone.equals("plate")) {
-            if (juicePoured < requiredJuice) {
-                juicePoured++;
-                validCombination = true;
-                animatePouring(dropZone);
-                
-                if (juicePoured >= requiredJuice) {
-                    updateChecklist(3);
-                }
-            }
+            
+            Toast.makeText(this, "Great! Now drag to the plate when ready.", Toast.LENGTH_SHORT).show();
+            resetIngredientBackgrounds();
+            return;
         }
         
-        if (validCombination) {
-            // Correct action
-            animateSuccessFlash(dropZone);
-            animatePop(dropZone);
-            checkOrderCompletion();
-        } else {
-            // Wrong action
-            animateShake(dropZone);
-            loseOneStar();
-        }
+        // Add ingredient to user's plate
+        int currentCount = userPlate.getOrDefault(ingredient, 0);
+        userPlate.put(ingredient, currentCount + 1);
+        
+        // Visual feedback
+        animateSuccessFlash(dropZone);
+        animatePop(dropZone);
+        
+        // Update checklist (simplified for now)
+        updateChecklistFromPlate();
+        
+        // Check if order is complete
+        checkOrderCompletion();
         
         // Reset ingredient background
         resetIngredientBackgrounds();
     }
+    
+    private void updateChecklistFromPlate() {
+        // Count total items on plate
+        int totalItems = 0;
+        for (int qty : userPlate.values()) {
+            totalItems += qty;
+        }
+        
+        // Update checkboxes based on progress
+        int requiredTotal = currentOrder != null ? currentOrder.getTotalItems() : 3;
+        float progress = (float) totalItems / requiredTotal;
+        
+        if (progress >= 0.33f && checkbox1 != null) {
+            checkbox1.setBackgroundResource(R.drawable.bg_checkbox_checked);
+            if (txtCheckItem1 != null) txtCheckItem1.setTextColor(0xFF4CAF50);
+        }
+        if (progress >= 0.66f && checkbox2 != null) {
+            checkbox2.setBackgroundResource(R.drawable.bg_checkbox_checked);
+            if (txtCheckItem2 != null) txtCheckItem2.setTextColor(0xFF4CAF50);
+        }
+        if (progress >= 1.0f && checkbox3 != null) {
+            checkbox3.setBackgroundResource(R.drawable.bg_checkbox_checked);
+            if (txtCheckItem3 != null) txtCheckItem3.setTextColor(0xFF4CAF50);
+        }
+    }
 
     private void playOrderAudio() {
-        if (isPlayingAudio) return;
+        android.util.Log.d("MasterChef", "playOrderAudio called");
         
+        if (isPlayingAudio || currentOrder == null) {
+            android.util.Log.d("MasterChef", "Skipping - already playing or no order");
+            return;
+        }
+        
+        // Giới hạn BẮT BUỘC: Tối đa 2 lần replay = 3 lần nghe total
+        if (audioReplayCount >= 3) {
+            Toast.makeText(this, "🎧 You've heard this 3 times!\nTry your best!", Toast.LENGTH_LONG).show();
+            
+            // Gợi ý sau lần nghe thứ 3
+            if (mistakeCount == 0) {
+                // Lần đầu - gợi ý nhẹ
+                Toast.makeText(this, "💡 Hint: Count the items in the list!", Toast.LENGTH_LONG).show();
+            }
+            return;
+        }
+        
+        audioReplayCount++;
         isPlayingAudio = true;
-        imgSpeaker.setVisibility(View.INVISIBLE);
-        waveformContainer.setVisibility(View.VISIBLE);
+        
+        android.util.Log.d("MasterChef", "Playing audio - attempt " + audioReplayCount + "/3");
+        
+        if (imgSpeaker != null) imgSpeaker.setVisibility(View.INVISIBLE);
+        if (waveformContainer != null) waveformContainer.setVisibility(View.VISIBLE);
         
         // Animate waveform
         animateWaveform();
         
-        // Simulate audio playback (3 seconds)
-        waveformContainer.postDelayed(() -> {
-            isPlayingAudio = false;
-            imgSpeaker.setVisibility(View.VISIBLE);
-            waveformContainer.setVisibility(View.INVISIBLE);
-            
-            // Show subtitle after audio
-            txtOrderSubtitle.setVisibility(View.VISIBLE);
-            animateSubtitleAppear();
-        }, slowModeEnabled ? 4500 : 3000);
+        // Get audio resource ID (if available)
+        int audioResId = currentOrder.getAudioResourceId();
+        
+        if (audioResId != 0) {
+            // Play actual audio file
+            try {
+                if (mediaPlayer != null) {
+                    mediaPlayer.release();
+                }
+                mediaPlayer = MediaPlayer.create(this, audioResId);
+                
+                // Giọng đọc chậm, rõ ràng (0.8x speed cho trẻ em)
+                if (slowModeEnabled) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(0.7f));
+                } else {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(0.8f));
+                }
+                
+                mediaPlayer.setOnCompletionListener(mp -> {
+                    isPlayingAudio = false;
+                    if (imgSpeaker != null) imgSpeaker.setVisibility(View.VISIBLE);
+                    if (waveformContainer != null) waveformContainer.setVisibility(View.INVISIBLE);
+                    
+                    // Hiện subtitle sau audio (cho phụ huynh/giáo viên, không ép bé đọc)
+                    if (txtOrderSubtitle != null && audioReplayCount >= 2) {
+                        txtOrderSubtitle.setVisibility(View.VISIBLE);
+                        txtOrderSubtitle.setAlpha(0.6f); // Mờ nhẹ - không nổi bật
+                        animateSubtitleAppear();
+                    }
+                    
+                    mp.release();
+                });
+                
+                mediaPlayer.start();
+                
+                // Toast thông báo thân thiện
+                String message = audioReplayCount == 1 ? "🎧 Listen carefully!" : 
+                               audioReplayCount == 2 ? "🎧 Listen again!" : 
+                               "🎧 Last time!";
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error playing audio", Toast.LENGTH_SHORT).show();
+                isPlayingAudio = false;
+            }
+        } else {
+            // Simulate audio playback (no audio file yet)
+            waveformContainer.postDelayed(() -> {
+                isPlayingAudio = false;
+                if (imgSpeaker != null) imgSpeaker.setVisibility(View.VISIBLE);
+                if (waveformContainer != null) waveformContainer.setVisibility(View.INVISIBLE);
+                
+                // Show subtitle after audio
+                if (txtOrderSubtitle != null) {
+                    txtOrderSubtitle.setVisibility(View.VISIBLE);
+                    animateSubtitleAppear();
+                }
+            }, slowModeEnabled ? 4500 : 3000);
+        }
     }
 
     private void showHint() {
-        // Pulse the next needed ingredient
-        if (eggsCooked < requiredEggs) {
-            animatePulseHint(ingredientEgg);
-        } else if (sandwichMade < requiredSandwich) {
-            animatePulseHint(ingredientBread);
-        } else if (juicePoured < requiredJuice) {
-            animatePulseHint(ingredientJuice);
+        if (currentOrder == null) return;
+        
+        hintsUsed++;
+        
+        // Track hints used in UserProgress
+        if (userProgress != null) {
+            userProgress.setHintsUsed(userProgress.getHintsUsed() + 1);
         }
         
-        // Replay the order
-        playOrderAudio();
+        // Find the first incomplete item and pulse it
+        for (Map.Entry<String, Integer> entry : currentOrder.getItems().entrySet()) {
+            String foodItem = entry.getKey();
+            int required = entry.getValue();
+            int current = userPlate.getOrDefault(foodItem, 0);
+            
+            if (current < required) {
+                // Pulse the ingredient
+                View ingredient = getIngredientViewByName(foodItem);
+                if (ingredient != null) {
+                    animatePulseHint(ingredient);
+                    Toast.makeText(this, "Try " + foodItem + "!", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            }
+        }
+        
+        // Optionally replay the order audio
+        if (audioReplayCount < 3) {
+            playOrderAudio();
+        }
+    }
+    
+    private View getIngredientViewByName(String foodName) {
+        switch (foodName) {
+            case OrderGenerator.FOOD_EGG: return ingredientEgg;
+            case OrderGenerator.FOOD_BREAD: return ingredientBread;
+            case OrderGenerator.FOOD_CHEESE: return ingredientCheese;
+            case OrderGenerator.FOOD_BACON: return ingredientBacon;
+            case OrderGenerator.FOOD_APPLE:
+            case OrderGenerator.FOOD_BANANA: return ingredientFruit;
+            case OrderGenerator.FOOD_CARROT: return ingredientVegetables;
+            case OrderGenerator.FOOD_JUICE:
+            case OrderGenerator.FOOD_MILK: return ingredientJuice;
+            default: return null;
+        }
     }
 
     private void toggleSlowMode() {
@@ -327,16 +702,121 @@ public class MasterChefActivity extends AppCompatActivity {
     }
 
     private void checkOrderCompletion() {
-        if (eggsCooked >= requiredEggs && 
-            sandwichMade >= requiredSandwich && 
-            juicePoured >= requiredJuice) {
+        if (currentOrder == null) return;
+        
+        android.util.Log.d("MasterChef", "Checking order completion...");
+        android.util.Log.d("MasterChef", "User plate: " + userPlate);
+        android.util.Log.d("MasterChef", "Required: " + currentOrder.getItems());
+        
+        // Check if user's plate matches the order
+        if (currentOrder.isComplete(userPlate)) {
+            // ✅ PERFECT! - Phản hồi tích cực
+            android.util.Log.d("MasterChef", "✅ ORDER COMPLETED!");
             
-            // All items completed
-            showCompletionPopup();
+            // Calculate stars based on mistakes
+            starsEarned = currentOrder.calculateStars(userPlate);
+            
+            // Calculate rewards - LUÔN CÓ THƯỞNG dù sai
+            int goldReward = starsEarned * 10; // 10 gold per star (min 10 gold)
+            int xpReward = starsEarned * 20;   // 20 XP per star
+            
+            // Update progress
+            if (userProgress != null && progressManager != null) {
+                // KHÔNG TRỪ ENERGY Ở ĐÂY - đã trừ khi vào game
+                userProgress.setGold(userProgress.getGold() + goldReward);
+                userProgress.setTotalStarsEarned(userProgress.getTotalStarsEarned() + starsEarned);
+                userProgress.setTotalOrdersCompleted(userProgress.getTotalOrdersCompleted() + 1);
+                
+                if (starsEarned == 3) {
+                    userProgress.setPerfectOrdersCount(userProgress.getPerfectOrdersCount() + 1);
+                }
+                
+                // Add XP
+                userProgress.setExperiencePoints(userProgress.getExperiencePoints() + xpReward);
+                
+                // Save progress
+                progressManager.rewardOrder(goldReward, starsEarned, new ProgressManager.OnProgressCallback() {
+                    @Override
+                    public void onSuccess(UserProgress progress) {
+                        userProgress = progress;
+                        updateCurrencyDisplay();
+                    }
+                    
+                    @Override
+                    public void onFailure(String error) {
+                        android.util.Log.e("MasterChef", "Failed to save progress: " + error);
+                    }
+                });
+            }
+            
+            // Update star display
+            updateStarDisplay();
+            
+            // Show completion popup với thông điệp tích cực
+            showCompletionPopup(goldReward, xpReward);
+            
+        } else {
+            // Chưa đủ items - gợi ý tiếp tục
+            int totalItemsNeeded = currentOrder.getTotalItems();
+            int totalItemsAdded = 0;
+            for (int qty : userPlate.values()) {
+                totalItemsAdded += qty;
+            }
+            
+            if (totalItemsAdded < totalItemsNeeded) {
+                Toast.makeText(this, "Keep cooking! You need " + (totalItemsNeeded - totalItemsAdded) + " more items", Toast.LENGTH_SHORT).show();
+            } else {
+                // Sai items - gợi ý nhẹ nhàng
+                mistakeCount++;
+                showProgressiveHints();
+            }
         }
     }
-
-    private void showCompletionPopup() {
+    
+    // Hệ thống gợi ý theo tầng - KHÔNG PHẠT
+    private void showProgressiveHints() {
+        if (mistakeCount == 1) {
+            // Lần 1 sai: Gợi ý nhẹ
+            Toast.makeText(this, "🤔 Try again! Listen carefully!", Toast.LENGTH_LONG).show();
+            // Blink checkboxes
+            if (checklistItem1 != null) animateCheckboxHint(checklistItem1);
+        } else if (mistakeCount == 2) {
+            // Lần 2 sai: Suggest replay
+            Toast.makeText(this, "💡 Listen one more time? Tap 🔄", Toast.LENGTH_LONG).show();
+            // Highlight replay button
+            if (btnReplayAudio != null) {
+                btnReplayAudio.animate().scaleX(1.2f).scaleY(1.2f).setDuration(300).withEndAction(() -> {
+                    btnReplayAudio.animate().scaleX(1f).scaleY(1f).setDuration(300).start();
+                }).start();
+            }
+        } else if (mistakeCount >= 3) {
+            // Lần 3+ sai: Gợi ý visual
+            Toast.makeText(this, "👀 Look at the order list below!", Toast.LENGTH_LONG).show();
+            highlightChecklistItems();
+            
+            // Cho phép hoàn thành với ít sao
+            starsEarned = 1;
+            updateStarDisplay();
+        }
+    }
+    
+    private void animateCheckboxHint(View checkbox) {
+        if (checkbox != null) {
+            checkbox.animate().alpha(0.5f).setDuration(200).withEndAction(() -> {
+                checkbox.animate().alpha(1f).setDuration(200).start();
+            }).start();
+        }
+    }
+    
+    private void highlightChecklistItems() {
+        if (txtCheckItem1 != null) txtCheckItem1.setTextColor(0xFFFF9800); // Orange
+        if (txtCheckItem2 != null) txtCheckItem2.setTextColor(0xFFFF9800);
+        if (txtCheckItem3 != null) txtCheckItem3.setTextColor(0xFFFF9800);
+    }
+    
+    private void showCompletionPopup(int goldReward, int xpReward) {
+        if (completionOverlay == null) return;
+        
         completionOverlay.setVisibility(View.VISIBLE);
         completionOverlay.setAlpha(0f);
         
@@ -344,37 +824,90 @@ public class MasterChefActivity extends AppCompatActivity {
         fadeIn.setDuration(400);
         fadeIn.start();
         
-        // Animate confetti
-        AnimatorSet confettiAnim = new AnimatorSet();
-        confettiAnim.playTogether(
-            ObjectAnimator.ofFloat(imgConfettiCompletion, "rotation", 0f, 360f),
-            ObjectAnimator.ofFloat(imgConfettiCompletion, "scaleX", 0.5f, 1.2f, 1f),
-            ObjectAnimator.ofFloat(imgConfettiCompletion, "scaleY", 0.5f, 1.2f, 1f)
-        );
-        confettiAnim.setDuration(1000);
-        confettiAnim.start();
+        // Animate confetti - VUI VẺ với mọi kết quả
+        if (imgConfettiCompletion != null) {
+            AnimatorSet confettiAnim = new AnimatorSet();
+            confettiAnim.playTogether(
+                ObjectAnimator.ofFloat(imgConfettiCompletion, "rotation", 0f, 360f),
+                ObjectAnimator.ofFloat(imgConfettiCompletion, "scaleX", 0.5f, 1.2f, 1f),
+                ObjectAnimator.ofFloat(imgConfettiCompletion, "scaleY", 0.5f, 1.2f, 1f)
+            );
+            confettiAnim.setDuration(1000);
+            confettiAnim.start();
+        }
+        
+        // Thông điệp LUÔN TÍCH CỰC - không chê, không phạt
+        String encouragement;
+        if (starsEarned == 3) {
+            encouragement = "🌟🌟🌟 Perfect! You're amazing, Chef!";
+        } else if (starsEarned == 2) {
+            encouragement = "⭐⭐ Great job! Keep practicing!";
+        } else {
+            encouragement = "⭐ Good try! You can do it better!";
+        }
+        
+        String rewardMessage = "\n+" + goldReward + " gold 🪙 | +" + xpReward + " XP 🧠";
+        Toast.makeText(this, encouragement + rewardMessage, Toast.LENGTH_LONG).show();
+        
+        android.util.Log.d("MasterChef", "Completion shown - Stars: " + starsEarned + ", Rewards: " + goldReward + " gold, " + xpReward + " XP");
     }
-
+    
     private void startNextOrder() {
-        // Reset everything for next order
-        completionOverlay.setVisibility(View.INVISIBLE);
+        android.util.Log.d("MasterChef", "Starting next order...");
         
-        eggsCooked = 0;
-        sandwichMade = 0;
-        juicePoured = 0;
+        // Check if user has energy
+        if (userProgress != null && userProgress.getEnergy() <= 0) {
+            android.util.Log.d("MasterChef", "No energy left - showing locked state");
+            showLockedState("No energy! ⚡\nComplete lessons to recharge!");
+            return;
+        }
         
-        checkbox1.setBackgroundResource(R.drawable.bg_checkbox_empty);
-        checkbox2.setBackgroundResource(R.drawable.bg_checkbox_empty);
-        checkbox3.setBackgroundResource(R.drawable.bg_checkbox_empty);
+        // Hide completion overlay
+        if (completionOverlay != null) {
+            completionOverlay.setVisibility(View.INVISIBLE);
+        }
         
-        txtCheckItem1.setTextColor(0xFF666666);
-        txtCheckItem2.setTextColor(0xFF666666);
-        txtCheckItem3.setTextColor(0xFF666666);
+        // Reset game state
+        userPlate.clear();
+        audioReplayCount = 0;
+        hintsUsed = 0;
+        mistakeCount = 0; // Reset mistake counter
+        slowModeEnabled = false;
         
-        txtOrderSubtitle.setVisibility(View.INVISIBLE);
+        // Generate new order based on user level
+        int level = userProgress != null ? userProgress.getCurrentLevel() : 1;
+        currentOrder = orderGenerator.generateOrder(level);
         
+        android.util.Log.d("MasterChef", "New order generated: " + currentOrder.getOrderText());
+        
+        // Update UI with order text (MỜ NHẸ - không ép đọc)
+        if (txtOrderSubtitle != null) {
+            txtOrderSubtitle.setText(currentOrder.getOrderText());
+            txtOrderSubtitle.setVisibility(View.INVISIBLE); // Ẩn ban đầu - chỉ hiện sau khi nghe
+            txtOrderSubtitle.setAlpha(0.5f); // Mờ nhẹ
+        }
+        
+        // Reset checklist
+        if (checkbox1 != null) checkbox1.setBackgroundResource(R.drawable.bg_checkbox_empty);
+        if (checkbox2 != null) checkbox2.setBackgroundResource(R.drawable.bg_checkbox_empty);
+        if (checkbox3 != null) checkbox3.setBackgroundResource(R.drawable.bg_checkbox_empty);
+        
+        if (txtCheckItem1 != null) txtCheckItem1.setTextColor(0xFF666666);
+        if (txtCheckItem2 != null) txtCheckItem2.setTextColor(0xFF666666);
+        if (txtCheckItem3 != null) txtCheckItem3.setTextColor(0xFF666666);
+        
+        // Reset star display to 3 stars (luôn bắt đầu với tinh thần tích cực)
         starsEarned = 3;
         updateStarDisplay();
+        
+        // Trừ 1 Energy (đã trừ khi checkUnlock)
+        // Just update display - actual saving will happen on order completion
+        updateCurrencyDisplay();
+        
+        // Play audio order - TỰ ĐỘNG PHÁT lần đầu
+        playOrderAudio();
+        
+        Toast.makeText(this, "🎧 New customer! Listen carefully!", Toast.LENGTH_SHORT).show();
     }
 
     private void loseOneStar() {
@@ -409,7 +942,7 @@ public class MasterChefActivity extends AppCompatActivity {
             ObjectAnimator.ofFloat(zone, "scaleY", 1f, 1.05f, 1f)
         );
         glowAnim.setDuration(500);
-        glowAnim.setRepeatCount(ObjectAnimator.INFINITE);
+        // AnimatorSet doesn't have setRepeatCount
         glowAnim.start();
     }
 
@@ -466,7 +999,7 @@ public class MasterChefActivity extends AppCompatActivity {
             ObjectAnimator.ofFloat(wave1, "scaleY", 1f, 1.5f, 1f)
         );
         waveAnim1.setDuration(400);
-        waveAnim1.setRepeatCount(ObjectAnimator.INFINITE);
+        // AnimatorSet doesn't have setRepeatCount
         waveAnim1.start();
 
         AnimatorSet waveAnim2 = new AnimatorSet();
@@ -474,7 +1007,7 @@ public class MasterChefActivity extends AppCompatActivity {
             ObjectAnimator.ofFloat(wave2, "scaleY", 1f, 1.8f, 1f)
         );
         waveAnim2.setDuration(500);
-        waveAnim2.setRepeatCount(ObjectAnimator.INFINITE);
+        // AnimatorSet doesn't have setRepeatCount
         waveAnim2.setStartDelay(100);
         waveAnim2.start();
 
@@ -483,7 +1016,7 @@ public class MasterChefActivity extends AppCompatActivity {
             ObjectAnimator.ofFloat(wave3, "scaleY", 1f, 1.5f, 1f)
         );
         waveAnim3.setDuration(400);
-        waveAnim3.setRepeatCount(ObjectAnimator.INFINITE);
+        // AnimatorSet doesn't have setRepeatCount
         waveAnim3.setStartDelay(200);
         waveAnim3.start();
     }
@@ -510,7 +1043,7 @@ public class MasterChefActivity extends AppCompatActivity {
             ObjectAnimator.ofFloat(ingredient, "alpha", 1f, 0.7f, 1f)
         );
         pulseAnim.setDuration(800);
-        pulseAnim.setRepeatCount(2);
+        // AnimatorSet doesn't have setRepeatCount
         pulseAnim.start();
     }
 
@@ -556,5 +1089,16 @@ public class MasterChefActivity extends AppCompatActivity {
         ingredientFruit.setBackgroundResource(R.drawable.bg_ingredient_item);
         ingredientVegetables.setBackgroundResource(R.drawable.bg_ingredient_item);
         ingredientJuice.setBackgroundResource(R.drawable.bg_ingredient_item);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        
+        // Release MediaPlayer
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

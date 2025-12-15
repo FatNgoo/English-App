@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for cheese icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Cheese wedge -->
+    <path
+        android:fillColor="#FFF59D"
+        android:pathData="M30,70 L60,30 L90,70 Z"/>
+    
+    <!-- Holes -->
+    <path android:fillColor="#FFFFFF" android:pathData="M55,55 a5,5 0 1,1 -10,0 a5,5 0 1,1 10,0"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M74,60 a4,4 0 1,1 -8,0 a4,4 0 1,1 8,0"/>
+    
+</vector>

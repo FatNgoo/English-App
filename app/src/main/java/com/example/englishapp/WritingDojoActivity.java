@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+
+import com.shop.englishapp.R;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -70,15 +72,15 @@ public class SocialArenaActivity extends AppCompatActivity {
         
         imgPlayerAvatar = findViewById(R.id.imgPlayerAvatar);
         txtPlayerName = findViewById(R.id.txtPlayerName);
-        xpProgressBar = findViewById(R.id.xpProgressBar);
-        txtXPProgress = findViewById(R.id.txtXPProgress);
+        // xpProgressBar = findViewById(R.id.xpProgressBar); // TODO: Add this ID to layout
+        // txtXPProgress = findViewById(R.id.txtXPProgress); // TODO: Add this ID to layout
         txtWinRate = findViewById(R.id.txtWinRate);
-        txtTierRank = findViewById(R.id.txtTierRank);
+        // txtTierRank = findViewById(R.id.txtTierRank); // TODO: Add this ID to layout
         
         playerCard = findViewById(R.id.playerCard);
         cardVisitFriends = findViewById(R.id.cardVisitFriends);
         cardPKBattle = findViewById(R.id.cardPKBattle);
-        txtFriendsOnline = findViewById(R.id.txtFriendsOnline);
+        // txtFriendsOnline = findViewById(R.id.txtFriendsOnline); // TODO: Add this ID to layout
     }
 
     private void loadPlayerData() {

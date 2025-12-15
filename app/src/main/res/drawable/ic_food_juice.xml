@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for juice icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Juice glass -->
+    <path
+        android:fillColor="#FFE082"
+        android:pathData="M40,35 L45,85 Q45,90 50,90 L70,90 Q75,90 75,85 L80,35 Z"/>
+    
+</vector>

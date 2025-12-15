@@ -16,11 +16,9 @@
         android:pathData="M0,200 L320,200 L320,400 L0,400 Z" />
     
     <!-- Sun -->
-    <circle
+    <path
         android:fillColor="#FFD93D"
-        android:cx="60"
-        android:cy="60"
-        android:r="30" />
+        android:pathData="M90,60 a30,30 0 1,1 -60,0 a30,30 0 1,1 60,0" />
     
     <!-- Tree trunk -->
     <path
@@ -28,11 +26,9 @@
         android:pathData="M240,140 L240,240 L260,240 L260,140 Z" />
     
     <!-- Tree foliage -->
-    <circle
+    <path
         android:fillColor="#4CAF50"
-        android:cx="250"
-        android:cy="120"
-        android:r="50" />
+        android:pathData="M300,120 a50,50 0 1,1 -100,0 a50,50 0 1,1 100,0" />
     
     <!-- Bench -->
     <path
@@ -45,19 +41,13 @@
         android:pathData="M0,280 Q80,270 160,280 Q240,290 320,280 L320,320 Q240,330 160,320 Q80,310 0,320 Z" />
     
     <!-- Flowers -->
-    <circle
+    <path
         android:fillColor="#FF69B4"
-        android:cx="100"
-        android:cy="260"
-        android:r="6" />
-    <circle
+        android:pathData="M106,260 a6,6 0 1,1 -12,0 a6,6 0 1,1 12,0" />
+    <path
         android:fillColor="#FF69B4"
-        android:cx="115"
-        android:cy="265"
-        android:r="5" />
-    <circle
+        android:pathData="M120,265 a5,5 0 1,1 -10,0 a5,5 0 1,1 10,0" />
+    <path
         android:fillColor="#FFD93D"
-        android:cx="180"
-        android:cy="255"
-        android:r="6" />
+        android:pathData="M186,255 a6,6 0 1,1 -12,0 a6,6 0 1,1 12,0" />
 </vector>

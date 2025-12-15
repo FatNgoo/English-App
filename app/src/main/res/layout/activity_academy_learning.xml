@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_reading_tool"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/back"
+                android:padding="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎓 Academy"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF6B9D"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Food &amp; Drinks"
+                    android:textSize="14sp"
+                    android:textColor="#999999"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_book"
+                android:contentDescription="@string/academy"
+                android:padding="8dp"/>
+
+        </RelativeLayout>
+
+        <!-- Currency Display -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_currency_display"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgXpIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_star"
+                    android:contentDescription="XP"/>
+
+                <TextView
+                    android:id="@+id/txtXpCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_currency_display"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEnergyIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_lightning"
+                    android:contentDescription="Energy"/>
+
+                <TextView
+                    android:id="@+id/txtEnergyCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFC107"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Progress Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/txtProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 / 9"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="8dp"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:max="9"
+                android:progress="1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressTint="#FF6B9D"/>
+
+        </LinearLayout>
+
+        <!-- Vocabulary Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/vocabCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp">
+
+                <!-- Food Image -->
+                <ImageView
+                    android:id="@+id/imgFoodItem"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/ic_food_apple"
+                    android:contentDescription="Food Item"
+                    android:scaleType="fitCenter"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- English Name -->
+                <TextView
+                    android:id="@+id/txtFoodName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="APPLE"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF6B9D"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Vietnamese Name -->
+                <TextView
+                    android:id="@+id/txtFoodNameVietnamese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="táo"
+                    android:textSize="20sp"
+                    android:textColor="#999999"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- Play Audio Button -->
+                <Button
+                    android:id="@+id/btnPlayAudio"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/bg_play_order_button"
+                    android:text="🔊\nPlay Audio"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Reward Floating Display (Hidden initially) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/txtRewardXp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+10 XP"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/txtRewardEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+3 ⚡"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFC107"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_primary"
+                android:text="Next →"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp"/>
+
+            <Button
+                android:id="@+id/btnComplete"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_primary"
+                android:text="Complete! ✓"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
